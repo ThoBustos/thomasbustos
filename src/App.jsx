@@ -14,13 +14,13 @@ function App() {
       {/* Background layer - animation */}
       <div className="background-layer">
         <PixelBlast
-          variant="circle"
+          variant="rectangular"
           pixelSize={6}
           color="#B19EEF"
           patternScale={3}
           patternDensity={1.2}
           pixelSizeJitter={0.5}
-          enableRipples
+          enableRipples={false}
           rippleSpeed={0.4}
           rippleThickness={0.12}
           rippleIntensityScale={1.5}
