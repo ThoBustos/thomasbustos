@@ -1,11 +1,32 @@
 function App() {
+  const socials = [
+    { name: 'Newsletter', url: 'https://thomasbustos.substack.com/' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomasbustos/' },
+    { name: 'X', url: 'https://x.com/ThoBustos' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@lets-talk-ai' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@lets_talk_ai' },
+  ]
+
   return (
     <div className="container">
       <main className="content">
         <h1 className="name">Thomas Bustos</h1>
         <p className="description">
-          Host of Let's Talk AI | Co-Founder & Head of Tech @Radiance | Databricks Champion
+          Builder & co-founder. Currently building Radiance, a creative OS. My mission is simple: to build the best products possible with the most talented people. My curiosity led me to Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, authors, and super cool people from whom I learn in public and share every conversation. Join me on my learning journey.
         </p>
+        <nav className="socials">
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              {social.name}
+            </a>
+          ))}
+        </nav>
       </main>
     </div>
   )
