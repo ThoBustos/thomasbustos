@@ -47,20 +47,20 @@ body {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 /* Typography */
 .name {
   font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -74,8 +74,6 @@ body {
   letter-spacing: 0.01em;
   margin-bottom: 2rem;
   max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Socials */
@@ -83,7 +81,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 

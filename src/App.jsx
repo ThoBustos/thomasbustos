@@ -1,4 +1,5 @@
 import PixelBlast from './PixelBlast'
+import TextType from './TextType'
 
 function App() {
   const socials = [
@@ -18,7 +19,16 @@ function App() {
       
       {/* Foreground layer - content */}
       <main className="content-layer">
-        <h1 className="name">Thomas Bustos</h1>
+        <TextType 
+          text="Thomas Bustos"
+          as="h1"
+          className="name"
+          typingSpeed={75}
+          loop={false}
+          showCursor={true}
+          cursorCharacter="|"
+          initialDelay={500}
+        />
         <p className="description">
           Builder & co-founder. Currently building Radiance, a creative OS. My mission is simple: to build the best products possible with the most talented people. My curiosity led me to Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, authors, and super cool people from whom I learn in public and share every conversation. Join me on my learning journey.
         </p>
