@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import PixelBlast from './PixelBlast'
 import ThemeToggle from './ThemeToggle'
+import { trackSocialClick } from './analytics'
 
 function App() {
   const [pixelColor, setPixelColor] = useState('#B09EEF')
@@ -49,6 +50,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
+                onClick={() => trackSocialClick(social.name)}
               >
                 {social.name}
               </a>
