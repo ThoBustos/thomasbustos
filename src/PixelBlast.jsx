@@ -298,7 +298,7 @@ const MAX_CLICKS = 10;
 const PixelBlast = ({
   variant = 'square',
   pixelSize = 4,
-  color = '#B19EEF',
+  color = '#4E4B93',
   className,
   style,
   antialias = true,
@@ -483,10 +483,10 @@ const PixelBlast = ({
         const { fx, fy, w, h } = mapToPixels(e);
         touch.addTouch({ x: fx / w, y: fy / h });
       };
-      renderer.domElement.addEventListener('pointerdown', onPointerDown, {
+      document.addEventListener('pointerdown', onPointerDown, {
         passive: true
       });
-      renderer.domElement.addEventListener('pointermove', onPointerMove, {
+      document.addEventListener('pointermove', onPointerMove, {
         passive: true
       });
       let raf = 0;
@@ -526,7 +526,9 @@ const PixelBlast = ({
         timeOffset,
         composer,
         touch,
-        liquidEffect
+        liquidEffect,
+        onPointerDown,
+        onPointerMove
       };
     } else {
       const t = threeRef.current;
@@ -556,6 +558,9 @@ const PixelBlast = ({
       const t = threeRef.current;
       t.resizeObserver?.disconnect();
       cancelAnimationFrame(t.raf);
+      // Clean up event listeners
+      if (t.onPointerDown) document.removeEventListener('pointerdown', t.onPointerDown);
+      if (t.onPointerMove) document.removeEventListener('pointermove', t.onPointerMove);
       t.quad?.geometry.dispose();
       t.material.dispose();
       t.composer?.dispose();

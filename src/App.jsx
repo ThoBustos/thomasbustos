@@ -18,23 +18,25 @@ function App() {
       
       {/* Foreground layer - content */}
       <main className="content-layer">
-        <h1 className="name">Thomas Bustos</h1>
-        <p className="description">
-          Builder & co-founder. Currently building Radiance, a creative OS. My mission is simple: to build the best products possible with the most talented people. My curiosity led me to Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, authors, and super cool people from whom I learn in public and share every conversation. Join me on my learning journey.
-        </p>
-        <nav className="socials">
-          {socials.map((social) => (
-            <a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              {social.name}
-            </a>
-          ))}
-        </nav>
+        <div className="content-card">
+          <h1 className="name">Thomas Bustos</h1>
+          <p className="description">
+            Builder & co-founder. Currently building Radiance, a creative OS. My mission is simple: to build the best products possible with the most talented people. My curiosity led me to Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, authors, and super cool people from whom I learn in public and share every conversation. Join me on my learning journey.
+          </p>
+          <nav className="socials">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                {social.name}
+              </a>
+            ))}
+          </nav>
+        </div>
       </main>
     </div>
   )

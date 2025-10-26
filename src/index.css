@@ -47,33 +47,26 @@ body {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 4rem 3rem;
-  max-width: 800px;
+  padding: 2rem;
   width: 100%;
-  margin: 0 auto;
-  text-align: left;
 }
 
-/* Glassmorphism card effect */
-.content-layer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+/* Glassmorphism content card */
+.content-card {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  padding: 4rem 3rem;
   background: rgba(6, 0, 17, 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
   border: 1px solid rgba(232, 244, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  z-index: -1;
-}
-
-.content-layer > * {
-  position: relative;
-  z-index: 1;
+  text-align: left;
 }
 
 /* Typography */
@@ -138,11 +131,8 @@ body {
 
 /* Responsive breakpoints */
 @media (max-width: 768px) {
-  .content-layer {
+  .content-card {
     padding: 3rem 2rem;
-  }
-  
-  .content-layer::before {
     border-radius: 16px;
   }
 
@@ -160,8 +150,8 @@ body {
 }
 
 @media (max-width: 480px) {
-  .content-layer {
-    padding: 1rem;
+  .content-card {
+    padding: 2rem 1.5rem;
   }
 
   .name {
@@ -181,8 +171,11 @@ body {
 /* Landscape orientation on mobile */
 @media (max-height: 600px) and (orientation: landscape) {
   .content-layer {
-    min-height: auto;
     padding: 2rem 1rem;
+  }
+  
+  .content-card {
+    padding: 2rem;
   }
 
   .name {
