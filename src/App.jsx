@@ -40,7 +40,7 @@ function App() {
         <h1 className="name">Thomas Bustos</h1>
         <div className="content-card">
           <p className="description">
-            Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I build AI-powered solutions that create real value, not just demos. My mission: build the best products with the most talented people. I learn obsessively in public.
+            Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. My mission: build the best products with the most talented people. I learn obsessively in public.
           </p>
           <nav className="socials">
             {socials.map((social) => (
