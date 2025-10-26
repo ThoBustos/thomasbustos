@@ -3,12 +3,13 @@ import PixelBlast from './PixelBlast'
 import ThemeToggle from './ThemeToggle'
 
 function App() {
-  const [pixelColor, setPixelColor] = useState('#4E4B93')
+  const [pixelColor, setPixelColor] = useState('#B09EEF')
 
   const socials = [
     { name: 'Newsletter', url: 'https://thomasbustos.substack.com/' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomasbustos/' },
     { name: 'X', url: 'https://x.com/ThoBustos' },
+    { name: 'GitHub', url: 'https://github.com/ThoBustos' },
     { name: 'YouTube', url: 'https://www.youtube.com/@lets-talk-ai' },
     { name: 'TikTok', url: 'https://www.tiktok.com/@lets_talk_ai' },
   ]
@@ -38,7 +39,7 @@ function App() {
         <h1 className="name">Thomas Bustos</h1>
         <div className="content-card">
           <p className="description">
-            Builder & co-founder. Currently building Radiance, a creative OS. My mission is simple: to build the best products possible with the most talented people. My curiosity led me to Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, authors, and super cool people from whom I learn in public and share every conversation. Join me on my learning journey.
+            Hey! I'm Thomas, co-founder building Radiance, the creative OS. My mission is simple: create the best products with the most talented people. I host Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, and authors. I learn in public, driven by curiosity and obsession.
           </p>
           <nav className="socials">
             {socials.map((social) => (

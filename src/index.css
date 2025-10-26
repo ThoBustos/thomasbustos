@@ -165,50 +165,89 @@ body {
 @media (max-width: 768px) {
   .content-layer {
     gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .name {
+    font-size: clamp(2rem, 10vw, 3rem);
   }
 
   .content-card {
     padding: 2.5rem 2rem;
-    border-radius: 16px;
+    border-radius: 20px;
+    max-width: 100%;
   }
 
   .description {
     margin-bottom: 2rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
   }
 
   .socials {
-    gap: 1.25rem;
+    gap: 1rem 1.5rem;
+  }
+
+  .social-link {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
   .content-layer {
     gap: 1.25rem;
+    padding: 1rem;
+  }
+
+  .name {
+    font-size: clamp(1.75rem, 12vw, 2.5rem);
   }
 
   .content-card {
     padding: 2rem 1.5rem;
+    border-radius: 16px;
   }
 
   .description {
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 1.75rem;
+    font-size: 0.95rem;
   }
 
   .socials {
-    gap: 1rem;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .social-link {
+    font-size: 0.9rem;
   }
 }
 
 /* Landscape orientation on mobile */
 @media (max-height: 600px) and (orientation: landscape) {
   .content-layer {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     gap: 1rem;
+    justify-content: flex-start;
+    padding-top: 4rem;
+  }
+
+  .name {
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
   
   .content-card {
     padding: 1.5rem 2rem;
+    max-width: 90%;
+  }
+
+  .description {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .socials {
+    gap: 0.75rem 1rem;
   }
 }
 
