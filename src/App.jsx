@@ -1,6 +1,10 @@
+import { useState, useEffect } from 'react'
 import PixelBlast from './PixelBlast'
+import ThemeToggle from './ThemeToggle'
 
 function App() {
+  const [pixelColor, setPixelColor] = useState('#4E4B93')
+
   const socials = [
     { name: 'Newsletter', url: 'https://thomasbustos.substack.com/' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomasbustos/' },
@@ -9,11 +13,24 @@ function App() {
     { name: 'TikTok', url: 'https://www.tiktok.com/@lets_talk_ai' },
   ]
 
+  useEffect(() => {
+    // Set initial color based on saved theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setPixelColor('#B09EEF');
+  }, []);
+
+  const handleThemeChange = (theme) => {
+    // Same pixel color for both themes
+    setPixelColor('#B09EEF');
+  }
+
   return (
     <div className="container">
+      <ThemeToggle onThemeChange={handleThemeChange} />
+      
       {/* Background layer - animation */}
       <div className="background-layer">
-        <PixelBlast />
+        <PixelBlast color={pixelColor} />
       </div>
       
       {/* Foreground layer - content */}

@@ -1,3 +1,28 @@
+/* CSS Variables for theming */
+:root[data-theme="dark"] {
+  --bg-color: #060011;
+  --text-primary: #E8F4FF;
+  --text-secondary: #D4E8F7;
+  --card-bg: rgba(6, 0, 17, 0.4);
+  --card-border: rgba(232, 244, 255, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.37);
+  --toggle-bg: rgba(6, 0, 17, 0.6);
+  --border-color: rgba(232, 244, 255, 0.2);
+  --pixel-color: #B09EEF;
+}
+
+:root[data-theme="light"] {
+  --bg-color: #F8F9FA;
+  --text-primary: #060011;
+  --text-secondary: #1a1a2e;
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-border: rgba(6, 0, 17, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --toggle-bg: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(6, 0, 17, 0.2);
+  --pixel-color: #B09EEF;
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -17,8 +42,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #060011;
-  color: #E8F4FF;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -60,13 +86,14 @@ body {
   max-width: 800px;
   width: 100%;
   padding: 4rem 3rem;
-  background: rgba(6, 0, 17, 0.4);
+  background: var(--card-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
-  border: 1px solid rgba(232, 244, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 var(--card-shadow);
   text-align: left;
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Typography */
@@ -76,17 +103,20 @@ body {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 2rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .description {
   font-size: clamp(0.95rem, 2.5vw, 1.125rem);
   font-weight: 300;
   line-height: 1.75;
-  color: #D4E8F7;
+  color: var(--text-secondary);
   opacity: 0.9;
   letter-spacing: 0.01em;
   margin-bottom: 3rem;
   max-width: 600px;
+  transition: color 0.3s ease;
 }
 
 /* Socials */
@@ -100,13 +130,13 @@ body {
 
 .social-link {
   font-size: 0.9rem;
-  color: #E8F4FF;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 400;
   letter-spacing: 0.02em;
   position: relative;
   opacity: 0.85;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.3s ease;
 }
 
 .social-link:hover {
@@ -120,9 +150,9 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #E8F4FF;
+  background-color: var(--text-primary);
   transform: scaleX(0);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .social-link:hover::after {
