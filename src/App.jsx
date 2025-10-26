@@ -39,7 +39,7 @@ function App() {
         <h1 className="name">Thomas Bustos</h1>
         <div className="content-card">
           <p className="description">
-            Hey! I'm Thomas, co-founder building Radiance, the creative OS. My mission is simple: create the best products with the most talented people. I host Let's Talk AI, a podcast with soon 100 episodes featuring leaders in tech, top builders, and authors. I learn in public, driven by curiosity and obsession.
+            Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I build AI-powered solutions that create real value, not just demos. My mission: build the best products with the most talented people. I learn obsessively in public.
           </p>
           <nav className="socials">
             {socials.map((social) => (
