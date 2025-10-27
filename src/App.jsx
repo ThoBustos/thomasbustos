@@ -43,10 +43,16 @@ function App() {
             Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public.
           </p>
           
-          <div className="mission-section">
+          <a 
+            href="https://thomasbustos.substack.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="mission-section"
+            onClick={() => trackSocialClick('Mission - Substack')}
+          >
             <h2 className="mission-title">Mission</h2>
-            <p className="mission-statement">Build the best products with the most talented people.</p>
-          </div>
+            <p className="mission-statement">Build exceptional products with exceptional people. Document everything along the way.</p>
+          </a>
 
           <div className="events-section">
             <h2 className="events-title">Upcoming Events</h2>
