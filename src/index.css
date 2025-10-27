@@ -179,6 +179,43 @@ body {
   transition: color 0.3s ease;
 }
 
+/* Mission Section */
+.mission-section {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.mission-title {
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.mission-statement {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, rgba(176, 158, 239, 0.1), rgba(176, 158, 239, 0.05));
+  border-left: 3px solid rgba(176, 158, 239, 0.6);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.mission-statement:hover {
+  background: linear-gradient(135deg, rgba(176, 158, 239, 0.15), rgba(176, 158, 239, 0.08));
+  border-left-color: rgba(176, 158, 239, 0.8);
+  transform: translateX(4px);
+}
+
 /* Socials */
 .socials {
   display: flex;
@@ -249,6 +286,15 @@ body {
     padding: 0.875rem 1.25rem;
   }
 
+  .mission-section {
+    margin-bottom: 2rem;
+  }
+
+  .mission-statement {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    padding: 1rem 1.5rem;
+  }
+
   .socials {
     gap: 1rem 1.5rem;
   }
@@ -285,6 +331,15 @@ body {
 
   .event-item {
     padding: 0.75rem 1rem;
+  }
+
+  .mission-section {
+    margin-bottom: 1.75rem;
+  }
+
+  .mission-statement {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.25rem;
   }
 
   .socials {
