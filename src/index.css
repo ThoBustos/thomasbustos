@@ -37,7 +37,7 @@ body {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -99,9 +99,10 @@ body {
 
 /* Typography */
 .name {
+  font-family: 'Poppins', 'Manrope', sans-serif;
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   line-height: 1.1;
   margin: 0;
   color: var(--text-primary);

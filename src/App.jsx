@@ -37,7 +37,7 @@ function App() {
       
       {/* Foreground layer - content */}
       <main className="content-layer">
-        <h1 className="name">Thomas Bustos</h1>
+        <h1 className="name">THOMAS BUSTOS</h1>
         <div className="content-card">
           <p className="description">
             Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public.
