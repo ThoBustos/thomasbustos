@@ -42,6 +42,23 @@ function App() {
           <p className="description">
             Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. My mission: build the best products with the most talented people. I learn obsessively in public.
           </p>
+          
+          <div className="events-section">
+            <h2 className="events-title">Upcoming Events</h2>
+            <a 
+              href="https://www.ai.engineer/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="event-link"
+              onClick={() => trackSocialClick('AIE Code Summit')}
+            >
+              <div className="event-item">
+                <span className="event-name">AIE Code Summit</span>
+                <span className="event-details">New York • Nov 20-22, 2025</span>
+              </div>
+            </a>
+          </div>
+
           <nav className="socials">
             {socials.map((social) => (
               <a
