@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import PixelBlast from './PixelBlast'
 import ThemeToggle from './ThemeToggle'
+import TextType from './TextType'
 import { trackSocialClick } from './analytics'
 
 function App() {
@@ -37,22 +38,32 @@ function App() {
       
       {/* Foreground layer - content */}
       <main className="content-layer">
-        <h1 className="name">Thomas Bustos</h1>
+        <TextType 
+          text="Thomas Bustos" 
+          as="h1" 
+          className="name"
+          typingSpeed={100}
+          loop={false}
+          showCursor={true}
+          cursorCharacter="|"
+        />
         <div className="content-card">
           <p className="description">
             Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public.
           </p>
           
-          <a 
-            href="https://thomasbustos.substack.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="mission-section"
-            onClick={() => trackSocialClick('Mission - Substack')}
-          >
+          <div className="mission-section">
             <h2 className="mission-title">Mission</h2>
-            <p className="mission-statement">Build exceptional products with exceptional people. Document everything along the way.</p>
-          </a>
+            <a 
+              href="https://thomasbustos.substack.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mission-link"
+              onClick={() => trackSocialClick('Mission - Substack')}
+            >
+              <p className="mission-statement">Build exceptional products with exceptional people. Document everything along the way.</p>
+            </a>
+          </div>
 
           <div className="events-section">
             <h2 className="events-title">Upcoming Events</h2>
