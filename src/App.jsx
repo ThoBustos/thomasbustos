@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import PixelBlast from './PixelBlast'
 import ThemeToggle from './ThemeToggle'
 import TextType from './TextType'
+import ClickSpark from './ClickSpark'
 import { trackSocialClick } from './analytics'
 
 function App() {
@@ -28,16 +29,25 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <ThemeToggle onThemeChange={handleThemeChange} />
-      
-      {/* Background layer - animation */}
-      {/* <div className="background-layer">
-        <PixelBlast color={pixelColor} />
-      </div> */}
-      
-      {/* Foreground layer - content */}
-      <main className="content-layer">
+    <ClickSpark
+      sparkColor="#4E4B93"
+      sparkSize={12}
+      sparkRadius={20}
+      sparkCount={8}
+      duration={500}
+      easing="ease-out"
+      extraScale={1.2}
+    >
+      <div className="container">
+        <ThemeToggle onThemeChange={handleThemeChange} />
+        
+        {/* Background layer - animation */}
+        {/* <div className="background-layer">
+          <PixelBlast color={pixelColor} />
+        </div> */}
+        
+        {/* Foreground layer - content */}
+        <main className="content-layer">
         <TextType 
           text="Thomas Bustos" 
           as="h1" 
@@ -98,6 +108,7 @@ function App() {
         </div>
       </main>
     </div>
+    </ClickSpark>
   )
 }
 
