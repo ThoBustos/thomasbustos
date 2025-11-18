@@ -7,6 +7,7 @@ import { trackSocialClick } from './analytics'
 
 function App() {
   const [pixelColor, setPixelColor] = useState('#4E4B93')
+  const [sparkColor, setSparkColor] = useState('#B8B5E8')
 
   const socials = [
     { name: 'Newsletter', url: 'https://thomasbustos.substack.com/' },
@@ -21,16 +22,19 @@ function App() {
     // Set initial color based on saved theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setPixelColor('#4E4B93');
+    setSparkColor(savedTheme === 'dark' ? '#B8B5E8' : '#4E4B93');
   }, []);
 
   const handleThemeChange = (theme) => {
     // Keep pixel color consistent across themes
     setPixelColor('#4E4B93');
+    // Update spark color based on theme
+    setSparkColor(theme === 'dark' ? '#B8B5E8' : '#4E4B93');
   }
 
   return (
     <ClickSpark
-      sparkColor="#4E4B93"
+      sparkColor={sparkColor}
       sparkSize={12}
       sparkRadius={20}
       sparkCount={8}
