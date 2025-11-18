@@ -21,8 +21,6 @@ export const initGoogleAnalytics = () => {
   
   // Make gtag available globally for custom event tracking
   window.gtag = gtag;
-  
-  console.log('Google Analytics initialized with ID:', GA_ID);
 };
 
 // Track custom events
