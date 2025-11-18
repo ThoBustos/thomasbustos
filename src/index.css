@@ -8,7 +8,9 @@
   --card-bg-solid: rgba(20, 25, 60, 0.95);
   --card-border: rgba(184, 181, 232, 0.3);
   --card-shadow: rgba(0, 0, 0, 0.37);
-  --toggle-bg: rgba(11, 16, 44, 0.6);
+  --toggle-bg: rgba(78, 75, 147, 0.15);
+  --toggle-border: rgba(78, 75, 147, 0.3);
+  --toggle-icon: #4E4B93;
   --border-color: rgba(184, 181, 232, 0.25);
   --pixel-color: #4E4B93;
   --accent-primary: #B8B5E8;
@@ -27,7 +29,9 @@
   --card-bg-solid: rgba(242, 231, 201, 0.98);
   --card-border: rgba(78, 75, 147, 0.1);
   --card-shadow: rgba(0, 0, 0, 0.08);
-  --toggle-bg: rgba(255, 255, 255, 0.9);
+  --toggle-bg: rgba(242, 231, 201, 0.15);
+  --toggle-border: rgba(242, 231, 201, 0.3);
+  --toggle-icon: #F2E7C9;
   --border-color: rgba(78, 75, 147, 0.2);
   --pixel-color: #4E4B93;
   --accent-primary: #4E4B93;
