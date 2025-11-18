@@ -5,7 +5,7 @@ import TextType from './TextType'
 import { trackSocialClick } from './analytics'
 
 function App() {
-  const [pixelColor, setPixelColor] = useState('#B09EEF')
+  const [pixelColor, setPixelColor] = useState('#4E4B93')
 
   const socials = [
     { name: 'Newsletter', url: 'https://thomasbustos.substack.com/' },
@@ -19,12 +19,12 @@ function App() {
   useEffect(() => {
     // Set initial color based on saved theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    setPixelColor('#B09EEF');
+    setPixelColor('#4E4B93');
   }, []);
 
   const handleThemeChange = (theme) => {
-    // Same pixel color for both themes
-    setPixelColor('#B09EEF');
+    // Keep pixel color consistent across themes
+    setPixelColor('#4E4B93');
   }
 
   return (
@@ -32,9 +32,9 @@ function App() {
       <ThemeToggle onThemeChange={handleThemeChange} />
       
       {/* Background layer - animation */}
-      <div className="background-layer">
+      {/* <div className="background-layer">
         <PixelBlast color={pixelColor} />
-      </div>
+      </div> */}
       
       {/* Foreground layer - content */}
       <main className="content-layer">

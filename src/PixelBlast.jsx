@@ -298,7 +298,7 @@ const MAX_CLICKS = 10;
 const PixelBlast = ({
   variant = 'square',
   pixelSize = 4,
-  color = '#4E4B93',
+  color = 'rgb(13, 0, 255)',
   className,
   style,
   antialias = true,
