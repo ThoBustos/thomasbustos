@@ -83,7 +83,7 @@ body {
   position: absolute;
   inset: 0; /* shorthand for top: 0, right: 0, bottom: 0, left: 0 */
   z-index: 0;
-  opacity: 0.4;
+  opacity: 0.25;
   mix-blend-mode: soft-light;
 }
 
@@ -107,7 +107,7 @@ body {
   max-width: 700px;
   width: 100%;
   padding: 3rem 3rem;
-  background: rgba(242, 231, 201, 0.95);
+  background: rgba(242, 231, 201, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
@@ -126,9 +126,10 @@ body {
   letter-spacing: 0.02em;
   line-height: 1.1;
   margin: 0;
-  color: #4E4B93;
-  text-shadow: 2px 2px 0px rgba(242, 231, 201, 0.5),
-               4px 4px 8px rgba(78, 75, 147, 0.2);
+  color: #F2E7C9;
+  text-shadow: 3px 3px 0px #4E4B93,
+               6px 6px 12px rgba(0, 0, 0, 0.4),
+               1px 1px 0px #4E4B93;
   transition: all 0.3s ease;
   text-align: center;
 }
@@ -152,12 +153,25 @@ body {
 
 .events-title {
   font-size: clamp(0.85rem, 2vw, 0.95rem);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #4E4B93;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.events-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: #4E4B93;
 }
 
 .event-link {
@@ -217,12 +231,25 @@ body {
 
 .mission-title {
   font-size: clamp(0.85rem, 2vw, 0.95rem);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #4E4B93;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.mission-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: #4E4B93;
 }
 
 .mission-statement {
@@ -258,10 +285,10 @@ body {
 }
 
 .social-link {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #4E4B93;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
   position: relative;
   transition: all 0.2s ease;
