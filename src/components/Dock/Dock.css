@@ -1,0 +1,95 @@
+.dock-outer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.dock-panel {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: fit-content;
+  gap: 1rem;
+  border-radius: 1rem;
+  background-color: var(--dock-bg);
+  border: 1px solid var(--dock-border);
+  padding: 0 0.5rem 0.5rem;
+  margin-bottom: 0.5rem;
+  pointer-events: auto;
+}
+
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--dock-item-bg);
+  border: 1px solid var(--dock-item-border);
+  color: var(--dock-item-border);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.dock-item.active {
+  background-color: var(--dock-item-active-bg);
+  border-color: var(--dock-item-active-bg);
+  color: var(--dock-item-active-text);
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-label {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  width: fit-content;
+  white-space: pre;
+  border-radius: 0.375rem;
+  border: 1px solid var(--dock-label-border);
+  background-color: var(--dock-label-bg);
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--dock-label-text);
+  transform: translateX(-50%);
+}
+
+/* Dark mode: more purple than beige */
+[data-theme="dark"] {
+  --dock-bg: #4E4B93;
+  --dock-border: #F2E7C9;
+  --dock-item-bg: #4E4B93;
+  --dock-item-border: #F2E7C9;
+  --dock-item-active-bg: #F2E7C9;
+  --dock-item-active-text: #4E4B93;
+  --dock-label-bg: #4E4B93;
+  --dock-label-border: #F2E7C9;
+  --dock-label-text: #F2E7C9;
+}
+
+/* Light mode: more beige than purple */
+[data-theme="light"] {
+  --dock-bg: #F2E7C9;
+  --dock-border: #4E4B93;
+  --dock-item-bg: #F2E7C9;
+  --dock-item-border: #4E4B93;
+  --dock-item-active-bg: #4E4B93;
+  --dock-item-active-text: #F2E7C9;
+  --dock-label-bg: #F2E7C9;
+  --dock-label-border: #4E4B93;
+  --dock-label-text: #4E4B93;
+}
