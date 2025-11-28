@@ -4,6 +4,7 @@ import ThemeToggle from './ThemeToggle'
 import TextType from './TextType'
 import ClickSpark from './ClickSpark'
 import Dock from './components/Dock/Dock'
+import ComingSoon from './components/ComingSoon'
 import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
 
 function App() {
@@ -80,132 +81,139 @@ function App() {
       easing="ease-out"
       extraScale={1.2}
     >
-      <div className="container">
-        <ThemeToggle onThemeChange={handleThemeChange} />
-
-        <Dock
-          items={dockItems}
-          activeView={activeView}
-          panelHeight={68}
-          baseItemSize={50}
-          magnification={70}
+      {activeView === 'newsletter' ? (
+        <ComingSoon
+          onReturnHome={() => setActiveView('home')}
+          onThemeChange={handleThemeChange}
         />
+      ) : (
+        <div className="container">
+          <ThemeToggle onThemeChange={handleThemeChange} />
 
-        {/* Foreground layer - content */}
-        <main className="content-layer">
+          <Dock
+            items={dockItems}
+            activeView={activeView}
+            panelHeight={68}
+            baseItemSize={50}
+            magnification={70}
+          />
 
-          {activeView === 'home' && (
-            <div className="content-card">
-              <TextType
-                text="Thomas Bustos"
-                as="h1"
-                className="name"
-                typingSpeed={100}
-                loop={false}
-                showCursor={true}
-                cursorCharacter="|"
-              />
-              <div className="bio-card">
-                <p className="description">
-                  Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public.
-                </p>
-              </div>
-              <nav className="socials">
-                {socials.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                    onClick={() => trackSocialClick(social.name)}
-                  >
-                    {social.name}
-                  </a>
-                ))}
-              </nav>
-            </div>
-          )}
+          {/* Foreground layer - content */}
+          <main className="content-layer">
 
-          {activeView === 'mission' && (
-            <div className="content-card">
-              <TextType
-                text="Mission"
-                as="h1"
-                className="name"
-                typingSpeed={100}
-                loop={false}
-                showCursor={true}
-                cursorCharacter="|"
-              />
-              <div className="mission-section">
-                <a
-                  href="https://thomasbustos.substack.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mission-link"
-                  onClick={() => trackSocialClick('Mission - Substack')}
-                >
-                  <div className="mission-statement">
-                    Build exceptional products with exceptional people. Document everything along the way.
-                  </div>
-                </a>
-              </div>
-            </div>
-          )}
-
-          {activeView === 'events' && (
-            <div className="content-card">
-              <TextType
-                text="Events"
-                as="h1"
-                className="name"
-                typingSpeed={100}
-                loop={false}
-                showCursor={true}
-                cursorCharacter="|"
-              />
-              <div className="events-section">
-                <div className="events-widget">
-                  <div className="events-tabs">
-                    <button
-                      className={`events-tab ${eventsView === 'upcoming' ? 'active' : ''}`}
-                      onClick={() => setEventsView('upcoming')}
-                    >
-                      Upcoming
-                    </button>
-                    <button
-                      className={`events-tab ${eventsView === 'past' ? 'active' : ''}`}
-                      onClick={() => setEventsView('past')}
-                    >
-                      Past
-                    </button>
-                  </div>
-
-                  {eventsView === 'upcoming' ? (
-                    <div className="empty-events">
-                      No upcoming events scheduled.
-                    </div>
-                  ) : (
+            {activeView === 'home' && (
+              <div className="content-card">
+                <TextType
+                  text="Thomas Bustos"
+                  as="h1"
+                  className="name"
+                  typingSpeed={100}
+                  loop={false}
+                  showCursor={true}
+                  cursorCharacter="|"
+                />
+                <div className="bio-card">
+                  <p className="description">
+                    Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public.
+                  </p>
+                </div>
+                <nav className="socials">
+                  {socials.map((social) => (
                     <a
-                      href="https://www.ai.engineer/"
+                      key={social.name}
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="event-link"
-                      onClick={() => trackSocialClick('AIE Code Summit')}
+                      className="social-link"
+                      onClick={() => trackSocialClick(social.name)}
                     >
-                      <div className="event-item">
-                        <span className="event-name">AIE Code Summit</span>
-                        <span className="event-details">New York • Nov 20-22, 2025</span>
-                      </div>
+                      {social.name}
                     </a>
-                  )}
+                  ))}
+                </nav>
+              </div>
+            )}
+
+            {activeView === 'mission' && (
+              <div className="content-card">
+                <TextType
+                  text="Mission"
+                  as="h1"
+                  className="name"
+                  typingSpeed={100}
+                  loop={false}
+                  showCursor={true}
+                  cursorCharacter="|"
+                />
+                <div className="mission-section">
+                  <a
+                    href="https://thomasbustos.substack.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mission-link"
+                    onClick={() => trackSocialClick('Mission - Substack')}
+                  >
+                    <div className="mission-statement">
+                      Build exceptional products with exceptional people. Document everything along the way.
+                    </div>
+                  </a>
                 </div>
               </div>
-            </div>
-          )}
-        </main>
-      </div>
+            )}
+
+            {activeView === 'events' && (
+              <div className="content-card">
+                <TextType
+                  text="Events"
+                  as="h1"
+                  className="name"
+                  typingSpeed={100}
+                  loop={false}
+                  showCursor={true}
+                  cursorCharacter="|"
+                />
+                <div className="events-section">
+                  <div className="events-widget">
+                    <div className="events-tabs">
+                      <button
+                        className={`events-tab ${eventsView === 'upcoming' ? 'active' : ''}`}
+                        onClick={() => setEventsView('upcoming')}
+                      >
+                        Upcoming
+                      </button>
+                      <button
+                        className={`events-tab ${eventsView === 'past' ? 'active' : ''}`}
+                        onClick={() => setEventsView('past')}
+                      >
+                        Past
+                      </button>
+                    </div>
+
+                    {eventsView === 'upcoming' ? (
+                      <div className="empty-events">
+                        No upcoming events scheduled.
+                      </div>
+                    ) : (
+                      <a
+                        href="https://www.ai.engineer/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="event-link"
+                        onClick={() => trackSocialClick('AIE Code Summit')}
+                      >
+                        <div className="event-item">
+                          <span className="event-name">AIE Code Summit</span>
+                          <span className="event-details">New York • Nov 20-22, 2025</span>
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </main>
+        </div>
+      )}
     </ClickSpark>
   )
 }

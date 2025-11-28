@@ -1,0 +1,70 @@
+.newsletter-coming-soon-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--newsletter-bg);
+  color: var(--newsletter-text);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.newsletter-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.newsletter-theme-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.newsletter-brand-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--newsletter-text);
+}
+
+.newsletter-brand-title:hover {
+  transform: scale(1.02);
+}
+
+.newsletter-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.newsletter-coming-soon-text {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-align: center;
+  color: var(--newsletter-text);
+}
+
+/* Light mode - beige background, beige text, purple shadow */
+[data-theme="light"] {
+  --newsletter-bg: #F2E7C9;
+  --newsletter-text: #4E4B93;
+  --newsletter-shadow: #4E4B93;
+}
+
+/* Dark mode - purple background, purple text, beige shadow */
+[data-theme="dark"] {
+  --newsletter-bg: #4E4B93;
+  --newsletter-text: #F2E7C9;
+  --newsletter-shadow: #F2E7C9;
+}
