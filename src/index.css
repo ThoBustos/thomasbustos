@@ -294,6 +294,12 @@ body {
   width: 100%;
 }
 
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .event-link {
   text-decoration: none;
   display: block;
@@ -304,18 +310,33 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--social-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.event-link:hover .event-item {
+  background: var(--social-hover-bg);
+  border-color: var(--social-hover-bg);
 }
 
 .event-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--accent-primary);
+  color: var(--social-text);
 }
 
 .event-details {
   font-size: 1rem;
-  color: var(--content-text);
+  color: var(--social-text);
   opacity: 0.9;
+}
+
+.event-link:hover .event-name,
+.event-link:hover .event-details {
+  color: var(--social-hover-text);
 }
 
 /* Events Widget */

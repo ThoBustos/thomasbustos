@@ -190,22 +190,35 @@ function App() {
                     </div>
 
                     {eventsView === 'upcoming' ? (
-                      <div className="empty-events">
-                        No upcoming events scheduled.
+                      <div className="events-list">
+                        <a
+                          href="https://www.ai.engineer/europe"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="event-link"
+                          onClick={() => trackSocialClick('AI Engineer Europe')}
+                        >
+                          <div className="event-item">
+                            <span className="event-name">AI Engineer Europe</span>
+                            <span className="event-details">London, UK • Apr 8-10, 2026</span>
+                          </div>
+                        </a>
                       </div>
                     ) : (
-                      <a
-                        href="https://www.ai.engineer/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="event-link"
-                        onClick={() => trackSocialClick('AIE Code Summit')}
-                      >
-                        <div className="event-item">
-                          <span className="event-name">AIE Code Summit</span>
-                          <span className="event-details">New York • Nov 20-22, 2025</span>
-                        </div>
-                      </a>
+                      <div className="events-list">
+                        <a
+                          href="https://www.ai.engineer/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="event-link"
+                          onClick={() => trackSocialClick('AIE Code Summit')}
+                        >
+                          <div className="event-item">
+                            <span className="event-name">AIE Code Summit</span>
+                            <span className="event-details">New York • Nov 20-22, 2025</span>
+                          </div>
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>
