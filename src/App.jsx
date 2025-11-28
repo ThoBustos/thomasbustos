@@ -25,12 +25,12 @@ function App() {
     // Set initial theme and spark color based on saved theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
-    setSparkColor(savedTheme === 'dark' ? '#B8B5E8' : '#4E4B93');
+    setSparkColor(savedTheme === 'dark' ? '#F2E7C9' : '#4E4B93');
   }, []);
 
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
-    setSparkColor(newTheme === 'dark' ? '#B8B5E8' : '#4E4B93');
+    setSparkColor(newTheme === 'dark' ? '#F2E7C9' : '#4E4B93');
   }
 
   const [eventsView, setEventsView] = useState('upcoming');
