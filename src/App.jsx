@@ -14,11 +14,11 @@ function App() {
 
   const socials = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomasbustos/' },
-    { name: 'X', url: 'https://x.com/thomasbustos_' },
-    { name: 'GitHub', url: 'https://github.com/thomasbustos' },
-    { name: 'YouTube', url: 'https://www.youtube.com/@thomasbustos' },
+    { name: 'X', url: 'https://x.com/ThoBustos' },
+    { name: 'GitHub', url: 'https://github.com/ThoBustos' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@lets-talk-ai' },
     { name: 'Substack', url: 'https://thomasbustos.substack.com/' },
-    { name: 'TikTok', url: 'https://www.tiktok.com/@thomasbustos' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@lets_talk_ai' },
   ];
 
   useEffect(() => {

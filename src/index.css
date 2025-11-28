@@ -362,7 +362,7 @@ body {
 }
 
 .events-tab {
-  background: transparent;
+  background: var(--social-bg);
   border: 1px solid var(--social-border);
   color: var(--social-text);
   font-weight: 600;
@@ -371,13 +371,11 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   transition: all 0.2s ease;
-  opacity: 0.8;
 }
 
 .events-tab.active {
   background: var(--social-hover-bg);
   border-color: var(--social-hover-bg);
-  opacity: 1;
   color: var(--social-hover-text);
 }
 
