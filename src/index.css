@@ -128,26 +128,34 @@ body {
   background-attachment: fixed;
   color: var(--text-primary);
   transition: background-color 0.3s ease, background-image 0.3s ease, color 0.3s ease;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for modern browsers */
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for modern browsers */
+  overflow: hidden; /* Prevent scrolling past viewport */
 }
 
-/* Fix mobile background issues */
+/* Fix mobile viewport and background issues */
 @media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-    background-repeat: repeat;
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
-  
   html {
     height: -webkit-fill-available;
   }
   
+  body {
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    height: -webkit-fill-available; /* iOS Safari fix */
+    height: 100dvh;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+  
   .container {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    height: 100vh;
+    height: -webkit-fill-available; /* iOS Safari fix */
+    height: 100dvh;
+    overflow: auto;
   }
 }
 
