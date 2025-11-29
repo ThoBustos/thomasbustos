@@ -8,9 +8,10 @@ const useDeviceType = () => {
   
   useEffect(() => {
     const checkDevice = () => {
-      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      // More precise mobile detection - prioritize screen size over touch
       const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches;
-      setIsMobileOrTablet(hasTouch || isSmallScreen);
+      const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      setIsMobileOrTablet(isSmallScreen && hasCoarsePointer);
     };
     
     checkDevice();
@@ -129,9 +130,12 @@ export default function Dock({
     const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
     const height = useSpring(heightRow, isMobileOrTablet ? { mass: 0, stiffness: 0, damping: 1 } : spring);
 
+    // Fixed height for desktop to prevent content movement
+    const containerHeight = isMobileOrTablet ? panelHeight + 16 : 120; // Fixed 120px on desktop
+
     return (
         <motion.div 
-            style={{ height: isMobileOrTablet ? panelHeight + 16 : height, scrollbarWidth: 'none' }} 
+            style={{ height: containerHeight, scrollbarWidth: 'none' }} 
             className={`dock-outer ${isMobileOrTablet ? 'mobile' : ''}`}
         >
             <motion.div

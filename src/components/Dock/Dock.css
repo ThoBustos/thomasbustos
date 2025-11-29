@@ -6,7 +6,11 @@
   z-index: 1000;
   pointer-events: none;
   padding: 0.5rem 0;
-  min-height: 120px; /* Reserve space for animations to prevent content shift */
+}
+
+/* Desktop: Reserve space for animations to prevent content shift */
+.dock-outer:not(.mobile) {
+  min-height: 120px;
 }
 
 .dock-panel {
@@ -95,49 +99,49 @@
 
 /* Mobile dock - static, no animations */
 .dock-outer.mobile {
-  min-height: auto !important;
-  height: auto !important;
+  min-height: auto;
+  height: auto;
   padding: 0.5rem 0;
   padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
 }
 
 .dock-panel.mobile {
-  height: 68px !important;
+  height: 68px;
 }
 
 .dock-item.mobile {
-  width: 50px !important;
-  height: 50px !important;
+  width: 50px;
+  height: 50px;
 }
 
-/* Tablet/Mobile breakpoint override */
+/* Tablet/Mobile breakpoint override - only for touch devices */
 @media (max-width: 1024px) and (pointer: coarse) {
-  .dock-outer {
-    min-height: auto !important;
-    height: auto !important;
+  .dock-outer.mobile {
+    min-height: auto;
+    height: auto;
     padding: 0.5rem 0;
     padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
   }
   
-  .dock-item {
-    width: 50px !important;
-    height: 50px !important;
+  .dock-item.mobile {
+    width: 50px;
+    height: 50px;
   }
 }
 
 /* iPhone SE and very small screens */
 @media (max-width: 400px) {
-  .dock-outer {
+  .dock-outer.mobile {
     padding: 0.75rem 0;
     padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
   }
   
-  .dock-panel {
+  .dock-panel.mobile {
     margin-bottom: 0.25rem;
     padding: 0 0.375rem 0.375rem;
   }
   
-  .dock-item {
+  .dock-item.mobile {
     border-radius: 8px;
   }
 }
