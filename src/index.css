@@ -136,7 +136,8 @@ body {
 @media (max-width: 768px) {
   body {
     background-attachment: scroll;
-    min-height: 120vh; /* Extra coverage for overscroll */
+    background-repeat: repeat;
+    min-height: 150vh; /* Aggressive coverage for iOS overscroll */
     min-height: -webkit-fill-available;
   }
   
@@ -155,28 +156,27 @@ body {
   width: 100%;
 }
 
-/* Container - creates layering context */
+/* Container - CSS Grid two-zone layout */
 .container {
-  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  overflow: hidden;
+  position: relative;
 }
 
-/* Content layer - mathematically centered */
+/* Content layer - grid zone centered */
 .content-layer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(100% - 4rem);
-  max-width: 700px;
+  justify-content: center;
+  padding: 4rem 2rem;
+  z-index: 1;
+  width: 100%;
   gap: 2rem;
-  padding: 0;
 }
 
 /* Spark layer - click animation overlay */
@@ -203,7 +203,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  /* Reduced gap for tighter layout */
+  margin: 0 auto; /* Center the content card within the grid zone */
 }
 
 /* Typography */
@@ -500,8 +500,7 @@ body {
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .content-layer {
-    width: calc(100% - 2rem);
-    transform: translate(-50%, -40%); /* Slightly higher to account for dock */
+    padding: 2rem 1rem;
   }
 
   .name {
@@ -532,8 +531,7 @@ body {
 /* iPhone SE and very small screens */
 @media (max-width: 400px) {
   .content-layer {
-    width: calc(100% - 1.5rem);
-    transform: translate(-50%, -35%); /* Even higher for small screens */
+    padding: 1.5rem 0.75rem;
   }
 
   .name {
