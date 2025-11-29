@@ -1,13 +1,11 @@
 .dock-outer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  grid-row: 2;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 1000;
   pointer-events: none;
+  padding: 0.5rem 0;
 }
 
 .dock-panel {
@@ -94,17 +92,17 @@
   --dock-label-text: #4E4B93;
 }
 
-/* Mobile dock positioning */
+/* Mobile dock spacing */
 @media (max-width: 768px) {
   .dock-outer {
-    bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding: calc(0.5rem + env(safe-area-inset-bottom)) 0 0.5rem 0;
   }
 }
 
 /* iPhone SE and very small screens */
 @media (max-width: 400px) {
   .dock-outer {
-    bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    padding: calc(0.75rem + env(safe-area-inset-bottom)) 0 0.75rem 0;
   }
   
   .dock-panel {
