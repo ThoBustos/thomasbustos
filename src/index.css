@@ -496,7 +496,7 @@ body {
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .content-layer {
-    padding-top: 4rem;
+    padding-top: 8vh;
     padding-bottom: calc(8rem + env(safe-area-inset-bottom));
     padding-left: 1rem;
     padding-right: 1rem;
@@ -534,7 +534,7 @@ body {
 /* iPhone SE and very small screens */
 @media (max-width: 400px) {
   .content-layer {
-    padding-top: 3rem;
+    padding-top: 6vh;
     padding-bottom: calc(9rem + env(safe-area-inset-bottom));
     padding-left: 0.75rem;
     padding-right: 0.75rem;
