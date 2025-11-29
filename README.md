@@ -37,6 +37,7 @@ npm run build
 - Smooth scaling typography using clamp()
 - Interactive 3D background with PixelBlast effect
 - Optimized for mobile, tablet, desktop, and landscape orientations
+- Adding LTAI Daily Newsletter (work in progress)
 
 ## Analytics
 
