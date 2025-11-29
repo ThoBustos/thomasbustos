@@ -6,6 +6,7 @@
   z-index: 1000;
   pointer-events: none;
   padding: 0.5rem 0;
+  min-height: 120px; /* Reserve space for animations to prevent content shift */
 }
 
 .dock-panel {
@@ -92,10 +93,33 @@
   --dock-label-text: #4E4B93;
 }
 
-/* Mobile dock spacing */
-@media (max-width: 768px) {
+/* Mobile dock - static, no animations */
+.dock-outer.mobile {
+  min-height: auto !important;
+  height: auto !important;
+  padding: calc(0.5rem + env(safe-area-inset-bottom)) 0 0.5rem 0;
+}
+
+.dock-panel.mobile {
+  height: 68px !important;
+}
+
+.dock-item.mobile {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+/* Tablet/Mobile breakpoint override */
+@media (max-width: 1024px) and (pointer: coarse) {
   .dock-outer {
+    min-height: auto !important;
+    height: auto !important;
     padding: calc(0.5rem + env(safe-area-inset-bottom)) 0 0.5rem 0;
+  }
+  
+  .dock-item {
+    width: 50px !important;
+    height: 50px !important;
   }
 }
 

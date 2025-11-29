@@ -88,18 +88,9 @@ function App() {
         />
       ) : (
         <div className="container">
-          <ThemeToggle onThemeChange={handleThemeChange} />
-
-          <Dock
-            items={dockItems}
-            activeView={activeView}
-            panelHeight={68}
-            baseItemSize={50}
-            magnification={70}
-          />
-
           {/* Foreground layer - content */}
           <main className="content-layer">
+            <ThemeToggle onThemeChange={handleThemeChange} />
 
             {activeView === 'home' && (
               <div className="content-card">
@@ -225,6 +216,14 @@ function App() {
               </div>
             )}
           </main>
+
+          <Dock
+            items={dockItems}
+            activeView={activeView}
+            panelHeight={68}
+            baseItemSize={50}
+            magnification={70}
+          />
         </div>
       )}
     </ClickSpark>

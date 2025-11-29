@@ -2,11 +2,32 @@ import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from
 import { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
 import './Dock.css';
 
-function DockItem({ children, className = '', onClick, isActive = false, mouseX, spring, distance, magnification, baseItemSize }) {
+// Device detection hook
+const useDeviceType = () => {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  
+  useEffect(() => {
+    const checkDevice = () => {
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches;
+      setIsMobileOrTablet(hasTouch || isSmallScreen);
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
+  
+  return { isMobileOrTablet };
+};
+
+function DockItem({ children, className = '', onClick, isActive = false, mouseX, spring, distance, magnification, baseItemSize, isMobileOrTablet }) {
     const ref = useRef(null);
     const isHovered = useMotionValue(0);
+    const staticHovered = useMotionValue(0);
 
     const mouseDistance = useTransform(mouseX, val => {
+        if (isMobileOrTablet) return 0; // No distance calculation on mobile
         const rect = ref.current?.getBoundingClientRect() ?? {
             x: 0,
             width: baseItemSize
@@ -14,41 +35,51 @@ function DockItem({ children, className = '', onClick, isActive = false, mouseX,
         return val - rect.x - baseItemSize / 2;
     });
 
-    const targetSize = useTransform(mouseDistance, [-distance, 0, distance], [baseItemSize, magnification, baseItemSize]);
-    const size = useSpring(targetSize, spring);
+    const targetSize = useTransform(mouseDistance, 
+        [-distance, 0, distance], 
+        isMobileOrTablet ? [baseItemSize, baseItemSize, baseItemSize] : [baseItemSize, magnification, baseItemSize]
+    );
+    const size = useSpring(targetSize, isMobileOrTablet ? { mass: 0, stiffness: 0, damping: 1 } : spring);
 
     return (
         <motion.div
             ref={ref}
             style={{
-                width: size,
-                height: size
+                width: isMobileOrTablet ? baseItemSize : size,
+                height: isMobileOrTablet ? baseItemSize : size
             }}
-            onHoverStart={() => isHovered.set(1)}
-            onHoverEnd={() => isHovered.set(0)}
-            onFocus={() => isHovered.set(1)}
-            onBlur={() => isHovered.set(0)}
+            onHoverStart={() => !isMobileOrTablet && isHovered.set(1)}
+            onHoverEnd={() => !isMobileOrTablet && isHovered.set(0)}
+            onFocus={() => !isMobileOrTablet && isHovered.set(1)}
+            onBlur={() => !isMobileOrTablet && isHovered.set(0)}
             onClick={onClick}
-            className={`dock-item ${className} ${isActive ? 'active' : ''}`}
+            className={`dock-item ${className} ${isActive ? 'active' : ''} ${isMobileOrTablet ? 'mobile' : ''}`}
             tabIndex={0}
             role="button"
             aria-haspopup="true"
         >
-            {Children.map(children, child => cloneElement(child, { isHovered }))}
+            {Children.map(children, child => cloneElement(child, { isHovered: isMobileOrTablet ? staticHovered : isHovered }))}
         </motion.div>
     );
 }
 
-function DockLabel({ children, className = '', ...rest }) {
+function DockLabel({ children, className = '', isMobileOrTablet, ...rest }) {
     const { isHovered } = rest;
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        if (isMobileOrTablet) {
+            setIsVisible(false); // Never show labels on mobile/tablet
+            return;
+        }
+        
         const unsubscribe = isHovered.on('change', latest => {
             setIsVisible(latest === 1);
         });
         return () => unsubscribe();
-    }, [isHovered]);
+    }, [isHovered, isMobileOrTablet]);
+
+    if (isMobileOrTablet) return null; // Don't render labels on mobile/tablet
 
     return (
         <AnimatePresence>
@@ -84,28 +115,39 @@ export default function Dock({
     dockHeight = 256,
     baseItemSize = 50
 }) {
+    const { isMobileOrTablet } = useDeviceType();
     const mouseX = useMotionValue(Infinity);
     const isHovered = useMotionValue(0);
 
     const maxHeight = useMemo(
-        () => Math.max(dockHeight, magnification + magnification / 2 + 4),
-        [magnification, dockHeight]
+        () => {
+            if (isMobileOrTablet) return panelHeight; // Fixed height on mobile
+            return Math.max(dockHeight, magnification + magnification / 2 + 4);
+        },
+        [magnification, dockHeight, panelHeight, isMobileOrTablet]
     );
     const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
-    const height = useSpring(heightRow, spring);
+    const height = useSpring(heightRow, isMobileOrTablet ? { mass: 0, stiffness: 0, damping: 1 } : spring);
 
     return (
-        <motion.div style={{ height, scrollbarWidth: 'none' }} className="dock-outer">
+        <motion.div 
+            style={{ height: isMobileOrTablet ? panelHeight + 16 : height, scrollbarWidth: 'none' }} 
+            className={`dock-outer ${isMobileOrTablet ? 'mobile' : ''}`}
+        >
             <motion.div
                 onMouseMove={({ pageX }) => {
-                    isHovered.set(1);
-                    mouseX.set(pageX);
+                    if (!isMobileOrTablet) {
+                        isHovered.set(1);
+                        mouseX.set(pageX);
+                    }
                 }}
                 onMouseLeave={() => {
-                    isHovered.set(0);
-                    mouseX.set(Infinity);
+                    if (!isMobileOrTablet) {
+                        isHovered.set(0);
+                        mouseX.set(Infinity);
+                    }
                 }}
-                className={`dock-panel ${className}`}
+                className={`dock-panel ${className} ${isMobileOrTablet ? 'mobile' : ''}`}
                 style={{ height: panelHeight }}
                 role="toolbar"
                 aria-label="Application dock"
@@ -121,9 +163,10 @@ export default function Dock({
                         distance={distance}
                         magnification={magnification}
                         baseItemSize={baseItemSize}
+                        isMobileOrTablet={isMobileOrTablet}
                     >
                         <DockIcon>{item.icon}</DockIcon>
-                        <DockLabel>{item.label}</DockLabel>
+                        <DockLabel isMobileOrTablet={isMobileOrTablet}>{item.label}</DockLabel>
                     </DockItem>
                 ))}
             </motion.div>
