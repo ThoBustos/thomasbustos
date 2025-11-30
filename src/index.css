@@ -1,7 +1,6 @@
 /* CSS Variables for theming */
 :root[data-theme="dark"] {
   --bg-color: #0B102C;
-  --bg-image: url('/background_dark.png');
   --text-primary: #F2E7C9;
   --text-secondary: #F2E7C9;
 
@@ -44,7 +43,6 @@
 
 :root[data-theme="light"] {
   --bg-color: #F2E7C9;
-  --bg-image: url('/background_light.png');
   --text-primary: #4E4B93;
   /* Purple text */
   --text-secondary: #4E4B93;
@@ -90,16 +88,7 @@
   --content-text: #4E4B93;
 }
 
-/* Mobile background images */
-@media (max-width: 768px) {
-  :root[data-theme="dark"] {
-    --bg-image: url('/background_dark_mobile.png');
-  }
-
-  :root[data-theme="light"] {
-    --bg-image: url('/background_light_mobile.png');
-  }
-}
+/* Mobile optimizations are now handled in BackgroundImage component */
 
 /* Reset and base styles */
 * {
@@ -121,28 +110,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   color: var(--text-primary);
-  transition: background-color 0.3s ease, background-image 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   height: 100vh;
   height: 100dvh; /* Dynamic viewport height for modern browsers */
   overflow: hidden; /* Prevent scrolling past viewport */
 }
 
-/* Fix mobile viewport and background issues */
+/* Fix mobile viewport issues */
 @media (max-width: 768px) {
   html {
     height: -webkit-fill-available;
   }
   
   body {
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 100vh;
     height: -webkit-fill-available; /* iOS Safari fix */
     height: 100dvh;

@@ -5,6 +5,7 @@ import TextType from './TextType'
 import ClickSpark from './ClickSpark'
 import Dock from './components/Dock/Dock'
 import ComingSoon from './components/ComingSoon'
+import BackgroundImage from './components/BackgroundImage'
 import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
       easing="ease-out"
       extraScale={1.2}
     >
+      <BackgroundImage theme={theme} />
       {activeView === 'newsletter' ? (
         <ComingSoon
           onReturnHome={() => setActiveView('home')}
