@@ -6,6 +6,7 @@ import ClickSpark from './ClickSpark'
 import Dock from './components/Dock/Dock'
 import ComingSoon from './components/ComingSoon'
 import BackgroundImage from './components/BackgroundImage'
+import LTAIBrandWidget from './components/LTAIBrandWidget'
 import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
 
 function App() {
@@ -226,6 +227,8 @@ function App() {
             baseItemSize={50}
             magnification={70}
           />
+          
+          <LTAIBrandWidget />
         </div>
       )}
     </ClickSpark>
