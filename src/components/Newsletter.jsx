@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../Newsletter.css';
 import ThemeToggle from '../ThemeToggle';
+import BrandAvatar from './BrandAvatar';
 
 function Newsletter() {
   const [theme, setTheme] = useState('dark');
@@ -25,9 +26,10 @@ function Newsletter() {
   return (
     <div className="newsletter-coming-soon-page">
       <div className="newsletter-header">
-        <h1 className="newsletter-brand-title" onClick={handleReturnHome}>
-          Thomas Bustos
-        </h1>
+        <BrandAvatar 
+          onClick={handleReturnHome}
+          size={72}
+        />
       </div>
       
       <div className="newsletter-theme-toggle">
