@@ -39,8 +39,18 @@ function App() {
   }
 
   const showNotificationMessage = (message) => {
-    setNotification(message);
-    setShowNotification(true);
+    // If any notification is already showing, reset the timer
+    if (showNotification) {
+      setShowNotification(false);
+      // Force re-render with slight delay to restart animation
+      setTimeout(() => {
+        setNotification(message);
+        setShowNotification(true);
+      }, 50);
+    } else {
+      setNotification(message);
+      setShowNotification(true);
+    }
   };
 
   const hideNotification = () => {
