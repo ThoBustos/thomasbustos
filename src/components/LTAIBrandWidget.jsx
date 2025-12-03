@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import './LTAIBrandWidget.css';
 
-function LTAIBrandWidget() {
+function LTAIBrandWidget({ onNotify }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showCopyMessage, setShowCopyMessage] = useState('');
 
   const handleDownloadLogo = () => {
     const link = document.createElement('a');
@@ -36,10 +35,7 @@ function LTAIBrandWidget() {
 
   const copyToClipboard = (color, colorName) => {
     navigator.clipboard.writeText(color);
-    setShowCopyMessage(`${colorName} copied!`);
-    
-    // Hide message after 2 seconds
-    setTimeout(() => setShowCopyMessage(''), 2000);
+    onNotify(`${colorName} copied!`);
     
     // Track color copy
     if (window.gtag) {
@@ -83,11 +79,6 @@ function LTAIBrandWidget() {
       {isExpanded && (
         <div className="ltai-brand-overlay" onClick={() => setIsExpanded(false)}>
           <div className="ltai-brand-panel" onClick={(e) => e.stopPropagation()}>
-            {showCopyMessage && (
-              <div className="ltai-copy-message">
-                {showCopyMessage}
-              </div>
-            )}
             <button 
               className="ltai-panel-close"
               onClick={() => setIsExpanded(false)}

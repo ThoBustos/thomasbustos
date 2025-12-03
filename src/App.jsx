@@ -7,12 +7,15 @@ import Dock from './components/Dock/Dock'
 import ComingSoon from './components/ComingSoon'
 import BackgroundImage from './components/BackgroundImage'
 import LTAIBrandWidget from './components/LTAIBrandWidget'
+import NotificationToast from './components/NotificationToast'
 import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
 
 function App() {
   const [theme, setTheme] = useState('dark');
   const [sparkColor, setSparkColor] = useState('#B8B5E8');
   const [activeView, setActiveView] = useState('home');
+  const [notification, setNotification] = useState('');
+  const [showNotification, setShowNotification] = useState(false);
 
   const socials = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomasbustos/' },
@@ -34,6 +37,16 @@ function App() {
     setTheme(newTheme);
     setSparkColor(newTheme === 'dark' ? '#F2E7C9' : '#4E4B93');
   }
+
+  const showNotificationMessage = (message) => {
+    setNotification(message);
+    setShowNotification(true);
+  };
+
+  const hideNotification = () => {
+    setShowNotification(false);
+    setNotification('');
+  };
 
   const [eventsView, setEventsView] = useState('upcoming');
 
@@ -228,9 +241,15 @@ function App() {
             magnification={70}
           />
           
-          <LTAIBrandWidget />
+          <LTAIBrandWidget onNotify={showNotificationMessage} />
         </div>
       )}
+
+      <NotificationToast 
+        message={notification}
+        isVisible={showNotification}
+        onClose={hideNotification}
+      />
     </ClickSpark>
   )
 }

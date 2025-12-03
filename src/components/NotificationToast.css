@@ -1,0 +1,58 @@
+/* Notification Toast Styles */
+
+.notification-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: var(--bio-bg);
+  color: var(--bio-text);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--social-border);
+  box-shadow: 6px 6px 0px var(--title-shadow);
+  z-index: 1000;
+  animation: slideInFadeOut 2s ease-in-out forwards;
+}
+
+@keyframes slideInFadeOut {
+  0% { 
+    opacity: 0; 
+    transform: translateX(100px);
+  }
+  15%, 85% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateX(100px);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .notification-toast {
+    top: 80px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    transform-origin: center;
+  }
+
+  @keyframes slideInFadeOut {
+    0% { 
+      opacity: 0; 
+      transform: translateY(-20px);
+    }
+    15%, 85% { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+    100% { 
+      opacity: 0; 
+      transform: translateY(-20px);
+    }
+  }
+}
