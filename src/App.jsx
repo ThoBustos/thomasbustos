@@ -210,6 +210,18 @@ function App({ currentPath = '/', navigate }) {
                     {eventsView === 'upcoming' ? (
                       <div className="events-list">
                         <a
+                          href="https://neurips.cc/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="event-link"
+                          onClick={() => trackSocialClick('NeurIPS 2025')}
+                        >
+                          <div className="event-item">
+                            <span className="event-name">NeurIPS 2025</span>
+                            <span className="event-details">San Diego, CA • Dec 2-7, 2025</span>
+                          </div>
+                        </a>
+                        <a
                           href="https://www.ai.engineer/europe"
                           target="_blank"
                           rel="noopener noreferrer"
