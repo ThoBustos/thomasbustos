@@ -4,18 +4,25 @@ import ThemeToggle from './ThemeToggle'
 import TextType from './TextType'
 import ClickSpark from './ClickSpark'
 import Dock from './components/Dock/Dock'
-import ComingSoon from './components/ComingSoon'
 import BackgroundImage from './components/BackgroundImage'
 import LTAIBrandWidget from './components/LTAIBrandWidget'
 import NotificationToast from './components/NotificationToast'
 import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
 
-function App() {
+function App({ currentPath = '/' }) {
   const [theme, setTheme] = useState('dark');
   const [sparkColor, setSparkColor] = useState('#B8B5E8');
-  const [activeView, setActiveView] = useState('home');
   const [notification, setNotification] = useState('');
   const [showNotification, setShowNotification] = useState(false);
+
+  // Determine active view from current path
+  const getActiveView = () => {
+    if (currentPath === '/mission') return 'mission';
+    if (currentPath === '/events') return 'events';
+    return 'home';
+  };
+  
+  const activeView = getActiveView();
 
   const socials = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thomasbustos/' },
@@ -74,19 +81,19 @@ function App() {
       icon: <VscHome size={24} />,
       label: 'Home',
       view: 'home',
-      onClick: () => setActiveView('home')
+      onClick: () => window.navigate('/')
     },
     {
       icon: <VscTelescope size={24} />,
       label: 'Mission',
       view: 'mission',
-      onClick: () => setActiveView('mission')
+      onClick: () => window.navigate('/mission')
     },
     {
       icon: <VscCalendar size={24} />,
       label: 'Events',
       view: 'events',
-      onClick: () => setActiveView('events')
+      onClick: () => window.navigate('/events')
     },
     {
       icon: <VscBell size={24} />,
@@ -107,16 +114,10 @@ function App() {
       extraScale={1.2}
     >
       <BackgroundImage theme={theme} />
-      {activeView === 'newsletter' ? (
-        <ComingSoon
-          onReturnHome={() => setActiveView('home')}
-          onThemeChange={handleThemeChange}
-        />
-      ) : (
-        <div className="container">
-          {/* Foreground layer - content */}
-          <main className="content-layer">
-            <ThemeToggle onThemeChange={handleThemeChange} />
+      <div className="container">
+        {/* Foreground layer - content */}
+        <main className="content-layer">
+          <ThemeToggle onThemeChange={handleThemeChange} />
 
             {activeView === 'home' && (
               <div className="content-card">
@@ -243,17 +244,16 @@ function App() {
             )}
           </main>
 
-          <Dock
-            items={dockItems}
-            activeView={activeView}
-            panelHeight={68}
-            baseItemSize={50}
-            magnification={70}
-          />
-          
-          <LTAIBrandWidget onNotify={showNotificationMessage} />
-        </div>
-      )}
+        <Dock
+          items={dockItems}
+          activeView={activeView}
+          panelHeight={68}
+          baseItemSize={50}
+          magnification={70}
+        />
+        
+        <LTAIBrandWidget onNotify={showNotificationMessage} />
+      </div>
 
       <NotificationToast 
         message={notification}

@@ -31,8 +31,11 @@ function Router() {
 
     switch (currentPath) {
       case '/':
+      case '/mission':
+      case '/events':
+        return <App currentPath={currentPath} />
       default:
-        return <App />
+        return <App currentPath="/" />
     }
   }
 
