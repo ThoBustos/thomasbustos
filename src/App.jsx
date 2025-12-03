@@ -9,7 +9,7 @@ import LTAIBrandWidget from './components/LTAIBrandWidget'
 import NotificationToast from './components/NotificationToast'
 import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
 
-function App({ currentPath = '/' }) {
+function App({ currentPath = '/', navigate }) {
   const [theme, setTheme] = useState('dark');
   const [sparkColor, setSparkColor] = useState('#B8B5E8');
   const [notification, setNotification] = useState('');
@@ -81,25 +81,25 @@ function App({ currentPath = '/' }) {
       icon: <VscHome size={24} />,
       label: 'Home',
       view: 'home',
-      onClick: () => window.navigate('/')
+      onClick: () => (navigate || window.navigate)('/')
     },
     {
       icon: <VscTelescope size={24} />,
       label: 'Mission',
       view: 'mission',
-      onClick: () => window.navigate('/mission')
+      onClick: () => (navigate || window.navigate)('/mission')
     },
     {
       icon: <VscCalendar size={24} />,
       label: 'Events',
       view: 'events',
-      onClick: () => window.navigate('/events')
+      onClick: () => (navigate || window.navigate)('/events')
     },
     {
       icon: <VscBell size={24} />,
       label: 'LTAI Daily News',
       view: 'newsletter',
-      onClick: () => window.navigate('/newsletter')
+      onClick: () => (navigate || window.navigate)('/newsletter')
     },
   ];
 

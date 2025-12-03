@@ -26,16 +26,16 @@ function Router() {
   const renderCurrentPage = () => {
     if (currentPath.startsWith('/newsletter')) {
       // Newsletter routes (both /newsletter and /newsletter/)
-      return <Newsletter />
+      return <Newsletter navigate={navigate} />
     }
 
     switch (currentPath) {
       case '/':
       case '/mission':
       case '/events':
-        return <App currentPath={currentPath} />
+        return <App currentPath={currentPath} navigate={navigate} />
       default:
-        return <App currentPath="/" />
+        return <App currentPath="/" navigate={navigate} />
     }
   }
 

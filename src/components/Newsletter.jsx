@@ -3,7 +3,7 @@ import '../Newsletter.css';
 import ThemeToggle from '../ThemeToggle';
 import BrandAvatar from './BrandAvatar';
 
-function Newsletter() {
+function Newsletter({ navigate }) {
   const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
@@ -20,7 +20,11 @@ function Newsletter() {
   };
 
   const handleReturnHome = () => {
-    window.navigate('/');
+    if (navigate) {
+      navigate('/');
+    } else if (window.navigate) {
+      window.navigate('/');
+    }
   };
 
   return (
