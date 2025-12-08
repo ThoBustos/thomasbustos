@@ -1,14 +1,19 @@
 /* CSS Variables for theming */
 :root[data-theme="dark"] {
-  --bg-color: #0B102C;
+  --bg-color: #4E4B93;
   --text-primary: #F2E7C9;
   --text-secondary: #F2E7C9;
 
   /* Glass Card Styles */
   --card-bg: rgba(20, 25, 60, 0.6);
   --card-bg-hover: rgba(20, 25, 60, 0.8);
-  --card-border: rgba(242, 231, 201, 0.2);
+  --card-border: rgba(242, 231, 201, 0.3);
   --card-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Inverted Hover States */
+  --card-hover-bg-inverted: #F2E7C9;
+  --card-hover-text-inverted: #4E4B93;
+  --card-border-inverted: #F2E7C9;
 
   /* Bio Card - Inverted Pop */
   --bio-bg: #4E4B93;
@@ -51,9 +56,14 @@
   --card-bg: rgba(255, 255, 255, 0.2);
   /* More transparent */
   --card-bg-hover: rgba(255, 255, 255, 0.4);
-  --card-border: rgba(78, 75, 147, 0.2);
+  --card-border: rgba(78, 75, 147, 0.3);
   /* Purple border */
   --card-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Inverted Hover States */
+  --card-hover-bg-inverted: #4E4B93;
+  --card-hover-text-inverted: #F2E7C9;
+  --card-border-inverted: #4E4B93;
 
   /* Bio Card - Inverted Pop */
   --bio-bg: #F2E7C9;
@@ -548,4 +558,27 @@ body {
     font-size: 0.875rem;
     padding: 0.375rem 0.75rem;
   }
+}
+
+/* Newsletter Page Overrides */
+/* These overrides allow the newsletter to have different layout behavior */
+body.newsletter-page {
+  overflow: auto !important;
+  height: auto !important;
+  position: static !important;
+}
+
+body.newsletter-page .container {
+  display: block !important;
+  height: auto !important;
+  grid-template-rows: unset !important;
+}
+
+body.newsletter-page .content-layer {
+  display: block !important;
+  padding: 0 !important;
+  justify-content: unset !important;
+  align-items: unset !important;
+  z-index: auto !important;
+  gap: unset !important;
 }

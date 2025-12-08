@@ -1,0 +1,212 @@
+/* Newsletter Issue Card Zone - Creates hover areas outside card */
+.issue-card-zone {
+  position: relative;
+  padding: 0 60px; /* Create hover zones on left/right */
+}
+
+/* Newsletter Issue Card */
+.issue-card {
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--card-shadow);
+  overflow: visible;
+}
+
+.issue-card:hover {
+  background: var(--card-hover-bg-inverted);
+  color: var(--card-hover-text-inverted);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--card-shadow);
+  border-color: var(--card-border-inverted);
+}
+
+.issue-card:hover .issue-title {
+  color: var(--card-hover-text-inverted);
+}
+
+.issue-card:hover .issue-date {
+  color: var(--card-hover-text-inverted);
+  opacity: 0.9;
+}
+
+.issue-card:hover .issue-summary,
+.issue-card:hover .issue-meta {
+  color: var(--card-hover-text-inverted);
+  opacity: 0.8;
+}
+
+.issue-main {
+  position: relative;
+  z-index: 1;
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.issue-date {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.issue-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.meta-separator {
+  opacity: 0.5;
+}
+
+.issue-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0 0 0.75rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.issue-summary {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Arrow removed for cleaner hover state */
+
+/* External Tags - Positioned outside card on right */
+.tags-external {
+  position: absolute;
+  right: -50px; /* Position outside card */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0;
+  animation: fadeInRight 0.3s ease forwards;
+}
+
+.tags-external-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.issue-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.issue-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Animation for external tags */
+@keyframes fadeInRight {
+  from { 
+    opacity: 0; 
+    transform: translateY(-50%) translateX(-20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .issue-card-zone {
+    padding: 0 40px; /* Reduce hover zones on mobile */
+  }
+  
+  .issue-card {
+    padding: 1.25rem;
+  }
+  
+  .issue-title {
+    font-size: 1.125rem;
+  }
+  
+  .issue-summary {
+    font-size: 0.875rem;
+  }
+  
+  .tags-external {
+    right: -35px; /* Adjust position for mobile */
+  }
+  
+  .issue-tag {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .issue-card-zone {
+    padding: 0 20px; /* Further reduce on small screens */
+  }
+  
+  .issue-card {
+    padding: 1rem;
+  }
+  
+  .issue-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .issue-title {
+    font-size: 1rem;
+    -webkit-line-clamp: 3;
+  }
+  
+  .issue-summary {
+    font-size: 0.8125rem;
+  }
+  
+  .tags-external {
+    right: -15px; /* Close to edge on small screens */
+  }
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import App from './App'
 import Newsletter from './components/Newsletter'
-// import NewsletterArchive from './components/NewsletterArchive'
+import NewsletterArchive from './components/NewsletterArchive'
 
 function Router() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
@@ -15,6 +15,15 @@ function Router() {
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
+  // Manage body classes based on current route
+  useEffect(() => {
+    if (currentPath.startsWith('/newsletter')) {
+      document.body.classList.add('newsletter-page')
+    } else {
+      document.body.classList.remove('newsletter-page')
+    }
+  }, [currentPath])
+
   const navigate = (path) => {
     window.history.pushState({}, '', path)
     setCurrentPath(path)
@@ -26,7 +35,7 @@ function Router() {
   const renderCurrentPage = () => {
     if (currentPath.startsWith('/newsletter')) {
       // Newsletter routes (both /newsletter and /newsletter/)
-      return <Newsletter navigate={navigate} />
+      return <NewsletterArchive navigate={navigate} />
     }
 
     switch (currentPath) {

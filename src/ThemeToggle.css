@@ -46,6 +46,27 @@
   }
 }
 
+/* Override fixed positioning when used in header context */
+.newsletter-main-header .header-theme-toggle.theme-toggle {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-main-header .header-theme-toggle.theme-toggle:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Also add newsletter page specific overrides */
+body.newsletter-page .theme-toggle {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+}
+
 @media (max-width: 480px) {
   .theme-toggle {
     top: 1rem;

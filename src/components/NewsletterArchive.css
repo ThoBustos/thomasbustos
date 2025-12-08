@@ -1,0 +1,45 @@
+/* Newsletter Archive Page */
+.newsletter-archive-page {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  position: relative;
+  padding-top: 120px; /* Push content below header */
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  scroll-padding-top: 0;
+}
+
+/* Theme toggle now integrated in header */
+
+/* Ensure content is scrollable */
+.newsletter-archive-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem; /* Reduced top padding since page has it */
+  min-height: calc(100vh - 120px);
+}
+
+.issues-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .newsletter-archive-content {
+    padding: 6rem 1.5rem 3rem;
+  }
+  
+  .issues-timeline {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-archive-content {
+    padding: 5rem 1rem 2rem;
+  }
+}
