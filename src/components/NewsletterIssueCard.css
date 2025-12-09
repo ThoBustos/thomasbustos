@@ -104,59 +104,63 @@
 
 /* Arrow removed for cleaner hover state */
 
-/* External Tags - Positioned outside card on right */
+/* External Tags - Floating cloud layout */
 .tags-external {
   position: absolute;
-  right: -50px; /* Position outside card */
-  top: 50%;
-  transform: translateY(-50%);
+  left: 100%; /* Start from right edge of card */
+  top: 0;
+  width: 280px; /* Fixed width for consistency */
+  min-height: 100%; /* Match card height */
+  padding-left: 20px; /* Gap from card */
+  display: flex;
+  align-items: center;
   z-index: 10;
+  pointer-events: none; /* Make tags non-clickable */
   opacity: 0;
-  animation: fadeInRight 0.3s ease forwards;
+  animation: fadeInLeft 0.3s ease forwards;
 }
 
 .tags-external-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  align-items: flex-start;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 
 .issue-tag {
-  padding: 0.25rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px; /* More rounded */
+  font-size: 0.65rem;
+  font-weight: 600;
   text-transform: lowercase;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   white-space: nowrap;
   flex-shrink: 0;
-}
-
-.issue-tag:hover {
-  transform: scale(1.05);
+  cursor: default; /* Indicate non-clickable */
+  pointer-events: none; /* Disable clicking */
 }
 
 /* Animation for external tags */
-@keyframes fadeInRight {
+@keyframes fadeInLeft {
   from { 
     opacity: 0; 
-    transform: translateY(-50%) translateX(-20px);
+    transform: translateX(20px);
   }
   to { 
     opacity: 1; 
-    transform: translateY(-50%) translateX(0);
+    transform: translateX(0);
   }
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - Switch to overlay for better space usage */
 @media (max-width: 768px) {
   .issue-card-zone {
-    padding: 0 40px; /* Reduce hover zones on mobile */
+    padding: 0; /* Remove side padding on mobile */
   }
   
   .issue-card {
@@ -172,18 +176,35 @@
   }
   
   .tags-external {
-    right: -35px; /* Adjust position for mobile */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%; /* Below the card */
+    width: auto;
+    min-height: auto;
+    padding: 1rem;
+    background: var(--card-hover-bg-inverted);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 0 0 16px 16px;
+    border-top: 1px solid var(--card-border-inverted);
+  }
+  
+  .tags-external-container {
+    justify-content: center; /* Center tags on mobile */
+    max-width: none;
   }
   
   .issue-tag {
-    padding: 0.25rem 0.625rem;
-    font-size: 0.6875rem;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.6rem;
   }
 }
 
+/* Very small screens: Limit visible tags and improve layout */
 @media (max-width: 480px) {
   .issue-card-zone {
-    padding: 0 20px; /* Further reduce on small screens */
+    padding: 0; /* No side padding on small screens */
   }
   
   .issue-card {
@@ -207,6 +228,28 @@
   }
   
   .tags-external {
-    right: -15px; /* Close to edge on small screens */
+    padding: 0.75rem;
+  }
+  
+  .tags-external-container {
+    overflow: hidden;
+    max-height: 60px; /* Limit height to prevent excessive scrolling */
+    position: relative;
+  }
+  
+  .tags-external-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--card-hover-bg-inverted));
+    pointer-events: none;
+  }
+  
+  .issue-tag {
+    font-size: 0.55rem;
+    padding: 0.2rem 0.6rem;
   }
 }
