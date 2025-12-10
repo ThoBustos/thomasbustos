@@ -1,24 +1,26 @@
 /* Newsletter Archive Page */
 .newsletter-archive-page {
-  min-height: 100vh;
   height: 100vh;
   background-color: var(--bg-color);
   color: var(--text-primary);
-  position: relative;
-  padding-top: 120px; /* Push content below header */
-  scroll-behavior: smooth;
-  overflow-y: auto;
-  scroll-padding-top: 0;
+  overflow: hidden; /* Prevent page-level scrolling */
 }
 
-/* Theme toggle now integrated in header */
+/* Layout Container - CSS Grid */
+.newsletter-layout-container {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Header takes needed space, content takes remaining */
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto; /* Scrollbar at viewport edge */
+  scroll-behavior: smooth;
+}
 
-/* Ensure content is scrollable */
+/* Content Area - Full Width with Centered Padding */
 .newsletter-archive-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 2rem 4rem; /* Reduced top padding since page has it */
-  min-height: calc(100vh - 120px);
+  padding: 2rem calc((100vw - 800px) / 2) 4rem; /* Center content with side padding */
+  width: 100%;
+  min-width: 800px; /* Ensure minimum content width */
 }
 
 .issues-timeline {
@@ -30,7 +32,8 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .newsletter-archive-content {
-    padding: 6rem 1.5rem 3rem;
+    padding: 1.5rem 1.5rem 3rem; /* Uniform padding for mobile */
+    min-width: unset; /* Remove min-width constraint on mobile */
   }
   
   .issues-timeline {
@@ -40,6 +43,7 @@
 
 @media (max-width: 480px) {
   .newsletter-archive-content {
-    padding: 5rem 1rem 2rem;
+    padding: 1rem 1rem 2rem; /* Smaller padding for very small screens */
+    min-width: unset; /* Remove min-width constraint on mobile */
   }
 }

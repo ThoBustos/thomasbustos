@@ -106,24 +106,26 @@ function NewsletterArchive({ navigate }) {
 
   return (
     <div className="newsletter-archive-page">
-      <NewsletterHeader 
-        onReturnHome={handleReturnHome} 
-        onThemeChange={handleThemeChange}
-      />
-      
-      <main className="newsletter-archive-content">
-        <div className="issues-timeline">
-          {issues.map(issue => (
-            <NewsletterIssueCard
-              key={issue.id}
-              issue={issue}
-              onClick={() => handleIssueClick(issue.id)}
-              onHover={handleCardHover}
-              isHovered={hoveredCard === issue.id}
-            />
-          ))}
-        </div>
-      </main>
+      <div className="newsletter-layout-container">
+        <NewsletterHeader 
+          onReturnHome={handleReturnHome} 
+          onThemeChange={handleThemeChange}
+        />
+        
+        <main className="newsletter-archive-content">
+          <div className="issues-timeline">
+            {issues.map(issue => (
+              <NewsletterIssueCard
+                key={issue.id}
+                issue={issue}
+                onClick={() => handleIssueClick(issue.id)}
+                onHover={handleCardHover}
+                isHovered={hoveredCard === issue.id}
+              />
+            ))}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
