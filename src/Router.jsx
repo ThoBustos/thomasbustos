@@ -45,6 +45,7 @@ function Router() {
       case ROUTES.HOME.path:
       case ROUTES.MISSION.path:
       case ROUTES.EVENTS.path:
+      case ROUTES.LIBRARY.path:
         return <App currentPath={currentPath} />;
       default:
         return <App currentPath={ROUTES.HOME.path} />;

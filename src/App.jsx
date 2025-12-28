@@ -14,6 +14,7 @@ import NotificationToast from './components/ui/NotificationToast/NotificationToa
 import HomePage from './pages/HomePage';
 import MissionPage from './pages/MissionPage';
 import EventsPage from './pages/EventsPage';
+import LibraryPage from './pages/LibraryPage';
 
 function App({ currentPath = '/' }) {
   const { theme, setTheme, sparkColor, notification } = useApp();
@@ -39,6 +40,7 @@ function App({ currentPath = '/' }) {
           {activeView === 'home' && <HomePage />}
           {activeView === 'mission' && <MissionPage />}
           {activeView === 'events' && <EventsPage />}
+          {activeView === 'library' && <LibraryPage />}
         </main>
 
         <Dock
