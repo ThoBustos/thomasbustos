@@ -1,0 +1,49 @@
+/* Newsletter Page */
+.newsletter-page {
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow: hidden; /* Prevent page-level scrolling */
+}
+
+/* Layout Container - CSS Grid */
+.newsletter-layout-container {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Header takes needed space, content takes remaining */
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto; /* Scrollbar at viewport edge */
+  scroll-behavior: smooth;
+}
+
+/* Content Area - Full Width with Centered Padding */
+.newsletter-page-content {
+  padding: 2rem calc((100vw - 800px) / 2) 4rem; /* Center content with side padding */
+  width: 100%;
+  min-width: 800px; /* Ensure minimum content width */
+}
+
+.issues-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .newsletter-page-content {
+    padding: 1.5rem 1.5rem 3rem; /* Uniform padding for mobile */
+    min-width: unset; /* Remove min-width constraint on mobile */
+  }
+
+  .issues-timeline {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-page-content {
+    padding: 1rem 1rem 2rem; /* Smaller padding for very small screens */
+    min-width: unset; /* Remove min-width constraint on mobile */
+  }
+}
