@@ -1,54 +1,63 @@
-import { useState, useEffect } from 'react'
-import App from './App'
-import Newsletter from './components/Newsletter'
-import NewsletterArchive from './components/NewsletterArchive'
+// src/Router.jsx
+import { useState, useEffect } from 'react';
+import { AppProvider } from './context/AppContext';
+import { NavigationProvider } from './context/NavigationContext';
+import App from './App';
+import NewsletterPage from './pages/NewsletterPage';
+import { ROUTES } from './config/routes';
 
 function Router() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname)
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname)
-    }
+      setCurrentPath(window.location.pathname);
+    };
 
-    window.addEventListener('popstate', handlePopState)
-    return () => window.removeEventListener('popstate', handlePopState)
-  }, [])
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Manage body classes based on current route
   useEffect(() => {
-    if (currentPath.startsWith('/newsletter')) {
-      document.body.classList.add('newsletter-page')
+    if (currentPath.startsWith(ROUTES.NEWSLETTER.path)) {
+      document.body.classList.add('newsletter-page');
     } else {
-      document.body.classList.remove('newsletter-page')
+      document.body.classList.remove('newsletter-page');
     }
-  }, [currentPath])
+  }, [currentPath]);
 
   const navigate = (path) => {
-    window.history.pushState({}, '', path)
-    setCurrentPath(path)
-  }
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+  };
 
-  // Make navigate function available globally for easy navigation
-  window.navigate = navigate
+  // Make navigate function available globally for backward compatibility
+  // TODO: Remove this once all components use context
+  window.navigate = navigate;
 
   const renderCurrentPage = () => {
-    if (currentPath.startsWith('/newsletter')) {
-      // Newsletter routes (both /newsletter and /newsletter/)
-      return <NewsletterArchive navigate={navigate} />
+    if (currentPath.startsWith(ROUTES.NEWSLETTER.path)) {
+      return <NewsletterPage />;
     }
 
     switch (currentPath) {
-      case '/':
-      case '/mission':
-      case '/events':
-        return <App currentPath={currentPath} navigate={navigate} />
+      case ROUTES.HOME.path:
+      case ROUTES.MISSION.path:
+      case ROUTES.EVENTS.path:
+        return <App currentPath={currentPath} />;
       default:
-        return <App currentPath="/" navigate={navigate} />
+        return <App currentPath={ROUTES.HOME.path} />;
     }
-  }
+  };
 
-  return renderCurrentPage()
+  return (
+    <AppProvider>
+      <NavigationProvider navigate={navigate}>
+        {renderCurrentPage()}
+      </NavigationProvider>
+    </AppProvider>
+  );
 }
 
-export default Router
+export default Router;

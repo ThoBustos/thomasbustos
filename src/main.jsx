@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Router from './Router.jsx'
 import './index.css'
-import { initGoogleAnalytics } from './analytics.js'
+import { initGoogleAnalytics } from './utils/analytics.js'
 
 // Initialize Google Analytics
 initGoogleAnalytics()
