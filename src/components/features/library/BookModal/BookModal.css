@@ -1,0 +1,199 @@
+/* src/components/features/library/BookModal/BookModal.css */
+
+.book-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.book-modal {
+  background: var(--bio-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--social-border);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 50px var(--card-shadow), 6px 6px 0px var(--title-shadow);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-modal .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--bio-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.book-modal .modal-close:hover {
+  background: var(--card-bg-hover);
+}
+
+/* Content Layout */
+.book-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Cover */
+.book-modal-cover {
+  width: 160px;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 6px 6px 0px var(--title-shadow);
+}
+
+.book-modal-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-hover) 100%);
+}
+
+.modal-cover-placeholder .placeholder-icon {
+  opacity: 0.6;
+  color: var(--text-primary);
+}
+
+/* Info */
+.book-modal-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.book-modal-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bio-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.book-modal-author {
+  font-size: 1rem;
+  color: var(--bio-text);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Meta (year + status) */
+.book-modal-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.book-modal-year {
+  font-size: 0.9rem;
+  color: var(--bio-text);
+  opacity: 0.6;
+}
+
+.book-modal-status {
+  background: var(--social-hover-bg);
+  color: var(--social-hover-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* Tags */
+.book-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.book-modal-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--social-text);
+  background: var(--social-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.book-modal-tag:hover {
+  background: var(--social-hover-bg);
+  color: var(--social-hover-text);
+  border-color: var(--social-hover-bg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .book-modal {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .book-modal-cover {
+    width: 140px;
+  }
+
+  .book-modal-title {
+    font-size: 1.25rem;
+  }
+}
