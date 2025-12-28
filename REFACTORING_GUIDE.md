@@ -62,16 +62,22 @@ src/
 ├── ClickSpark.jsx             # Animation wrapper
 ├── ThemeToggle.jsx            # Theme switcher
 ├── TextType.jsx               # Typing animation
+├── PixelBlast.jsx             # Pixel animation effect
+├── PixelBlast.css             # Pixel animation styles
 ├── components/
 │   ├── Dock/
 │   │   ├── Dock.jsx
 │   │   └── Dock.css
 │   ├── BackgroundImage.jsx
 │   ├── LTAIBrandWidget.jsx
+│   ├── BrandAvatar.jsx        # Avatar component for branding
+│   ├── BrandAvatar.css
 │   ├── NotificationToast.jsx
 │   ├── NewsletterArchive.jsx  # Main newsletter page component
 │   ├── NewsletterHeader.jsx   # Used by NewsletterArchive
 │   ├── NewsletterIssueCard.jsx # Used by NewsletterArchive
+│   ├── SubscriptionModal.jsx  # Newsletter subscription modal
+│   ├── SubscriptionModal.css
 │   └── Newsletter.jsx         # UNUSED - imported but never rendered
 └── analytics.js
 ```
@@ -87,6 +93,8 @@ src/
 6. **Constants scattered** - Dock items, social links defined inline
 7. **Unused component** - `Newsletter.jsx` is imported but never used
 8. **Naming confusion** - `NewsletterArchive` suggests it's an archive, but it's actually the main newsletter page
+9. **Spark color initialization bug** - `sparkColor` initializes to `#B8B5E8` (line 14) but theme-based colors are `#F2E7C9` (dark) and `#4E4B93` (light). This causes a flash of wrong color on initial load. Will be fixed by the `useTheme` hook.
+10. **Hardcoded data** - Mock newsletter issues and events data are embedded in components instead of separate data files
 
 ---
 
@@ -124,14 +132,20 @@ src/
 │       │   ├── NewsletterHeader/
 │       │   │   ├── NewsletterHeader.jsx
 │       │   │   └── NewsletterHeader.css
-│       │   └── NewsletterIssueCard/
-│       │       ├── NewsletterIssueCard.jsx
-│       │       └── NewsletterIssueCard.css
+│       │   ├── NewsletterIssueCard/
+│       │   │   ├── NewsletterIssueCard.jsx
+│       │   │   └── NewsletterIssueCard.css
+│       │   └── SubscriptionModal/
+│       │       ├── SubscriptionModal.jsx
+│       │       └── SubscriptionModal.css
 │       │
 │       └── brand/
-│           └── LTAIBrandWidget/
-│               ├── LTAIBrandWidget.jsx
-│               └── LTAIBrandWidget.css
+│           ├── LTAIBrandWidget/
+│           │   ├── LTAIBrandWidget.jsx
+│           │   └── LTAIBrandWidget.css
+│           └── BrandAvatar/
+│               ├── BrandAvatar.jsx
+│               └── BrandAvatar.css
 │
 ├── pages/                      # Page-level components (routes)
 │   ├── HomePage.jsx
@@ -157,11 +171,17 @@ src/
 ├── utils/                      # Utility functions
 │   └── analytics.js            # Moved from src/analytics.js
 │
+├── data/                       # Static data files
+│   ├── newsletterIssues.js     # Newsletter mock data
+│   └── events.js               # Events data
+│
 └── animations/                 # Animation components
     ├── ClickSpark.jsx
     ├── ClickSpark.css
     ├── TextType.jsx
-    └── TextType.css
+    ├── TextType.css
+    ├── PixelBlast.jsx
+    └── PixelBlast.css
 ```
 
 ---
@@ -174,11 +194,13 @@ src/
 3. Move utilities to `utils/` folder
 4. Update initial import paths
 
-### Phase 2: Extract Configuration
+### Phase 2: Extract Configuration & Data
 1. Extract dock items to `config/dockItems.js`
 2. Extract social links to `config/socialLinks.js`
 3. Extract route definitions to `config/routes.js`
-4. Update route title from "Newsletter Archive" to "LTAI Daily News"
+4. Extract newsletter issues to `data/newsletterIssues.js`
+5. Extract events data to `data/events.js`
+6. Update route title from "Newsletter Archive" to "LTAI Daily News"
 
 ### Phase 3: Create Custom Hooks
 1. Create `hooks/useTheme.js` hook
@@ -282,11 +304,14 @@ mkdir -p src/components/layout/BackgroundImage
 mkdir -p src/components/layout/AppLayout
 mkdir -p src/components/features/newsletter/NewsletterHeader
 mkdir -p src/components/features/newsletter/NewsletterIssueCard
+mkdir -p src/components/features/newsletter/SubscriptionModal
 mkdir -p src/components/features/brand/LTAIBrandWidget
+mkdir -p src/components/features/brand/BrandAvatar
 mkdir -p src/pages
 mkdir -p src/hooks
 mkdir -p src/context
 mkdir -p src/config
+mkdir -p src/data
 mkdir -p src/utils
 mkdir -p src/animations
 ```
@@ -305,8 +330,8 @@ mkdir -p src/animations
 - `src/ClickSpark.jsx` → `src/animations/ClickSpark.jsx`
 - `src/TextType.jsx` → `src/animations/TextType.jsx`
 - `src/TextType.css` → `src/animations/TextType.css`
-- `src/PixelBlast.jsx` → `src/animations/PixelBlast.jsx` (if exists)
-- `src/PixelBlast.css` → `src/animations/PixelBlast.css` (if exists)
+- `src/PixelBlast.jsx` → `src/animations/PixelBlast.jsx`
+- `src/PixelBlast.css` → `src/animations/PixelBlast.css`
 
 **Files to Update:**
 - `src/App.jsx` - Update import: `import ClickSpark from './animations/ClickSpark'`
@@ -475,6 +500,130 @@ export const getActiveView = (currentPath) => {
 ```
 
 **Why:** Centralizes routing logic, makes route changes easier
+
+---
+
+#### 4.4: Create `src/data/newsletterIssues.js`
+
+**File to Create:**
+```javascript
+// src/data/newsletterIssues.js
+/**
+ * Newsletter issues mock data
+ * TODO: Replace with API call when backend is ready
+ */
+export const NEWSLETTER_ISSUES = [
+  {
+    id: 1,
+    date: 'Dec 04',
+    title: "OpenRouter's State of AI - An Empirical 100 Trillion Token Study",
+    summary: "OpenRouter released comprehensive usage data showing 7 trillion tokens weekly. Key insights into model preferences and usage patterns.",
+    tags: ['frontier', 'reasoning', 'coding', 'benchmarking', 'research', 'openai', 'microsoft', 'enterprise'],
+    sourceCount: 12,
+    readingTime: '8 min'
+  },
+  {
+    id: 2,
+    date: 'Dec 03',
+    title: "not much happened today",
+    summary: "A quieter day in AI with incremental updates and community discussions.",
+    tags: ['daily', 'brief', 'community'],
+    sourceCount: 3,
+    readingTime: '2 min'
+  },
+  {
+    id: 3,
+    date: 'Dec 02',
+    title: "DeepSeek V3.2 & 3.2-Speciate: GPT5-High Open Weights, Context Management, Plans for Compute Scaling",
+    summary: "DeepSeek announces major model updates with improved context handling and scaling strategies.",
+    tags: ['models', 'open-source', 'performance', 'deepseek', 'scaling', 'inference', 'context', 'memory', 'optimization', 'weights'],
+    sourceCount: 8,
+    readingTime: '6 min'
+  },
+  {
+    id: 4,
+    date: 'Dec 01',
+    title: "Anthropic Claude 3.5 Sonnet - New Reasoning and Coding Capabilities",
+    summary: "Major updates to Claude 3.5 Sonnet with enhanced reasoning abilities and improved coding assistance.",
+    tags: ['anthropic', 'reasoning', 'coding', 'updates', 'claude', 'safety', 'alignment', 'capabilities'],
+    sourceCount: 15,
+    readingTime: '10 min'
+  },
+  {
+    id: 5,
+    date: 'Nov 30',
+    title: "Google Gemini Ultra - Multimodal AI Revolution",
+    summary: "Google unveils Gemini Ultra with unprecedented multimodal capabilities across text, image, and video understanding.",
+    tags: ['google', 'multimodal', 'vision', 'frontier', 'gemini', 'text', 'image', 'video', 'understanding', 'generative'],
+    sourceCount: 20,
+    readingTime: '12 min'
+  },
+  {
+    id: 6,
+    date: 'Nov 29',
+    title: "AI Training Infrastructure Revolution: New Compute Paradigms",
+    summary: "Revolutionary approaches to AI training infrastructure, featuring distributed computing, edge deployment, and cost optimization strategies.",
+    tags: ['training', 'infrastructure', 'compute', 'distributed', 'edge', 'optimization', 'hardware', 'gpu', 'cloud', 'aws', 'azure', 'cost', 'efficiency', 'scaling', 'deployment'],
+    sourceCount: 25,
+    readingTime: '15 min'
+  },
+  {
+    id: 7,
+    date: 'Nov 28',
+    title: "OpenAI GPT-4 Turbo Updates and API Changes",
+    summary: "Latest updates to GPT-4 Turbo including improved function calling, reduced latency, and new pricing models.",
+    tags: ['openai', 'gpt-4', 'api', 'updates', 'function-calling', 'latency', 'pricing', 'turbo'],
+    sourceCount: 18,
+    readingTime: '9 min'
+  }
+];
+```
+
+**Why:** Separates data from component logic, makes it easier to swap with API later
+
+**Files to Update Later:**
+- `src/pages/NewsletterPage.jsx` - Import from `../data/newsletterIssues` instead of hardcoding
+
+---
+
+#### 4.5: Create `src/data/events.js`
+
+**File to Create:**
+```javascript
+// src/data/events.js
+/**
+ * Events data
+ * Separate upcoming and past events for easy management
+ */
+export const UPCOMING_EVENTS = [
+  {
+    name: 'AI Engineer Europe',
+    url: 'https://www.ai.engineer/europe',
+    details: 'London, UK • Apr 8-10, 2026',
+    label: 'AI Engineer Europe'
+  }
+];
+
+export const PAST_EVENTS = [
+  {
+    name: 'NeurIPS 2025',
+    url: 'https://neurips.cc/',
+    details: 'San Diego, CA • Dec 2-7, 2025',
+    label: 'NeurIPS 2025'
+  },
+  {
+    name: 'AIE Code Summit',
+    url: 'https://www.ai.engineer/',
+    details: 'New York • Nov 20-22, 2025',
+    label: 'AIE Code Summit'
+  }
+];
+```
+
+**Why:** Centralizes event data, makes it easy to update events without touching component code
+
+**Files to Update Later:**
+- `src/pages/EventsPage.jsx` - Import from `../data/events` instead of hardcoding
 
 ---
 
@@ -687,7 +836,7 @@ export function NavigationProvider({ navigate, children }) {
 **File to Create:**
 ```javascript
 // src/context/AppContext.jsx
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { useTheme } from '../hooks/useTheme';
 import { useNotification } from '../hooks/useNotification';
 
@@ -907,34 +1056,11 @@ export default function MissionPage() {
 import { useState } from 'react';
 import TextType from '../animations/TextType';
 import { useAnalytics } from '../hooks/useAnalytics';
+import { UPCOMING_EVENTS, PAST_EVENTS } from '../data/events';
 
 export default function EventsPage() {
   const [eventsView, setEventsView] = useState('upcoming');
   const { trackSocialClick } = useAnalytics();
-
-  const upcomingEvents = [
-    {
-      name: 'AI Engineer Europe',
-      url: 'https://www.ai.engineer/europe',
-      details: 'London, UK • Apr 8-10, 2026',
-      label: 'AI Engineer Europe'
-    }
-  ];
-
-  const pastEvents = [
-    {
-      name: 'NeurIPS 2025',
-      url: 'https://neurips.cc/',
-      details: 'San Diego, CA • Dec 2-7, 2025',
-      label: 'NeurIPS 2025'
-    },
-    {
-      name: 'AIE Code Summit',
-      url: 'https://www.ai.engineer/',
-      details: 'New York • Nov 20-22, 2025',
-      label: 'AIE Code Summit'
-    }
-  ];
 
   return (
     <div className="content-card">
@@ -966,7 +1092,7 @@ export default function EventsPage() {
 
           {eventsView === 'upcoming' ? (
             <div className="events-list">
-              {upcomingEvents.map((event, index) => (
+              {UPCOMING_EVENTS.map((event, index) => (
                 <a
                   key={index}
                   href={event.url}
@@ -984,7 +1110,7 @@ export default function EventsPage() {
             </div>
           ) : (
             <div className="events-list">
-              {pastEvents.map((event, index) => (
+              {PAST_EVENTS.map((event, index) => (
                 <a
                   key={index}
                   href={event.url}
@@ -1369,6 +1495,9 @@ src/
 │   ├── dockItems.js
 │   ├── socialLinks.js
 │   └── routes.js
+├── data/
+│   ├── newsletterIssues.js  # Extracted from NewsletterArchive
+│   └── events.js            # Extracted from EventsPage
 ├── pages/
 │   ├── HomePage.jsx
 │   ├── MissionPage.jsx
@@ -1385,6 +1514,8 @@ src/
 src/ClickSpark.jsx → src/animations/ClickSpark.jsx
 src/TextType.jsx → src/animations/TextType.jsx
 src/TextType.css → src/animations/TextType.css
+src/PixelBlast.jsx → src/animations/PixelBlast.jsx
+src/PixelBlast.css → src/animations/PixelBlast.css
 src/analytics.js → src/utils/analytics.js
 src/ThemeToggle.jsx → src/components/ui/ThemeToggle/ThemeToggle.jsx
 src/ThemeToggle.css → src/components/ui/ThemeToggle/ThemeToggle.css
@@ -1395,7 +1526,9 @@ src/components/NewsletterArchive.jsx → src/pages/NewsletterPage.jsx (RENAMED a
 src/components/NewsletterArchive.css → src/pages/NewsletterPage.css (RENAMED and moved to pages/)
 src/components/NewsletterHeader.* → src/components/features/newsletter/NewsletterHeader/
 src/components/NewsletterIssueCard.* → src/components/features/newsletter/NewsletterIssueCard/
+src/components/SubscriptionModal.* → src/components/features/newsletter/SubscriptionModal/
 src/components/LTAIBrandWidget.* → src/components/features/brand/LTAIBrandWidget/
+src/components/BrandAvatar.* → src/components/features/brand/BrandAvatar/
 [DELETE] src/components/Newsletter.jsx (unused)
 [DELETE] src/Newsletter.css (if exists, unused)
 ```
