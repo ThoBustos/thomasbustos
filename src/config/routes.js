@@ -19,6 +19,11 @@ export const ROUTES = {
     view: 'events',
     title: 'Events'
   },
+  LIBRARY: {
+    path: '/library',
+    view: 'library',
+    title: 'Library'
+  },
   NEWSLETTER: {
     path: '/newsletter',
     view: 'newsletter',
@@ -34,6 +39,7 @@ export const ROUTES = {
 export const getActiveView = (currentPath) => {
   if (currentPath === ROUTES.MISSION.path) return ROUTES.MISSION.view;
   if (currentPath === ROUTES.EVENTS.path) return ROUTES.EVENTS.view;
+  if (currentPath === ROUTES.LIBRARY.path) return ROUTES.LIBRARY.view;
   if (currentPath.startsWith(ROUTES.NEWSLETTER.path)) return ROUTES.NEWSLETTER.view;
   return ROUTES.HOME.view;
 };
