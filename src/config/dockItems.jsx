@@ -1,5 +1,5 @@
 // src/config/dockItems.js
-import { VscHome, VscTelescope, VscCalendar, VscBell } from "react-icons/vsc";
+import { VscHome, VscTelescope, VscCalendar, VscBook, VscBell } from "react-icons/vsc";
 
 /**
  * Creates dock items configuration
@@ -30,6 +30,13 @@ export const createDockItems = (navigate) => {
       view: 'events',
       path: '/events',
       onClick: () => nav('/events')
+    },
+    {
+      icon: <VscBook size={24} />,
+      label: 'Library',
+      view: 'library',
+      path: '/library',
+      onClick: () => nav('/library')
     },
     {
       icon: <VscBell size={24} />,
