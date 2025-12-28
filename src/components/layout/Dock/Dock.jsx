@@ -109,7 +109,7 @@ export default function Dock({
     items,
     activeView,
     className = '',
-    spring = { mass: 0.1, stiffness: 150, damping: 12 },
+    spring = { mass: 0.1, stiffness: 150, damping: 2 },
     magnification = 70,
     distance = 200,
     panelHeight = 68,
