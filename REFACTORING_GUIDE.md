@@ -21,6 +21,15 @@ This guide documents a comprehensive refactoring of the React frontend to improv
 - **Maintainability** - Easier to find, understand, and modify code
 - **Scalability** - Structure that supports future growth
 
+### Important: Newsletter Component Changes
+
+**Before starting the refactoring, note these specific changes:**
+- `NewsletterArchive` → `NewsletterPage` (rename and move to `pages/` folder)
+- Remove `Newsletter.jsx` (unused - imported in Router but never rendered)
+- Keep `NewsletterHeader` and `NewsletterIssueCard` (move to `components/features/newsletter/`)
+- Update CSS class names: `newsletter-archive-*` → `newsletter-page-*`
+- All page components live in `pages/` folder (HomePage, MissionPage, EventsPage, NewsletterPage)
+
 ---
 
 ## Goals & Benefits
@@ -60,12 +69,14 @@ src/
 │   ├── BackgroundImage.jsx
 │   ├── LTAIBrandWidget.jsx
 │   ├── NotificationToast.jsx
-│   ├── NewsletterArchive.jsx
-│   ├── NewsletterHeader.jsx
-│   ├── NewsletterIssueCard.jsx
-│   └── Newsletter.jsx
+│   ├── NewsletterArchive.jsx  # Main newsletter page component
+│   ├── NewsletterHeader.jsx   # Used by NewsletterArchive
+│   ├── NewsletterIssueCard.jsx # Used by NewsletterArchive
+│   └── Newsletter.jsx         # UNUSED - imported but never rendered
 └── analytics.js
 ```
+
+**Note:** `Newsletter.jsx` is imported in `Router.jsx` but never actually used. Only `NewsletterArchive.jsx` is rendered for `/newsletter` routes.
 
 ### Current Issues
 1. **App.jsx is too large** - Contains routing logic, state management, and all page views
@@ -74,6 +85,8 @@ src/
 4. **Mixed concerns** - Business logic, UI, and routing all in one file
 5. **No clear feature boundaries** - Hard to know what belongs where
 6. **Constants scattered** - Dock items, social links defined inline
+7. **Unused component** - `Newsletter.jsx` is imported but never used
+8. **Naming confusion** - `NewsletterArchive` suggests it's an archive, but it's actually the main newsletter page
 
 ---
 
@@ -108,28 +121,23 @@ src/
 │   │
 │   └── features/               # Feature-specific components
 │       ├── newsletter/
-│       │   ├── NewsletterArchive/
-│       │   │   ├── NewsletterArchive.jsx
-│       │   │   └── NewsletterArchive.css
 │       │   ├── NewsletterHeader/
 │       │   │   ├── NewsletterHeader.jsx
 │       │   │   └── NewsletterHeader.css
-│       │   ├── NewsletterIssueCard/
-│       │   │   ├── NewsletterIssueCard.jsx
-│       │   │   └── NewsletterIssueCard.css
-│       │   └── Newsletter/
-│       │       └── Newsletter.jsx
+│       │   └── NewsletterIssueCard/
+│       │       ├── NewsletterIssueCard.jsx
+│       │       └── NewsletterIssueCard.css
 │       │
 │       └── brand/
 │           └── LTAIBrandWidget/
 │               ├── LTAIBrandWidget.jsx
 │               └── LTAIBrandWidget.css
 │
-├── pages/                      # Page-level components
+├── pages/                      # Page-level components (routes)
 │   ├── HomePage.jsx
 │   ├── MissionPage.jsx
 │   ├── EventsPage.jsx
-│   └── NewsletterPage.jsx      # Wrapper for NewsletterArchive
+│   └── NewsletterPage.jsx      # Renamed from NewsletterArchive
 │
 ├── hooks/                      # Custom React hooks
 │   ├── useTheme.js
@@ -162,40 +170,100 @@ src/
 
 ### Phase 1: Setup New Structure (Foundation)
 1. Create new directory structure
-2. Move existing files to new locations
-3. Update import paths
+2. Move animation components to `animations/` folder
+3. Move utilities to `utils/` folder
+4. Update initial import paths
 
 ### Phase 2: Extract Configuration
-1. Extract dock items to config
-2. Extract social links to config
-3. Extract route definitions
+1. Extract dock items to `config/dockItems.js`
+2. Extract social links to `config/socialLinks.js`
+3. Extract route definitions to `config/routes.js`
+4. Update route title from "Newsletter Archive" to "LTAI Daily News"
 
 ### Phase 3: Create Custom Hooks
-1. Create `useTheme` hook
-2. Create `useNotification` hook
-3. Create `useNavigation` hook
-4. Create `useAnalytics` hook
+1. Create `hooks/useTheme.js` hook
+2. Create `hooks/useNotification.js` hook
+3. Create `hooks/useNavigation.js` hook
+4. Create `hooks/useAnalytics.js` hook
 
 ### Phase 4: Implement Context API
-1. Create `AppContext` for theme and notifications
-2. Create `NavigationContext` for navigation
-3. Update components to use context
+1. Create `context/NavigationContext.jsx` for navigation
+2. Create `context/AppContext.jsx` for theme and notifications
+3. Update Router to wrap app with context providers
 
-### Phase 5: Extract Page Components
-1. Create `HomePage` component
-2. Create `MissionPage` component
-3. Create `EventsPage` component
-4. Refactor `App.jsx` to use pages
+### Phase 5: Extract Page Components from App.jsx
+1. Create `pages/HomePage.jsx` component
+2. Create `pages/MissionPage.jsx` component
+3. Create `pages/EventsPage.jsx` component
+4. Refactor `App.jsx` to use these page components
 
-### Phase 6: Reorganize Components
-1. Move components to new structure
-2. Update all import paths
-3. Verify everything works
+### Phase 6: Reorganize Newsletter Components
+1. **Rename and move NewsletterArchive to pages/ folder:**
+   - Rename `NewsletterArchive.jsx` → `NewsletterPage.jsx`
+   - Rename `NewsletterArchive.css` → `NewsletterPage.css`
+   - Move to `pages/NewsletterPage.jsx` (page-level component)
+   - Update component name from `NewsletterArchive` to `NewsletterPage`
+   - Update CSS class names: `newsletter-archive-*` → `newsletter-page-*`
+2. **Move supporting components:**
+   - Move `NewsletterHeader` to `components/features/newsletter/NewsletterHeader/`
+   - Move `NewsletterIssueCard` to `components/features/newsletter/NewsletterIssueCard/`
+3. **Remove unused component:**
+   - Delete `Newsletter.jsx` (unused - imported but never rendered)
+   - Delete `Newsletter.css` if it exists
+4. **Update imports:**
+   - Update Router.jsx to import NewsletterPage from `pages/NewsletterPage`
+   - Update NewsletterPage to use hooks (useTheme, useNavigation)
+   - Update relative imports in NewsletterPage for NewsletterHeader and NewsletterIssueCard
 
-### Phase 7: Cleanup
-1. Remove unused code
-2. Update documentation
-3. Final testing
+### Phase 7: Reorganize Other Components
+1. Move UI components to `components/ui/` (NotificationToast, ThemeToggle)
+2. Move layout components to `components/layout/` (Dock, BackgroundImage)
+3. Move brand components to `components/features/brand/` (LTAIBrandWidget)
+4. Update all import paths throughout the codebase
+
+### Phase 8: Cleanup and Finalization
+1. Remove unused code and files
+2. Verify all imports are correct
+3. Update any remaining references to `NewsletterArchive` → `NewsletterPage`
+4. **Update README.md with architecture section** (see below)
+5. Final testing and verification
+
+### README Architecture Section to Add
+
+Add this section after "Features" in README.md:
+
+```markdown
+## Project Structure
+
+```
+src/
+├── pages/              # Page-level components (routes)
+│   ├── HomePage.jsx
+│   ├── MissionPage.jsx
+│   ├── EventsPage.jsx
+│   └── NewsletterPage.jsx
+│
+├── components/         # Reusable components
+│   ├── ui/            # Generic UI (buttons, toasts, toggles)
+│   ├── layout/        # Layout components (Dock, BackgroundImage)
+│   └── features/      # Feature-specific components
+│       ├── newsletter/  # Newsletter components (Header, IssueCard)
+│       └── brand/       # Brand components (LTAIBrandWidget)
+│
+├── hooks/             # Custom React hooks
+├── context/           # React Context providers
+├── config/            # Configuration & constants
+├── utils/             # Utility functions
+└── animations/        # Animation components
+```
+
+**Key Concepts:**
+- **Pages** - Top-level route components
+- **Components** - Organized by purpose (ui, layout, features)
+- **Hooks** - Reusable logic (theme, navigation, notifications)
+- **Context** - Shared state management
+- **Config** - Constants and configuration
+```
 
 ---
 
@@ -212,10 +280,8 @@ mkdir -p src/components/ui/ThemeToggle
 mkdir -p src/components/layout/Dock
 mkdir -p src/components/layout/BackgroundImage
 mkdir -p src/components/layout/AppLayout
-mkdir -p src/components/features/newsletter/NewsletterArchive
 mkdir -p src/components/features/newsletter/NewsletterHeader
 mkdir -p src/components/features/newsletter/NewsletterIssueCard
-mkdir -p src/components/features/newsletter/Newsletter
 mkdir -p src/components/features/brand/LTAIBrandWidget
 mkdir -p src/pages
 mkdir -p src/hooks
@@ -391,7 +457,7 @@ export const ROUTES = {
   NEWSLETTER: {
     path: '/newsletter',
     view: 'newsletter',
-    title: 'Newsletter Archive'
+    title: 'LTAI Daily News'
   }
 };
 
@@ -451,7 +517,7 @@ export function useTheme() {
 
 **Files to Update Later:**
 - `src/App.jsx` - Replace theme state with `useTheme()`
-- `src/components/features/newsletter/NewsletterArchive.jsx` - Replace theme state with `useTheme()`
+- `src/components/features/newsletter/NewsletterPage/NewsletterPage.jsx` - Replace theme state with `useTheme()`
 
 ---
 
@@ -713,19 +779,24 @@ export function useApp() {
 #### 7.3: Move Feature Components
 
 **Files to Move:**
-- `src/components/NewsletterArchive.jsx` → `src/components/features/newsletter/NewsletterArchive/NewsletterArchive.jsx`
-- `src/components/NewsletterArchive.css` → `src/components/features/newsletter/NewsletterArchive/NewsletterArchive.css`
+- `src/components/NewsletterArchive.jsx` → `src/pages/NewsletterPage.jsx` (RENAME and move to pages/)
+- `src/components/NewsletterArchive.css` → `src/pages/NewsletterPage.css` (RENAME and move to pages/)
 - `src/components/NewsletterHeader.jsx` → `src/components/features/newsletter/NewsletterHeader/NewsletterHeader.jsx`
 - `src/components/NewsletterHeader.css` → `src/components/features/newsletter/NewsletterHeader/NewsletterHeader.css`
 - `src/components/NewsletterIssueCard.jsx` → `src/components/features/newsletter/NewsletterIssueCard/NewsletterIssueCard.jsx`
 - `src/components/NewsletterIssueCard.css` → `src/components/features/newsletter/NewsletterIssueCard/NewsletterIssueCard.css`
-- `src/components/Newsletter.jsx` → `src/components/features/newsletter/Newsletter/Newsletter.jsx`
 - `src/components/LTAIBrandWidget.jsx` → `src/components/features/brand/LTAIBrandWidget/LTAIBrandWidget.jsx`
 - `src/components/LTAIBrandWidget.css` → `src/components/features/brand/LTAIBrandWidget/LTAIBrandWidget.css`
 
+**Files to Remove:**
+- `src/components/Newsletter.jsx` - UNUSED, delete it
+- `src/Newsletter.css` - If exists, delete it (unused)
+
 **Files to Update:**
-- `src/Router.jsx` - Update NewsletterArchive import
-- `src/components/features/newsletter/NewsletterArchive/NewsletterArchive.jsx` - Update relative imports for NewsletterHeader and NewsletterIssueCard
+- `src/Router.jsx` - Update import to use NewsletterPage from `pages/NewsletterPage`
+- `src/pages/NewsletterPage.jsx` - Rename component from `NewsletterArchive` to `NewsletterPage`
+- `src/pages/NewsletterPage.jsx` - Update relative imports for NewsletterHeader and NewsletterIssueCard
+- `src/pages/NewsletterPage.css` - Update CSS class names from `newsletter-archive-*` to `newsletter-page-*`
 
 ---
 
@@ -941,22 +1012,18 @@ export default function EventsPage() {
 
 ---
 
-#### 8.4: Create `src/pages/NewsletterPage.jsx`
+#### 8.4: NewsletterPage (Created in Step 7.3)
 
-**File to Create:**
+**Note:** `NewsletterPage` is created in Step 7.3 by renaming and moving `NewsletterArchive` to `pages/NewsletterPage.jsx`.
+
+It's the main newsletter page component, consistent with other pages in the `pages/` folder:
+
 ```javascript
-// src/pages/NewsletterPage.jsx
-import NewsletterArchive from '../components/features/newsletter/NewsletterArchive/NewsletterArchive';
-import { useNavigation } from '../hooks/useNavigation';
-
-export default function NewsletterPage() {
-  const navigate = useNavigation();
-
-  return <NewsletterArchive navigate={navigate} />;
-}
+// In Router.jsx (Step 10)
+import NewsletterPage from './pages/NewsletterPage';
 ```
 
-**Why:** Provides consistent page structure, NewsletterArchive can focus on its content
+**Why:** All page-level components live in the `pages/` folder for consistency (HomePage, MissionPage, EventsPage, NewsletterPage).
 
 ---
 
@@ -1119,36 +1186,45 @@ export default Router;
 **Changes:**
 - Wraps app with context providers
 - Uses route constants
-- Uses NewsletterPage component
+- Uses NewsletterPage component directly (renamed from NewsletterArchive)
+- Removed unused Newsletter.jsx import
 - Still maintains window.navigate for backward compatibility (can remove later)
 
 ---
 
-### STEP 11: Update NewsletterArchive Component
+### STEP 11: Update NewsletterPage Component
 
-**Action:** Update to use hooks and context
+**Action:** Update to use hooks and context, and rename from NewsletterArchive
 
-**File to Update:** `src/components/features/newsletter/NewsletterArchive/NewsletterArchive.jsx`
+**File to Update:** `src/pages/NewsletterPage.jsx`
 
 **Key Changes:**
+- Rename component from `NewsletterArchive` to `NewsletterPage`
 - Import `useTheme` instead of managing theme state
 - Import `useNavigation` instead of receiving navigate as prop
-- Update relative imports for NewsletterHeader and NewsletterIssueCard
+- Update relative imports for NewsletterHeader and NewsletterIssueCard (now from pages/ folder)
+- Update CSS class names from `newsletter-archive-*` to `newsletter-page-*`
 
 **Updated Imports Section:**
 ```javascript
-import { useState, useEffect } from 'react';
-import { useTheme } from '../../../hooks/useTheme';
-import { useNavigation } from '../../../hooks/useNavigation';
-import './NewsletterArchive.css';
-import NewsletterIssueCard from '../NewsletterIssueCard/NewsletterIssueCard';
-import NewsletterHeader from '../NewsletterHeader/NewsletterHeader';
+import { useState } from 'react';
+import { useTheme } from '../hooks/useTheme';
+import { useNavigation } from '../hooks/useNavigation';
+import './NewsletterPage.css';
+import NewsletterIssueCard from '../components/features/newsletter/NewsletterIssueCard/NewsletterIssueCard';
+import NewsletterHeader from '../components/features/newsletter/NewsletterHeader/NewsletterHeader';
 ```
 
 **Updated Component:**
+- Rename function: `function NewsletterPage({ navigate })` → `function NewsletterPage()`
 - Replace `const [theme, setTheme] = useState(...)` with `const [theme, setTheme] = useTheme()`
 - Replace `navigate` prop with `const navigate = useNavigation()`
 - Update `handleReturnHome` to use `navigate` from hook
+- Update JSX class names: `newsletter-archive-page` → `newsletter-page`, `newsletter-archive-content` → `newsletter-page-content`
+
+**Updated CSS File:**
+- Rename file: `NewsletterArchive.css` → `NewsletterPage.css`
+- Update all class names: `.newsletter-archive-*` → `.newsletter-page-*`
 
 ---
 
@@ -1265,8 +1341,10 @@ export default function AppLayout({
    - Fix any broken import paths
 
 3. **Check for unused files**
+   - Remove `Newsletter.jsx` (unused component)
    - Remove any old component files that weren't moved
    - Remove duplicate files
+   - Verify all references to `NewsletterArchive` have been updated to `NewsletterPage`
 
 4. **Update any remaining hardcoded paths**
    - Search for hardcoded route strings
@@ -1295,7 +1373,7 @@ src/
 │   ├── HomePage.jsx
 │   ├── MissionPage.jsx
 │   ├── EventsPage.jsx
-│   └── NewsletterPage.jsx
+│   └── NewsletterPage.jsx  # Renamed from NewsletterArchive
 └── components/
     ├── layout/
     │   └── AppLayout/ (optional)
@@ -1313,26 +1391,31 @@ src/ThemeToggle.css → src/components/ui/ThemeToggle/ThemeToggle.css
 src/components/NotificationToast.* → src/components/ui/NotificationToast/
 src/components/Dock/ → src/components/layout/Dock/
 src/components/BackgroundImage.* → src/components/layout/BackgroundImage/
-src/components/NewsletterArchive.* → src/components/features/newsletter/NewsletterArchive/
+src/components/NewsletterArchive.jsx → src/pages/NewsletterPage.jsx (RENAMED and moved to pages/)
+src/components/NewsletterArchive.css → src/pages/NewsletterPage.css (RENAMED and moved to pages/)
 src/components/NewsletterHeader.* → src/components/features/newsletter/NewsletterHeader/
 src/components/NewsletterIssueCard.* → src/components/features/newsletter/NewsletterIssueCard/
-src/components/Newsletter.jsx → src/components/features/newsletter/Newsletter/
 src/components/LTAIBrandWidget.* → src/components/features/brand/LTAIBrandWidget/
+[DELETE] src/components/Newsletter.jsx (unused)
+[DELETE] src/Newsletter.css (if exists, unused)
 ```
 
 ### Files Updated (Modified)
 ```
+README.md                       # Added architecture section
 src/App.jsx                    # Major refactor - simplified
-src/Router.jsx                  # Added context providers, updated imports
+src/Router.jsx                  # Added context providers, updated imports, removed Newsletter.jsx import
 src/main.jsx                    # Updated analytics import path
-src/components/features/newsletter/NewsletterArchive/NewsletterArchive.jsx  # Use hooks
+src/pages/NewsletterPage.jsx  # Renamed from NewsletterArchive, moved to pages/, use hooks
+src/pages/NewsletterPage.css  # Renamed, moved to pages/, updated class names
 src/components/features/brand/LTAIBrandWidget/LTAIBrandWidget.jsx  # Use analytics hook
 [All component files with updated import paths]
 ```
 
 ### Files Removed
 ```
-None - we're moving, not deleting (for safety)
+src/components/Newsletter.jsx  # Unused - imported but never rendered
+src/Newsletter.css              # Unused (if exists)
 ```
 
 ---
@@ -1345,7 +1428,7 @@ After completing the refactoring, verify:
 - [ ] Home page loads and displays correctly
 - [ ] Mission page loads and displays correctly
 - [ ] Events page loads with tabs working
-- [ ] Newsletter archive page loads
+- [ ] Newsletter page loads (renamed from NewsletterArchive)
 - [ ] Navigation between pages works (Dock clicks)
 - [ ] Browser back/forward buttons work
 - [ ] Theme toggle works on all pages
