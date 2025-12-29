@@ -17,11 +17,6 @@ export default function BookCard({ book, onClick }) {
           <span className="reading-badge">Reading</span>
         )}
       </div>
-
-      <div className="book-info">
-        <h3 className="book-title">{book.title}</h3>
-        <p className="book-author">{book.author}</p>
-      </div>
     </div>
   );
 }
