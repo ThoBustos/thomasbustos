@@ -389,6 +389,50 @@ export const BOOKS = [
     isFavorite: false,
     year: 1994
   },
+  {
+    id: "godel-escher-bach",
+    title: "Gödel, Escher, Bach",
+    author: "Douglas Hofstadter",
+    cover: "/img/books/godel_escher_bach.jpg",
+    tags: ["cognition", "AI", "mathematics"],
+    category: "Science",
+    status: "read",
+    isFavorite: false,
+    year: 1979
+  },
+  {
+    id: "learning-python-design-patterns",
+    title: "Learning Python Design Patterns",
+    author: "Chetan Giridhar",
+    cover: "/img/books/learning_python_design_patterns.jpg",
+    tags: ["programming", "python", "design-patterns"],
+    category: "Science",
+    status: "read",
+    isFavorite: false,
+    year: 2016
+  },
+  {
+    id: "rlhf-book",
+    title: "The RLHF Book",
+    author: "Nathan Lambert",
+    cover: "/img/books/the_rlhf_book.webp",
+    tags: ["AI", "machine-learning", "RLHF"],
+    category: "Science",
+    status: "read",
+    isFavorite: false,
+    year: 2025
+  },
+  {
+    id: "little-book-of-deep-learning",
+    title: "The Little Book of Deep Learning",
+    author: "François Fleuret",
+    cover: "/img/books/the_little_book_of_deep_learning.jpg",
+    tags: ["AI", "deep-learning", "neural-networks"],
+    category: "Science",
+    status: "read",
+    isFavorite: false,
+    year: 2023
+  },
   // History (biographies)
   {
     id: "sapiens",
