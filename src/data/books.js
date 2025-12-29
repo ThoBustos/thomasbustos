@@ -163,7 +163,7 @@ export const BOOKS = [
     author: "Charlie Munger",
     cover: "/img/books/poor_charlie's_almanack.jpg",
     tags: ["investing", "mental-models", "wisdom"],
-    category: "Mind",
+    category: "Business",
     status: "read",
     isFavorite: false,
     year: 2005
@@ -440,8 +440,8 @@ export const BOOKS = [
     title: "The Alchemist",
     author: "Paulo Coelho",
     cover: "/img/books/the_alchemist.jpg",
-    tags: ["fiction", "fable", "journey"],
-    category: "Fiction",
+    tags: ["fable", "journey", "spirituality"],
+    category: "Mind",
     status: "read",
     isFavorite: false,
     year: 1988
@@ -511,6 +511,29 @@ export const BOOKS = [
     status: "read",
     isFavorite: false,
     year: 1979
+  },
+  {
+    id: "old-man-and-the-sea",
+    title: "The Old Man and the Sea",
+    author: "Ernest Hemingway",
+    cover: "/img/books/the_old_man_and_the_sea.jpg",
+    tags: ["fiction", "classic", "novella"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1952
+  },
+  // Currently Reading
+  {
+    id: "brief-history-of-time",
+    title: "A Brief History of Time",
+    author: "Stephen Hawking",
+    cover: "/img/books/a_brief_history_of_time.jpg",
+    tags: ["physics", "cosmology", "science"],
+    category: "Philosophy",
+    status: "reading",
+    isFavorite: false,
+    year: 1988
   }
 ];
 
