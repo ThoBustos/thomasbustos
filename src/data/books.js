@@ -372,8 +372,8 @@ export const BOOKS = [
     title: "Skin in the Game",
     author: "Nassim Nicholas Taleb",
     cover: "/img/books/skin_in_the_game.jpg",
-    tags: ["risk", "decision-making", "philosophy"],
-    category: "Philosophy",
+    tags: ["risk", "decision-making", "asymmetry"],
+    category: "Business",
     status: "read",
     isFavorite: false,
     year: 2018
@@ -390,6 +390,17 @@ export const BOOKS = [
     year: 1994
   },
   // History (biographies)
+  {
+    id: "sapiens",
+    title: "Sapiens: A Brief History of Humankind",
+    author: "Yuval Noah Harari",
+    cover: "/img/books/sapiens.jpg",
+    tags: ["history", "anthropology", "humanity"],
+    category: "History",
+    status: "read",
+    isFavorite: false,
+    year: 2011
+  },
   {
     id: "lessons-of-history",
     title: "The Lessons of History",
