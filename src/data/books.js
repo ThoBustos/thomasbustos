@@ -79,6 +79,61 @@ export const BOOKS = [
     isFavorite: false,
     year: 2016
   },
+  {
+    id: "never-enough",
+    title: "Never Enough",
+    author: "Howard Schultz",
+    cover: "/img/books/never_enough.webp",
+    tags: ["leadership", "starbucks", "memoir"],
+    category: "Business",
+    status: "read",
+    isFavorite: false,
+    year: 2024
+  },
+  {
+    id: "making-of-a-manager",
+    title: "The Making of a Manager",
+    author: "Julie Zhuo",
+    cover: "/img/books/the_making_of_a_manager.jpg",
+    tags: ["management", "leadership", "tech"],
+    category: "Business",
+    status: "read",
+    isFavorite: false,
+    year: 2019
+  },
+  {
+    id: "100m-leads",
+    title: "$100M Leads",
+    author: "Alex Hormozi",
+    cover: "/img/books/$100M_leads.jpg",
+    tags: ["marketing", "leads", "growth"],
+    category: "Business",
+    status: "read",
+    isFavorite: false,
+    year: 2023
+  },
+  {
+    id: "100m-offers",
+    title: "$100M Offers",
+    author: "Alex Hormozi",
+    cover: "/img/books/$100M_offers.jpg",
+    tags: ["sales", "offers", "pricing"],
+    category: "Business",
+    status: "read",
+    isFavorite: false,
+    year: 2021
+  },
+  {
+    id: "high-output-management",
+    title: "High Output Management",
+    author: "Andrew S. Grove",
+    cover: "/img/books/high_output_management.jpg",
+    tags: ["management", "leadership", "intel"],
+    category: "Business",
+    status: "read",
+    isFavorite: false,
+    year: 1983
+  },
   // Mind
   {
     id: "poor-charlies-almanack",
@@ -112,6 +167,105 @@ export const BOOKS = [
     status: "read",
     isFavorite: false,
     year: 1986
+  },
+  {
+    id: "mans-search-for-meaning",
+    title: "Man's Search for Meaning",
+    author: "Viktor Frankl",
+    cover: "/img/books/man's_search_for_meaning.webp",
+    tags: ["psychology", "meaning", "holocaust"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 1946
+  },
+  {
+    id: "7-habits",
+    title: "The 7 Habits of Highly Effective People",
+    author: "Stephen Covey",
+    cover: "/img/books/7_habits_of_highly_effective_people.jpg",
+    tags: ["productivity", "habits", "effectiveness"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 1989
+  },
+  {
+    id: "101-essays",
+    title: "101 Essays That Will Change the Way You Think",
+    author: "Brianna Wiest",
+    cover: "/img/books/101_essays_that_will_change_the_way_you_think.jpg",
+    tags: ["essays", "self-reflection", "growth"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 2016
+  },
+  {
+    id: "almanack-of-naval",
+    title: "The Almanack of Naval Ravikant",
+    author: "Eric Jorgenson",
+    cover: "/img/books/the_almanack_of_naval_ravikant.jpg",
+    tags: ["wealth", "happiness", "wisdom"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 2020
+  },
+  {
+    id: "atomic-habits",
+    title: "Atomic Habits",
+    author: "James Clear",
+    cover: "/img/books/atomic_habits.jpg",
+    tags: ["habits", "productivity", "behavior"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 2018
+  },
+  {
+    id: "5-am-club",
+    title: "The 5 AM Club",
+    author: "Robin Sharma",
+    cover: "/img/books/the_5_am_club.jpg",
+    tags: ["morning-routine", "productivity", "success"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 2018
+  },
+  {
+    id: "how-to-win-friends",
+    title: "How to Win Friends and Influence People",
+    author: "Dale Carnegie",
+    cover: "/img/books/how_to_win_friends_and_influence_people.jpg",
+    tags: ["communication", "relationships", "influence"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 1936
+  },
+  {
+    id: "power-of-now",
+    title: "The Power of Now",
+    author: "Eckhart Tolle",
+    cover: "/img/books/the_power_of_now.jpg",
+    tags: ["mindfulness", "presence", "spirituality"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 1997
+  },
+  {
+    id: "art-of-happiness",
+    title: "The Art of Happiness",
+    author: "Dalai Lama",
+    cover: "/img/books/the_art_of_happiness.jpg",
+    tags: ["happiness", "buddhism", "wisdom"],
+    category: "Mind",
+    status: "read",
+    isFavorite: false,
+    year: 1998
   },
   // Philosophy
   {
@@ -190,6 +344,140 @@ export const BOOKS = [
     status: "read",
     isFavorite: false,
     year: 2019
+  },
+  {
+    id: "skin-in-the-game",
+    title: "Skin in the Game",
+    author: "Nassim Nicholas Taleb",
+    cover: "/img/books/skin_in_the_game.jpg",
+    tags: ["risk", "decision-making", "philosophy"],
+    category: "Philosophy",
+    status: "read",
+    isFavorite: false,
+    year: 2018
+  },
+  {
+    id: "six-easy-pieces",
+    title: "Six Easy Pieces",
+    author: "Richard Feynman",
+    cover: "/img/books/six_easy_pieces.jpg",
+    tags: ["physics", "science", "lectures"],
+    category: "Philosophy",
+    status: "read",
+    isFavorite: false,
+    year: 1994
+  },
+  // History (biographies)
+  {
+    id: "lessons-of-history",
+    title: "The Lessons of History",
+    author: "Will & Ariel Durant",
+    cover: "/img/books/the_lessons_of_history.jpg",
+    tags: ["history", "civilization", "wisdom"],
+    category: "History",
+    status: "read",
+    isFavorite: false,
+    year: 1968
+  },
+  {
+    id: "einstein",
+    title: "Einstein: His Life and Universe",
+    author: "Walter Isaacson",
+    cover: "/img/books/einstein.jpg",
+    tags: ["biography", "physics", "genius"],
+    category: "History",
+    status: "read",
+    isFavorite: false,
+    year: 2007
+  },
+  {
+    id: "elon-musk",
+    title: "Elon Musk",
+    author: "Walter Isaacson",
+    cover: "/img/books/elon_musk.jpg",
+    tags: ["biography", "tech", "entrepreneurship"],
+    category: "History",
+    status: "read",
+    isFavorite: false,
+    year: 2023
+  },
+  {
+    id: "leonardo-da-vinci",
+    title: "Leonardo da Vinci",
+    author: "Walter Isaacson",
+    cover: "/img/books/leonardo_da_vinci.jpg",
+    tags: ["biography", "art", "renaissance"],
+    category: "History",
+    status: "read",
+    isFavorite: false,
+    year: 2017
+  },
+  // Fiction
+  {
+    id: "the-alchemist",
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    cover: "/img/books/the_alchemist.jpg",
+    tags: ["fiction", "fable", "journey"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1988
+  },
+  {
+    id: "foundation",
+    title: "Foundation",
+    author: "Isaac Asimov",
+    cover: "/img/books/foundation.jpg",
+    tags: ["sci-fi", "space", "empire"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1951
+  },
+  {
+    id: "half-of-a-yellow-sun",
+    title: "Half of a Yellow Sun",
+    author: "Chimamanda Ngozi Adichie",
+    cover: "/img/books/half_of_a_yellow_sun.jpg",
+    tags: ["fiction", "nigeria", "war"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 2006
+  },
+  {
+    id: "stranger-in-a-strange-land",
+    title: "Stranger in a Strange Land",
+    author: "Robert A. Heinlein",
+    cover: "/img/books/stranger_in_a_strange_land.jpg",
+    tags: ["sci-fi", "classic", "philosophy"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1961
+  },
+  {
+    id: "the-talisman",
+    title: "The Talisman",
+    author: "Stephen King & Peter Straub",
+    cover: "/img/books/the_talisman.jpg",
+    tags: ["fantasy", "adventure", "horror"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1984
+  },
+  {
+    id: "neuromancer",
+    title: "Neuromancer",
+    author: "William Gibson",
+    cover: "/img/books/neuromancer.jpg",
+    tags: ["cyberpunk", "sci-fi", "hacking"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1984
   }
 ];
 
@@ -199,5 +487,7 @@ export const BOOK_CATEGORIES = [
   "AI & Tech",
   "Business",
   "Philosophy",
+  "History",
+  "Fiction",
   "Favorites"
 ];
