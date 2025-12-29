@@ -396,7 +396,7 @@ export const BOOKS = [
     cover: "/img/books/godel_escher_bach.jpg",
     tags: ["cognition", "AI", "mathematics"],
     category: "Science",
-    status: "read",
+    status: "reading",
     isFavorite: false,
     year: 1979
   },
