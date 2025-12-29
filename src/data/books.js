@@ -379,6 +379,17 @@ export const BOOKS = [
     year: 2018
   },
   {
+    id: "innovators-dilemma",
+    title: "The Innovator's Dilemma",
+    author: "Clayton Christensen",
+    cover: "/img/books/the_innovator's_dilemma.jpg",
+    tags: ["innovation", "disruption", "strategy"],
+    category: "Business",
+    status: "reading",
+    isFavorite: false,
+    year: 1997
+  },
+  {
     id: "six-easy-pieces",
     title: "Six Easy Pieces",
     author: "Richard Feynman",
@@ -388,17 +399,6 @@ export const BOOKS = [
     status: "read",
     isFavorite: false,
     year: 1994
-  },
-  {
-    id: "godel-escher-bach",
-    title: "Gödel, Escher, Bach",
-    author: "Douglas Hofstadter",
-    cover: "/img/books/godel_escher_bach.jpg",
-    tags: ["cognition", "AI", "mathematics"],
-    category: "Science",
-    status: "reading",
-    isFavorite: false,
-    year: 1979
   },
   {
     id: "learning-python-design-patterns",
