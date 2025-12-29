@@ -339,8 +339,8 @@ export const BOOKS = [
     title: "The Origin of Species",
     author: "Charles Darwin",
     cover: "/img/books/the_origin_of_species.jpg",
-    tags: ["evolution", "science", "biology"],
-    category: "Philosophy",
+    tags: ["evolution", "biology", "nature"],
+    category: "Science",
     status: "read",
     isFavorite: false,
     year: 1859
@@ -383,8 +383,8 @@ export const BOOKS = [
     title: "Six Easy Pieces",
     author: "Richard Feynman",
     cover: "/img/books/six_easy_pieces.jpg",
-    tags: ["physics", "science", "lectures"],
-    category: "Philosophy",
+    tags: ["physics", "lectures", "fundamentals"],
+    category: "Science",
     status: "read",
     isFavorite: false,
     year: 1994
@@ -529,8 +529,8 @@ export const BOOKS = [
     title: "A Brief History of Time",
     author: "Stephen Hawking",
     cover: "/img/books/a_brief_history_of_time.jpg",
-    tags: ["physics", "cosmology", "science"],
-    category: "Philosophy",
+    tags: ["physics", "cosmology", "universe"],
+    category: "Science",
     status: "reading",
     isFavorite: false,
     year: 1988
@@ -540,9 +540,9 @@ export const BOOKS = [
 export const BOOK_CATEGORIES = [
   "All",
   "Mind",
-  "AI & Tech",
   "Business",
   "Philosophy",
+  "Science",
   "History",
   "Fiction",
   "Favorites"
