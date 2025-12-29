@@ -43,7 +43,7 @@ export const BOOKS = [
     tags: ["startups", "growth", "marketing"],
     category: "Business",
     status: "read",
-    isFavorite: false,
+    isFavorite: true,
     year: 2015
   },
   {
@@ -133,6 +133,28 @@ export const BOOKS = [
     status: "read",
     isFavorite: false,
     year: 1983
+  },
+  {
+    id: "lean-product-playbook",
+    title: "The Lean Product Playbook",
+    author: "Dan Olsen",
+    cover: "/img/books/the_lean_product_playbook.jpg",
+    tags: ["product", "startups", "methodology"],
+    category: "Business",
+    status: "read",
+    isFavorite: true,
+    year: 2015
+  },
+  {
+    id: "principles",
+    title: "Principles",
+    author: "Ray Dalio",
+    cover: "/img/books/principles.jpg",
+    tags: ["life", "work", "decision-making"],
+    category: "Business",
+    status: "read",
+    isFavorite: false,
+    year: 2017
   },
   // Mind
   {
@@ -478,6 +500,17 @@ export const BOOKS = [
     status: "read",
     isFavorite: false,
     year: 1984
+  },
+  {
+    id: "ghost-story",
+    title: "Ghost Story",
+    author: "Peter Straub",
+    cover: "/img/books/ghost_story.jpg",
+    tags: ["horror", "supernatural", "thriller"],
+    category: "Fiction",
+    status: "read",
+    isFavorite: false,
+    year: 1979
   }
 ];
 
