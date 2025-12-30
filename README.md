@@ -29,6 +29,29 @@ npm run dev
 npm run build
 ```
 
+## Project Structure
+
+```
+src/
+├── pages/              # Page components (Home, Mission, Events, Newsletter, Library)
+├── components/
+│   ├── ui/             # Reusable UI (ThemeToggle, NotificationToast)
+│   ├── layout/         # Layout components (Dock, BackgroundImage)
+│   └── features/       # Feature-specific components
+│       ├── brand/      # BrandAvatar, LTAIBrandWidget
+│       ├── newsletter/ # SubscriptionModal, NewsletterHeader, IssueCard
+│       └── library/    # BookCard, BookModal
+├── hooks/              # Custom hooks (useTheme, useNotification, useAnalytics)
+├── context/            # React context (AppContext, NavigationContext)
+├── config/             # App config (routes, dockItems, socialLinks)
+├── data/               # Static data (books, events, newsletterIssues)
+├── animations/         # Visual effects (PixelBlast, TextType, ClickSpark)
+├── utils/              # Utilities (analytics)
+└── assets/             # Static assets
+
+public/                 # Static files (images, favicon, robots.txt, sitemap.xml)
+```
+
 ## Features
 
 - Super minimal design with clean typography
