@@ -154,7 +154,7 @@ function LTAIBrandWidget({ onNotify }) {
                 <VscGithub size={24} />
                 <span className="ltai-github-text">
                   {stars !== null ? (
-                    <><FaStar color="#f1c40f" /> {stars}</>
+                    <>{stars} <FaStar color="#f1c40f" /></>
                   ) : 'View on GitHub'}
                 </span>
               </a>
