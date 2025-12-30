@@ -1,0 +1,5 @@
+# robots.txt for thomasbustos.com
+User-agent: *
+Allow: /
+
+Sitemap: https://thomasbustos.com/sitemap.xml

@@ -1,0 +1,26 @@
+# Thomas Bustos - Site Guide for LLMs
+
+## Who is Thomas Bustos?
+Builder, Founder, and Learner. Co-founding Radiance and building The SOURCE. Host of Let's Talk AI podcast with 90+ episodes featuring founders and leaders in tech.
+
+## Start here
+- Homepage: https://thomasbustos.com/
+- Mission: https://thomasbustos.com/mission
+
+## Key pages
+- Newsletter: https://thomasbustos.com/newsletter - Weekly insights on AI, startups, and building
+- Events: https://thomasbustos.com/events - Speaking engagements and appearances
+- Library: https://thomasbustos.com/library - Books I've read and recommend
+
+## External links
+- YouTube: https://www.youtube.com/@lets-talk-ai
+- LinkedIn: https://www.linkedin.com/in/thomasbustos/
+- X/Twitter: https://x.com/ThoBustos
+- GitHub: https://github.com/ThoBustos
+- Substack: https://thomasbustos.substack.com/
+- TikTok: https://www.tiktok.com/@lets_talk_ai
+
+## What Thomas is known for
+- Building AI-powered products
+- Hosting conversations with tech founders
+- Writing about startups, AI, and personal growth
