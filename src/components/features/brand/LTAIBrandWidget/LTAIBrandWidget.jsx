@@ -1,8 +1,18 @@
 import { useState, useEffect } from 'react';
+import { VscGithub } from 'react-icons/vsc';
 import './LTAIBrandWidget.css';
 
 function LTAIBrandWidget({ onNotify }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [stars, setStars] = useState(null);
+
+  // Fetch GitHub stars
+  useEffect(() => {
+    fetch('https://api.github.com/repos/ThoBustos/thomasbustos')
+      .then(res => res.json())
+      .then(data => setStars(data.stargazers_count))
+      .catch(() => setStars(null));
+  }, []);
 
   const handleDownloadLogo = () => {
     const link = document.createElement('a');
@@ -86,7 +96,7 @@ function LTAIBrandWidget({ onNotify }) {
               ×
             </button>
             
-            <h3 className="ltai-panel-title">Brand Book</h3>
+            <h3 className="ltai-panel-title">Site Info</h3>
             
             <div className="ltai-section">
               <h4>Logo</h4>
@@ -133,7 +143,25 @@ function LTAIBrandWidget({ onNotify }) {
             </div>
 
             <div className="ltai-section">
-              <a 
+              <h4>Open Source</h4>
+              <a
+                className="ltai-github-link"
+                href="https://github.com/ThoBustos/thomasbustos"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <VscGithub size={24} />
+                <span className="ltai-github-text">
+                  {stars !== null ? `${stars} stars` : 'View on GitHub'}
+                </span>
+              </a>
+              <p className="ltai-opensource-desc">
+                This site is open source. Fork it!
+              </p>
+            </div>
+
+            <div className="ltai-section">
+              <a
                 className="ltai-youtube-link"
                 onClick={handleYouTubeClick}
                 href="#"
