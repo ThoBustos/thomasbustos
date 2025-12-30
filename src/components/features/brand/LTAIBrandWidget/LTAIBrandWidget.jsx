@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { VscGithub } from 'react-icons/vsc';
+import { FaStar } from 'react-icons/fa';
 import './LTAIBrandWidget.css';
 
 function LTAIBrandWidget({ onNotify }) {
@@ -152,7 +153,9 @@ function LTAIBrandWidget({ onNotify }) {
               >
                 <VscGithub size={24} />
                 <span className="ltai-github-text">
-                  {stars !== null ? `${stars} stars` : 'View on GitHub'}
+                  {stars !== null ? (
+                    <><FaStar color="#f1c40f" /> {stars}</>
+                  ) : 'View on GitHub'}
                 </span>
               </a>
               <p className="ltai-opensource-desc">

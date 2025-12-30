@@ -72,6 +72,7 @@
   position: relative;
   border: 1px solid var(--social-border);
   box-shadow: 6px 6px 0px var(--title-shadow);
+  text-align: center;
 }
 
 /* Mobile panel adjustments */
@@ -116,6 +117,7 @@
   margin-bottom: 32px;
   color: var(--bio-text);
   letter-spacing: -0.5px;
+  text-align: center;
 }
 
 .ltai-section {
@@ -134,7 +136,7 @@
 /* Logo Section */
 .ltai-logo-section {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 16px 0;
 }
 
@@ -180,6 +182,7 @@
 .ltai-colors {
   display: flex;
   gap: 24px;
+  justify-content: center;
 }
 
 .ltai-color-item {
