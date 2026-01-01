@@ -1,0 +1,116 @@
+/* Collapsible.css */
+
+.collapsible {
+  background: var(--bio-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 4px 4px 0px var(--title-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.collapsible:hover {
+  box-shadow: 6px 6px 0px var(--title-shadow);
+}
+
+.collapsible-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+  transition: background-color 0.2s ease;
+}
+
+/* ============================================
+   COLLAPSED STATE - Full card hover effect
+   ============================================ */
+.collapsible:not(.is-open):has(.collapsible-header:hover) {
+  background: var(--social-hover-bg);
+}
+
+.collapsible:not(.is-open):has(.collapsible-header:hover) .collapsible-title,
+.collapsible:not(.is-open):has(.collapsible-header:hover) .collapsible-subtitle,
+.collapsible:not(.is-open):has(.collapsible-header:hover) .collapsible-icon {
+  color: var(--social-hover-text);
+  opacity: 1;
+}
+
+/* ============================================
+   EXPANDED STATE - Header-only hover effect
+   ============================================ */
+.collapsible.is-open .collapsible-header:hover {
+  background: var(--social-hover-bg);
+}
+
+.collapsible.is-open .collapsible-header:hover .collapsible-title,
+.collapsible.is-open .collapsible-header:hover .collapsible-subtitle,
+.collapsible.is-open .collapsible-header:hover .collapsible-icon {
+  color: var(--social-hover-text);
+  opacity: 1;
+}
+
+.collapsible-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.collapsible-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--bio-text);
+  line-height: 1.4;
+}
+
+.collapsible-subtitle {
+  font-size: 13px;
+  color: var(--bio-text);
+  opacity: 0.6;
+}
+
+.collapsible-icon {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--bio-text);
+  opacity: 0.5;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+
+.collapsible-content {
+  padding: 0 32px 24px;
+  border-top: 1px solid var(--social-border);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .collapsible {
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--title-shadow);
+  }
+
+  .collapsible:hover {
+    box-shadow: 4px 4px 0px var(--title-shadow);
+  }
+
+  .collapsible-header {
+    padding: 16px 20px;
+  }
+
+  .collapsible-title {
+    font-size: 15px;
+  }
+
+  .collapsible-content {
+    padding: 0 20px 20px;
+  }
+}
