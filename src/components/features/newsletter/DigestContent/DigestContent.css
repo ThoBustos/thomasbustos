@@ -1,0 +1,139 @@
+/* DigestContent.css */
+
+.digest-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.digest-content-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--bio-text);
+  opacity: 0.7;
+}
+
+/* Base section styling */
+.digest-section {
+  background: var(--bio-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 16px;
+  padding: 32px 40px;
+  box-shadow: 4px 4px 0px var(--title-shadow);
+}
+
+/* Header section - no extra padding since DigestHeader handles it */
+.digest-header-section {
+  padding: 40px;
+}
+
+/* TL;DR / Big Picture Section */
+.digest-tldr-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 16px;
+}
+
+.digest-tldr-section p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--bio-text);
+  white-space: pre-line;
+  margin: 0;
+}
+
+/* Video Breakdowns Header */
+.digest-videos-header {
+  text-align: center;
+  padding: 24px 40px;
+}
+
+.digest-videos-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--bio-text);
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* Video cards are self-contained - Collapsible handles all styling */
+
+/* Conclusion Section */
+.digest-conclusion-section {
+  text-align: center;
+}
+
+.digest-conclusion-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 16px;
+}
+
+.conclusion-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--bio-text);
+  font-style: italic;
+  opacity: 0.9;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sub-component overrides - remove their internal containers */
+.digest-section .contrarian-corner,
+.digest-section .action-items,
+.digest-section .references-index {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .digest-sections {
+    gap: 16px;
+  }
+
+  .digest-section {
+    padding: 24px 20px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--title-shadow);
+  }
+
+  .digest-header-section {
+    padding: 24px 20px;
+  }
+
+  .digest-tldr-section h2,
+  .digest-videos-header h2 {
+    font-size: 18px;
+  }
+
+  .digest-tldr-section p {
+    font-size: 14px;
+  }
+
+  .digest-videos-header {
+    padding: 20px;
+  }
+
+  .digest-conclusion-section h2 {
+    font-size: 16px;
+  }
+
+  .conclusion-text {
+    font-size: 14px;
+  }
+}
