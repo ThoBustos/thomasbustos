@@ -123,125 +123,32 @@
 .tags-external-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  max-width: 100%;
+  gap: 0.75rem;
+  max-width: 220px;
   justify-content: flex-start;
   align-content: flex-start;
 }
 
-.tag-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
 .issue-tag {
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px; /* More rounded */
-  font-size: 0.65rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: lowercase;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  /* Theme-aware monochrome styling */
+  background: var(--bio-text);
+  color: var(--bio-bg);
+  border: none;
   white-space: nowrap;
   flex-shrink: 0;
-  cursor: pointer; /* Make hoverable */
-  pointer-events: auto; /* Enable hover */
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .issue-tag:hover {
   transform: translateY(-1px);
-}
-
-.tag-tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px); /* Position above the tag */
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--text-primary);
-  width: 250px;
-  max-width: 250px;
-  text-align: left;
-  box-shadow: 0 4px 20px var(--card-shadow);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  text-transform: none;
-  letter-spacing: 0;
-  white-space: normal;
-  word-wrap: break-word;
-  /* Ensure tooltip doesn't go off screen */
-  max-width: min(250px, calc(100vw - 2rem));
-}
-
-/* Position tooltips that would go off left edge */
-.tag-wrapper:first-child .tag-tooltip,
-.tag-wrapper:nth-child(2) .tag-tooltip {
-  left: 0;
-  transform: translateX(0);
-}
-
-.tag-wrapper:first-child .tag-tooltip::after,
-.tag-wrapper:first-child .tag-tooltip::before,
-.tag-wrapper:nth-child(2) .tag-tooltip::after,
-.tag-wrapper:nth-child(2) .tag-tooltip::before {
-  left: 20px;
-  transform: translateX(0);
-}
-
-/* Position tooltips that would go off right edge */
-.tag-wrapper:nth-last-child(1) .tag-tooltip,
-.tag-wrapper:nth-last-child(2) .tag-tooltip {
-  left: auto;
-  right: 0;
-  transform: translateX(0);
-}
-
-.tag-wrapper:nth-last-child(1) .tag-tooltip::after,
-.tag-wrapper:nth-last-child(1) .tag-tooltip::before,
-.tag-wrapper:nth-last-child(2) .tag-tooltip::after,
-.tag-wrapper:nth-last-child(2) .tag-tooltip::before {
-  left: auto;
-  right: 20px;
-  transform: translateX(0);
-}
-
-.tag-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--card-border);
-}
-
-.tag-tooltip::before {
-  content: '';
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--card-bg);
-  z-index: 1;
-}
-
-.tag-wrapper:hover .tag-tooltip {
-  opacity: 1;
-  visibility: visible;
 }
 
 /* Animation for external tags */
@@ -256,130 +163,53 @@
   }
 }
 
-/* Mobile Responsive - Switch to overlay for better space usage */
+/* Mobile Responsive - Hide tags on mobile */
 @media (max-width: 768px) {
   .issue-card-zone {
     padding: 0; /* Remove side padding on mobile */
   }
-  
+
   .issue-card {
     padding: 1.25rem;
   }
-  
+
   .issue-title {
     font-size: 1.125rem;
   }
-  
+
   .issue-summary {
     font-size: 0.875rem;
   }
-  
+
+  /* Hide tags on mobile */
   .tags-external {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%; /* Below the card */
-    width: auto;
-    min-height: auto;
-    padding: 1rem;
-    background: var(--card-hover-bg-inverted);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 0 0 16px 16px;
-    border-top: 1px solid var(--card-border-inverted);
-  }
-  
-  .tags-external-container {
-    justify-content: center; /* Center tags on mobile */
-    max-width: none;
-  }
-  
-  .issue-tag {
-    padding: 0.25rem 0.7rem;
-    font-size: 0.6rem;
-  }
-  
-  /* Mobile tooltip adjustments */
-  .tag-tooltip {
-    width: 200px;
-    max-width: 200px;
-    font-size: 0.7rem;
-    padding: 0.6rem 0.8rem;
+    display: none;
   }
 }
 
-/* Very small screens: Limit visible tags and improve layout */
+/* Very small screens */
 @media (max-width: 480px) {
   .issue-card-zone {
-    padding: 0; /* No side padding on small screens */
+    padding: 0;
   }
-  
+
   .issue-card {
     padding: 1rem;
   }
-  
+
   .issue-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .issue-title {
     font-size: 1rem;
     -webkit-line-clamp: 3;
   }
-  
+
   .issue-summary {
     font-size: 0.8125rem;
-  }
-  
-  .tags-external {
-    padding: 0.75rem;
-  }
-  
-  .tags-external-container {
-    overflow: hidden;
-    max-height: 60px; /* Limit height to prevent excessive scrolling */
-    position: relative;
-  }
-  
-  .tags-external-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 30px;
-    height: 100%;
-    background: linear-gradient(to right, transparent, var(--card-hover-bg-inverted));
-    pointer-events: none;
-  }
-  
-  .issue-tag {
-    font-size: 0.55rem;
-    padding: 0.2rem 0.6rem;
-  }
-  
-  /* Very small screen tooltip adjustments */
-  .tag-tooltip {
-    width: 180px;
-    max-width: 180px;
-    font-size: 0.65rem;
-    padding: 0.5rem 0.7rem;
-    /* Position tooltips below tags on very small screens */
-    bottom: auto;
-    top: calc(100% + 8px);
-  }
-  
-  .tag-tooltip::after {
-    top: -6px;
-    border-top-color: transparent;
-    border-bottom-color: var(--card-border);
-  }
-  
-  .tag-tooltip::before {
-    top: calc(-5px + 1px);
-    border-top-color: transparent;
-    border-bottom-color: var(--card-bg);
   }
 }
