@@ -4,7 +4,14 @@ import { AppProvider } from './context/AppContext';
 import { NavigationProvider } from './context/NavigationContext';
 import App from './App';
 import NewsletterPage from './pages/NewsletterPage';
+import DigestDetailPage from './pages/DigestDetailPage';
 import { ROUTES } from './config/routes';
+
+// Extract digest date from path (YYYY-MM-DD format)
+const getDigestDate = (path) => {
+  const match = path.match(/^\/newsletter\/(\d{4}-\d{2}-\d{2})$/)
+  return match ? match[1] : null
+};
 
 function Router() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -37,7 +44,14 @@ function Router() {
   window.navigate = navigate;
 
   const renderCurrentPage = () => {
-    if (currentPath.startsWith(ROUTES.NEWSLETTER.path)) {
+    // Check for newsletter detail page first (more specific route)
+    const digestDate = getDigestDate(currentPath);
+    if (digestDate) {
+      return <DigestDetailPage date={digestDate} />;
+    }
+
+    // Newsletter archive page
+    if (currentPath === ROUTES.NEWSLETTER.path) {
       return <NewsletterPage />;
     }
 
