@@ -28,6 +28,11 @@ export const ROUTES = {
     path: '/newsletter',
     view: 'newsletter',
     title: 'LTAI Daily News'
+  },
+  NEWSLETTER_DETAIL: {
+    path: '/newsletter/:date',
+    view: 'newsletter-detail',
+    title: 'Daily Digest'
   }
 };
 
