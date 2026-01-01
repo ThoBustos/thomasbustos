@@ -150,6 +150,16 @@ The newsletter/digest feature pulls live data from Supabase. If Supabase credent
    ```
 4. For Vercel deployment, add environment variables in project settings
 
+### Security
+
+**Important:** This project uses Row Level Security (RLS) to protect data. The `anon` key is public and visible in the browser - security comes from RLS policies, not the key.
+
+See [SECURITY.md](./SECURITY.md) for:
+- Full architecture overview
+- RLS policy documentation
+- Guidelines for adding new tables
+- Verification queries
+
 ### Deployment:
 
 **Vercel Environment Variables:**
