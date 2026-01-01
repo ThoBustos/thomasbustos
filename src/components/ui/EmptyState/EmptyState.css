@@ -1,0 +1,43 @@
+/* EmptyState.css */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  text-align: center;
+  background: var(--bio-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 16px;
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin: 0 0 8px;
+}
+
+.empty-state-description {
+  font-size: 14px;
+  color: var(--bio-text);
+  opacity: 0.6;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .empty-state {
+    padding: 60px 24px;
+  }
+
+  .empty-state-title {
+    font-size: 16px;
+  }
+
+  .empty-state-description {
+    font-size: 13px;
+  }
+}
