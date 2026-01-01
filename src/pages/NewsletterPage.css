@@ -47,3 +47,22 @@
     min-width: unset; /* Remove min-width constraint on mobile */
   }
 }
+
+/* Loading State */
+.newsletter-loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--bio-text);
+  font-size: 16px;
+}
+
+/* Fallback Notice */
+.fallback-notice {
+  background: #F2E7C9;
+  color: #0B102C;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 24px;
+}
