@@ -1,0 +1,44 @@
+/* TagPills.css */
+
+.tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 16px;
+  transition: opacity 0.2s ease;
+}
+
+/* Filled variant (default) */
+.tag-pills.filled .tag-pill {
+  background: var(--social-bg);
+  color: var(--social-text);
+}
+
+/* Outline variant */
+.tag-pills.outline .tag-pill {
+  background: transparent;
+  border: 1px solid var(--social-border);
+  color: var(--bio-text);
+}
+
+.tag-pill:hover {
+  opacity: 0.8;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .tag-pills {
+    gap: 6px;
+  }
+
+  .tag-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
