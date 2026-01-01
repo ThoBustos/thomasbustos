@@ -1,0 +1,133 @@
+/* VideoCard.css */
+
+.video-card {
+  margin-bottom: 16px;
+}
+
+.video-card-content {
+  padding-top: 16px;
+}
+
+.video-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--social-bg);
+  color: var(--social-text);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.video-link:hover {
+  background: var(--social-hover-bg);
+  color: var(--social-hover-text);
+}
+
+.video-speakers {
+  font-size: 13px;
+  color: var(--bio-text);
+  opacity: 0.7;
+}
+
+.video-tags {
+  margin-bottom: 16px;
+}
+
+.video-summary {
+  margin-bottom: 20px;
+}
+
+.video-condensed {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--bio-text);
+  margin: 0 0 12px;
+}
+
+.video-structure {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bio-text);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.video-section-group {
+  margin: 20px 0;
+}
+
+.video-section-group h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.video-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.video-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bio-text);
+}
+
+.video-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary, var(--bio-text));
+  font-weight: bold;
+}
+
+.video-deep-analysis p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--bio-text);
+  white-space: pre-line;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .video-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .video-condensed {
+    font-size: 14px;
+  }
+
+  .video-structure {
+    font-size: 13px;
+  }
+
+  .video-list li {
+    font-size: 13px;
+  }
+
+  .video-deep-analysis p {
+    font-size: 13px;
+  }
+}
