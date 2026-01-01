@@ -1,0 +1,72 @@
+/* ReferencesIndex.css */
+
+.references-index {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--social-border);
+}
+
+.references-index h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--bio-text);
+}
+
+.reference-category {
+  margin-bottom: 24px;
+}
+
+.reference-category:last-child {
+  margin-bottom: 0;
+}
+
+.reference-category h4 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.reference-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reference-category li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--bio-text);
+  line-height: 1.5;
+}
+
+.reference-category a {
+  color: var(--bio-text);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  border-bottom: 1px solid var(--social-border);
+}
+
+.reference-category a:hover {
+  opacity: 0.7;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .references-index {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+
+  .references-index h3 {
+    font-size: 16px;
+  }
+
+  .reference-category li {
+    font-size: 13px;
+  }
+}
