@@ -73,12 +73,12 @@ function DigestHeader({
               {stats.video_count || 0} videos
             </span>
             <span className="meta-separator">•</span>
-            <span className="digest-watch-time">
-              {formatDuration(stats.total_duration_minutes)} watch
-            </span>
-            <span className="meta-separator">•</span>
             <span className="digest-read-time">
               {stats.estimated_read_minutes || 0} min read
+            </span>
+            <span className="meta-separator">•</span>
+            <span className="digest-time-saved">
+              Save {formatDuration((stats.total_duration_minutes || 0) - (stats.estimated_read_minutes || 0))}
             </span>
           </>
         )}
