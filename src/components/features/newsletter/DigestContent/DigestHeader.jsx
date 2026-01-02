@@ -1,7 +1,19 @@
 import TagPills from './TagPills';
+import { formatDuration } from '../../../../utils/formatDuration';
 import './DigestHeader.css';
 
-function DigestHeader({ title, publishDate, stats, tableOfContents, keywords, videoSections }) {
+function DigestHeader({
+  title,
+  publishDate,
+  stats,
+  tableOfContents,
+  keywords,
+  videoSections,
+  hasBigPicture,
+  hasContrarianCorner,
+  hasActionItems,
+  hasFinalThought
+}) {
   const formatDate = (dateStr) => {
     return new Date(dateStr).toLocaleDateString('en-US', {
       weekday: 'long',
@@ -11,14 +23,42 @@ function DigestHeader({ title, publishDate, stats, tableOfContents, keywords, vi
     });
   };
 
-  // Use provided TOC if it has valid items with titles, otherwise generate from video sections
-  const validToc = tableOfContents?.filter(item => item?.title);
-  const toc = validToc?.length > 0
-    ? validToc
-    : videoSections?.map((video, i) => ({
-        id: `video-${video.video_id || i}`,
-        title: video.title
-      })).filter(item => item.title) || [];
+  // Build complete table of contents with all sections
+  const buildToc = () => {
+    const toc = [];
+
+    // Add Big Picture first
+    if (hasBigPicture) {
+      toc.push({ id: 'overview', title: 'The Big Picture' });
+    }
+
+    // Add video section entries
+    if (videoSections?.length > 0) {
+      videoSections.forEach((video, i) => {
+        if (video.title) {
+          toc.push({
+            id: `video-${video.video_id || i}`,
+            title: video.title
+          });
+        }
+      });
+    }
+
+    // Add end sections conditionally
+    if (hasContrarianCorner) {
+      toc.push({ id: 'contrarian-corner', title: 'Contrarian Corner' });
+    }
+    if (hasActionItems) {
+      toc.push({ id: 'action-items', title: 'Action Items' });
+    }
+    if (hasFinalThought) {
+      toc.push({ id: 'final-thought', title: 'Final Thought' });
+    }
+
+    return toc;
+  };
+
+  const toc = buildToc();
 
   return (
     <header className="digest-header">
@@ -31,6 +71,10 @@ function DigestHeader({ title, publishDate, stats, tableOfContents, keywords, vi
             <span className="meta-separator">•</span>
             <span className="digest-video-count">
               {stats.video_count || 0} videos
+            </span>
+            <span className="meta-separator">•</span>
+            <span className="digest-watch-time">
+              {formatDuration(stats.total_duration_minutes)} watch
             </span>
             <span className="meta-separator">•</span>
             <span className="digest-read-time">

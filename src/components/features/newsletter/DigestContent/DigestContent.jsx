@@ -26,6 +26,10 @@ function DigestContent({ digest }) {
           tableOfContents={content.table_of_contents}
           keywords={content.keywords}
           videoSections={content.video_sections}
+          hasBigPicture={!!content.daily_tldr}
+          hasContrarianCorner={!!content.contrarian_corner}
+          hasActionItems={content.action_items?.length > 0}
+          hasFinalThought={!!content.conclusion}
         />
       </section>
 
@@ -50,7 +54,6 @@ function DigestContent({ digest }) {
               key={video.video_id || index}
               id={`video-${video.video_id || index}`}
               video={video}
-              defaultOpen={index === 0}
             />
           ))}
         </>
@@ -58,14 +61,14 @@ function DigestContent({ digest }) {
 
       {/* Contrarian Corner */}
       {content.contrarian_corner && (
-        <section className="digest-section">
+        <section id="contrarian-corner" className="digest-section">
           <ContrarianCorner data={content.contrarian_corner} />
         </section>
       )}
 
       {/* Action Items */}
       {content.action_items?.length > 0 && (
-        <section className="digest-section">
+        <section id="action-items" className="digest-section">
           <ActionItems items={content.action_items} />
         </section>
       )}
@@ -79,7 +82,7 @@ function DigestContent({ digest }) {
 
       {/* Conclusion */}
       {content.conclusion && (
-        <section className="digest-section digest-conclusion-section">
+        <section id="final-thought" className="digest-section digest-conclusion-section">
           <h2>Final Thought</h2>
           <p className="conclusion-text">{content.conclusion}</p>
         </section>
