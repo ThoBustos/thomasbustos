@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { VscGithub } from 'react-icons/vsc';
+import { FaStar } from 'react-icons/fa';
 import { useNavigation } from '../../../../hooks/useNavigation';
 import BrandAvatar from '../../brand/BrandAvatar/BrandAvatar';
 import ThemeToggle from '../../../ui/ThemeToggle/ThemeToggle';
@@ -7,7 +9,16 @@ import './NewsletterHeader.css';
 
 function NewsletterHeader({ onReturnHome, onThemeChange, linkToIssues = false }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [stars, setStars] = useState(null);
   const navigate = useNavigation();
+
+  // Fetch GitHub stars
+  useEffect(() => {
+    fetch('https://api.github.com/repos/ThoBustos/ltai-news')
+      .then(res => res.json())
+      .then(data => setStars(data.stargazers_count))
+      .catch(() => setStars(null));
+  }, []);
 
   const handleSubscribe = () => {
     setIsModalOpen(true);
@@ -38,6 +49,21 @@ function NewsletterHeader({ onReturnHome, onThemeChange, linkToIssues = false })
         </div>
 
         <div className="header-right">
+          <a
+            href="https://github.com/ThoBustos/ltai-news"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="opensource-tag"
+            title="Free & open source - fork it, use it, make it yours!"
+          >
+            <VscGithub size={20} />
+            {stars !== null && (
+              <span className="opensource-stars">
+                <FaStar size={12} />
+                {stars}
+              </span>
+            )}
+          </a>
           <button className="subscribe-button" onClick={handleSubscribe}>
             Subscribe
           </button>
