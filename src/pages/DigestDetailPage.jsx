@@ -35,6 +35,7 @@ function DigestDetailPage({ date }) {
           <NewsletterHeader
             onReturnHome={handleReturnHome}
             onThemeChange={setTheme}
+            linkToIssues
           />
           <main className="digest-page-content">
             <div className="digest-loading">Loading digest...</div>
@@ -51,6 +52,7 @@ function DigestDetailPage({ date }) {
           <NewsletterHeader
             onReturnHome={handleReturnHome}
             onThemeChange={setTheme}
+            linkToIssues
           />
           <main className="digest-page-content">
             <div className="digest-error">
@@ -72,6 +74,7 @@ function DigestDetailPage({ date }) {
         <NewsletterHeader
           onReturnHome={handleReturnHome}
           onThemeChange={setTheme}
+          linkToIssues
         />
         <main className="digest-page-content">
           <span className="back-link" onClick={handleBackToArchive}>
