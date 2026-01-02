@@ -43,7 +43,10 @@ function NewsletterHeader({ onReturnHome, onThemeChange, linkToIssues = false })
             role={linkToIssues ? 'link' : undefined}
             tabIndex={linkToIssues ? 0 : undefined}
           >
-            <h1 className="newsletter-title">LTAI Daily News</h1>
+            <h1 className="newsletter-title">
+              <span className="title-full">LTAI Daily News</span>
+              <span className="title-short">LTAI News</span>
+            </h1>
             <p className="newsletter-subtitle">Daily AI insights for builders</p>
           </div>
         </div>
