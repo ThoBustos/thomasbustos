@@ -2,10 +2,11 @@ import Collapsible from '../shared/Collapsible/Collapsible';
 import QuoteBlock from './QuoteBlock';
 import StatsList from './StatsList';
 import TagPills from './TagPills';
+import { formatDuration } from '../../../../utils/formatDuration';
 import './VideoCard.css';
 
 function VideoCard({ video, defaultOpen = false, id }) {
-  const subtitle = `${video.channel_name || 'Unknown Channel'} · ${video.duration_minutes || '?'} min`;
+  const subtitle = `${video.channel_name || 'Unknown Channel'} · ${formatDuration(video.duration_minutes)} video`;
 
   return (
     <div id={id}>
