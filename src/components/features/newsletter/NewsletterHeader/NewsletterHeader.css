@@ -34,6 +34,15 @@
   gap: 0.25rem;
 }
 
+.header-branding-link {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.header-branding-link:hover {
+  opacity: 0.8;
+}
+
 .newsletter-title {
   font-family: 'Poppins', 'Manrope', sans-serif;
   font-size: 1.5rem;
