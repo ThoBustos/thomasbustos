@@ -1,0 +1,70 @@
+/* BigPictureBullets.css */
+
+.big-picture-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.big-picture-bullet {
+  position: relative;
+  padding-left: 24px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--bio-text);
+}
+
+.big-picture-bullet::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-interactive);
+  border-radius: 50%;
+}
+
+.big-picture-bullet strong {
+  color: var(--bio-text);
+  font-weight: 600;
+}
+
+.big-picture-bullet em {
+  font-style: italic;
+}
+
+.big-picture-bullet .markdown-link {
+  color: var(--accent-interactive);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-interactive-muted);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.big-picture-bullet .markdown-link:hover {
+  color: var(--accent-interactive-hover);
+  text-decoration-color: var(--accent-interactive);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .big-picture-bullets {
+    gap: 12px;
+  }
+
+  .big-picture-bullet {
+    padding-left: 20px;
+    font-size: 14px;
+  }
+
+  .big-picture-bullet::before {
+    width: 6px;
+    height: 6px;
+    top: 9px;
+  }
+}
