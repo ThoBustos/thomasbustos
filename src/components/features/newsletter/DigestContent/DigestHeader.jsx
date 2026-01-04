@@ -10,6 +10,9 @@ function DigestHeader({
   keywords,
   videoSections,
   hasBigPicture,
+  hasDeeperPicture,
+  hasConvergencePoints,
+  hasKeyTensions,
   hasContrarianCorner,
   hasActionItems,
   hasFinalThought
@@ -32,13 +35,29 @@ function DigestHeader({
       toc.push({ id: 'overview', title: 'The Big Picture' });
     }
 
-    // Add video section entries
+    // V2: Deeper Picture
+    if (hasDeeperPicture) {
+      toc.push({ id: 'deeper-picture', title: 'The Deeper Picture' });
+    }
+
+    // V2: Convergence Points
+    if (hasConvergencePoints) {
+      toc.push({ id: 'convergence', title: 'Where Videos Converge' });
+    }
+
+    // V2: Key Tensions
+    if (hasKeyTensions) {
+      toc.push({ id: 'key-tensions', title: 'Key Tensions' });
+    }
+
+    // Add video section entries with emoji + channel prefix
     if (videoSections?.length > 0) {
       videoSections.forEach((video, i) => {
         if (video.title) {
+          const channelPrefix = video.channel_name ? `[${video.channel_name}] ` : '';
           toc.push({
             id: `video-${video.video_id || i}`,
-            title: video.title
+            title: `🎬 ${channelPrefix}${video.title}`
           });
         }
       });
@@ -63,6 +82,12 @@ function DigestHeader({
   return (
     <header className="digest-header">
       <h1 className="digest-title">{title}</h1>
+
+      {stats && (
+        <p className="digest-intro">
+          Daily AI insights extracted from {stats.video_count || 0} videos across {stats.channels?.length || 0} channels
+        </p>
+      )}
 
       <div className="digest-meta">
         <span className="digest-date">{formatDate(publishDate)}</span>
@@ -107,7 +132,19 @@ function DigestHeader({
         <div className="digest-channels">
           <span className="channels-label">Sources:</span>
           <span className="channels-list">
-            {stats.channels.map(c => c.channel_name).join(', ')}
+            {stats.channels.map((c, i) => (
+              <span key={c.channel_id || i}>
+                {i > 0 && ', '}
+                <a
+                  href={c.channel_url || `https://www.youtube.com/channel/${c.channel_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="channel-link"
+                >
+                  {c.channel_name}
+                </a>
+              </span>
+            ))}
           </span>
         </div>
       )}

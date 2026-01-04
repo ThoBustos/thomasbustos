@@ -10,7 +10,7 @@
   text-align: center;
   padding: 60px 20px;
   color: var(--bio-text);
-  opacity: 0.7;
+  font-size: 14px;
 }
 
 /* Base section styling */
@@ -43,6 +43,30 @@
   margin: 0;
 }
 
+/* V2: Deeper Picture Section */
+.digest-deeper-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 16px;
+}
+
+/* V2: Convergence Section */
+.digest-convergence-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 16px;
+}
+
+/* V2: Key Tensions Section */
+.digest-tensions-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 16px;
+}
+
 /* Video Breakdowns Header */
 .digest-videos-header {
   text-align: center;
@@ -57,9 +81,8 @@
 }
 
 .section-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--bio-text);
-  opacity: 0.6;
   margin: 0;
 }
 
@@ -82,7 +105,6 @@
   line-height: 1.7;
   color: var(--bio-text);
   font-style: italic;
-  opacity: 0.9;
   margin: 0;
   max-width: 600px;
   margin-left: auto;
@@ -117,6 +139,9 @@
   }
 
   .digest-tldr-section h2,
+  .digest-deeper-section h2,
+  .digest-convergence-section h2,
+  .digest-tensions-section h2,
   .digest-videos-header h2 {
     font-size: 18px;
   }

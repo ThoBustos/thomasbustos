@@ -3,6 +3,10 @@ import VideoCard from './VideoCard';
 import ContrarianCorner from './ContrarianCorner';
 import ActionItems from './ActionItems';
 import ReferencesIndex from './ReferencesIndex';
+import BigPictureBullets from './BigPictureBullets';
+import DeeperPicture from './DeeperPicture';
+import ConvergencePoints from './ConvergencePoints';
+import KeyTensions from './KeyTensions';
 import './DigestContent.css';
 
 function DigestContent({ digest }) {
@@ -15,6 +19,13 @@ function DigestContent({ digest }) {
     return <div className="digest-content-empty">No content available</div>;
   }
 
+  // V2 detection: has big_picture_bullets
+  const hasV2BigPicture = content.big_picture_bullets?.length > 0;
+  const hasBigPicture = hasV2BigPicture || !!content.daily_tldr;
+  const hasDeeperPicture = !!content.deeper_picture;
+  const hasConvergencePoints = content.convergence_points?.length > 0;
+  const hasKeyTensions = content.key_tensions?.length > 0;
+
   return (
     <div className="digest-sections">
       {/* Header Section */}
@@ -26,18 +37,49 @@ function DigestContent({ digest }) {
           tableOfContents={content.table_of_contents}
           keywords={content.keywords}
           videoSections={content.video_sections}
-          hasBigPicture={!!content.daily_tldr}
+          hasBigPicture={hasBigPicture}
+          hasDeeperPicture={hasDeeperPicture}
+          hasConvergencePoints={hasConvergencePoints}
+          hasKeyTensions={hasKeyTensions}
           hasContrarianCorner={!!content.contrarian_corner}
           hasActionItems={content.action_items?.length > 0}
           hasFinalThought={!!content.conclusion}
         />
       </section>
 
-      {/* Big Picture Section */}
-      {content.daily_tldr && (
+      {/* Big Picture Section - V2 or V1 */}
+      {hasBigPicture && (
         <section id="overview" className="digest-section digest-tldr-section">
           <h2>The Big Picture</h2>
-          <p>{content.daily_tldr}</p>
+          {hasV2BigPicture ? (
+            <BigPictureBullets bullets={content.big_picture_bullets} />
+          ) : (
+            <p>{content.daily_tldr}</p>
+          )}
+        </section>
+      )}
+
+      {/* V2: Deeper Picture Section */}
+      {hasDeeperPicture && (
+        <section id="deeper-picture" className="digest-section digest-deeper-section">
+          <h2>The Deeper Picture</h2>
+          <DeeperPicture content={content.deeper_picture} />
+        </section>
+      )}
+
+      {/* V2: Convergence Points */}
+      {hasConvergencePoints && (
+        <section id="convergence" className="digest-section digest-convergence-section">
+          <h2>Where Videos Converge</h2>
+          <ConvergencePoints points={content.convergence_points} />
+        </section>
+      )}
+
+      {/* V2: Key Tensions */}
+      {hasKeyTensions && (
+        <section id="key-tensions" className="digest-section digest-tensions-section">
+          <h2>Key Tensions</h2>
+          <KeyTensions tensions={content.key_tensions} />
         </section>
       )}
 
