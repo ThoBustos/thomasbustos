@@ -137,6 +137,7 @@
 .ltai-logo-section {
   display: flex;
   justify-content: center;
+  gap: 24px;
   margin: 16px 0;
 }
 
@@ -174,8 +175,17 @@
   color: white;
 }
 
+.ltai-download-overlay-round {
+  border-radius: 50%;
+}
+
 .ltai-logo-container:hover .ltai-download-overlay {
   opacity: 1;
+}
+
+/* Avatar (round) styles */
+.ltai-panel-avatar {
+  border-radius: 50%;
 }
 
 /* Colors Section */
@@ -215,6 +225,10 @@
   background-color: #F2E7C9;
 }
 
+.ltai-color-swatch.accent {
+  background-color: #F89151;
+}
+
 .ltai-color-code {
   font-family: 'Courier New', monospace;
   font-size: 12px;
@@ -223,9 +237,8 @@
 }
 
 .ltai-color-name {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--bio-text);
-  opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -260,9 +273,8 @@
 }
 
 .ltai-opensource-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--bio-text);
-  opacity: 0.8;
   margin: 0;
 }
 
@@ -300,11 +312,16 @@
   
   .ltai-logo-section {
     margin: 12px 0;
+    gap: 16px;
   }
   
   .ltai-panel-logo {
     width: 80px;
     height: 80px;
+  }
+  
+  .ltai-panel-avatar {
+    border-radius: 50%;
   }
   
   .ltai-panel-title {

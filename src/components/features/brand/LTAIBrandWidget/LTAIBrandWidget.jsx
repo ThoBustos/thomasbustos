@@ -15,10 +15,10 @@ function LTAIBrandWidget({ onNotify }) {
       .catch(() => setStars(null));
   }, []);
 
-  const handleDownloadLogo = () => {
+  const handleDownloadLogo = (filename, label) => {
     const link = document.createElement('a');
-    link.href = '/LTAI_logo.png';
-    link.download = 'LTAI_logo.png';
+    link.href = `/${filename}`;
+    link.download = filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -27,7 +27,7 @@ function LTAIBrandWidget({ onNotify }) {
     if (window.gtag) {
       window.gtag('event', 'logo_download', {
         'event_category': 'brand',
-        'event_label': 'LTAI Logo'
+        'event_label': label
       });
     }
   };
@@ -102,13 +102,27 @@ function LTAIBrandWidget({ onNotify }) {
             <div className="ltai-section">
               <h4>Logo</h4>
               <div className="ltai-logo-section">
-                <div className="ltai-logo-container" onClick={handleDownloadLogo}>
+                <div className="ltai-logo-container" onClick={() => handleDownloadLogo('LTAI_logo.png', 'LTAI Logo')}>
                   <img 
                     src="/LTAI_logo.png" 
                     alt="Let's Talk AI Logo" 
                     className="ltai-panel-logo"
                   />
                   <div className="ltai-download-overlay">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7,10 12,15 17,10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  </div>
+                </div>
+                <div className="ltai-logo-container ltai-avatar-container" onClick={() => handleDownloadLogo('thomas-bustos.png', 'Thomas Avatar')}>
+                  <img 
+                    src="/thomas-bustos.png" 
+                    alt="Thomas Bustos Avatar" 
+                    className="ltai-panel-logo ltai-panel-avatar"
+                  />
+                  <div className="ltai-download-overlay ltai-download-overlay-round">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                       <polyline points="7,10 12,15 17,10"/>
@@ -123,22 +137,31 @@ function LTAIBrandWidget({ onNotify }) {
               <h4>Colors</h4>
               <div className="ltai-colors">
                 <div className="ltai-color-item">
-                  <div 
+                  <div
                     className="ltai-color-swatch primary"
-                    onClick={() => copyToClipboard('#4E4B93', 'Primary Purple')}
+                    onClick={() => copyToClipboard('#4E4B93', 'Purple')}
                     title="Click to copy"
                   ></div>
                   <span className="ltai-color-code">#4E4B93</span>
-                  <span className="ltai-color-name">Primary</span>
+                  <span className="ltai-color-name">Purple</span>
                 </div>
                 <div className="ltai-color-item">
-                  <div 
+                  <div
                     className="ltai-color-swatch secondary"
-                    onClick={() => copyToClipboard('#F2E7C9', 'Secondary Beige')}
+                    onClick={() => copyToClipboard('#F2E7C9', 'Cream')}
                     title="Click to copy"
                   ></div>
                   <span className="ltai-color-code">#F2E7C9</span>
-                  <span className="ltai-color-name">Secondary</span>
+                  <span className="ltai-color-name">Cream</span>
+                </div>
+                <div className="ltai-color-item">
+                  <div
+                    className="ltai-color-swatch accent"
+                    onClick={() => copyToClipboard('#F89151', 'Coral')}
+                    title="Click to copy"
+                  ></div>
+                  <span className="ltai-color-code">#F89151</span>
+                  <span className="ltai-color-name">Accent</span>
                 </div>
               </div>
             </div>
