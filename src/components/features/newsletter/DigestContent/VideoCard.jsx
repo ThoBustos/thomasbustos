@@ -2,7 +2,9 @@ import Collapsible from '../shared/Collapsible/Collapsible';
 import QuoteBlock from './QuoteBlock';
 import StatsList from './StatsList';
 import TagPills from './TagPills';
+import LogicalFlow from './LogicalFlow';
 import { formatDuration } from '../../../../utils/formatDuration';
+import { renderMarkdown } from '../../../../utils/renderMarkdown';
 import './VideoCard.css';
 
 function VideoCard({ video, defaultOpen = false, id }) {
@@ -31,7 +33,7 @@ function VideoCard({ video, defaultOpen = false, id }) {
           )}
           {video.speakers?.length > 0 && (
             <span className="video-speakers">
-              Speakers: {video.speakers.join(', ')}
+              Speakers: {video.speakers.map(s => typeof s === 'string' ? s : s.name).filter(Boolean).join(', ')}
             </span>
           )}
         </div>
@@ -39,6 +41,11 @@ function VideoCard({ video, defaultOpen = false, id }) {
         {/* Tags */}
         {video.tags?.length > 0 && (
           <TagPills tags={video.tags} className="video-tags" />
+        )}
+
+        {/* Logical Flow (V2) */}
+        {video.logical_flow?.length > 0 && (
+          <LogicalFlow steps={video.logical_flow} />
         )}
 
         {/* Summary */}
@@ -90,7 +97,7 @@ function VideoCard({ video, defaultOpen = false, id }) {
         {video.deep_analysis && (
           <div className="video-section-group video-deep-analysis">
             <h4>Deep Analysis</h4>
-            <p>{video.deep_analysis}</p>
+            <p>{renderMarkdown(video.deep_analysis, 'analysis')}</p>
           </div>
         )}
 
@@ -100,7 +107,7 @@ function VideoCard({ video, defaultOpen = false, id }) {
             <h4>Connections</h4>
             <ul className="video-list">
               {video.connections.map((connection, i) => (
-                <li key={i}>{connection}</li>
+                <li key={i}>{renderMarkdown(connection, `conn-${i}`)}</li>
               ))}
             </ul>
           </div>

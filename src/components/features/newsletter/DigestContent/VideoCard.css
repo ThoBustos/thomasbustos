@@ -21,24 +21,25 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: var(--social-bg);
-  color: var(--social-text);
+  background: transparent;
+  color: var(--accent-interactive);
   text-decoration: none;
+  border: 1px solid var(--accent-interactive);
   border-radius: 8px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .video-link:hover {
-  background: var(--social-hover-bg);
-  color: var(--social-hover-text);
+  background: var(--accent-interactive);
+  color: var(--bio-bg);
+  border-color: var(--accent-interactive);
 }
 
 .video-speakers {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--bio-text);
-  opacity: 0.7;
 }
 
 .video-tags {
@@ -57,10 +58,9 @@
 }
 
 .video-structure {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   color: var(--bio-text);
-  opacity: 0.8;
   margin: 0;
 }
 
@@ -69,11 +69,12 @@
 }
 
 .video-section-group h4 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--bio-text);
   margin-bottom: 12px;
-  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .video-list {
@@ -95,7 +96,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--accent-primary, var(--bio-text));
+  color: var(--accent-interactive);
   font-weight: bold;
 }
 
