@@ -31,13 +31,17 @@
   --toggle-icon: #4E4B93;
 
   --accent-primary: #F2E7C9;
+  --accent-secondary: #B8B5E8;
+  --accent-interactive: #F89151;
+  --accent-interactive-hover: #E07A3A;
+  --accent-interactive-muted: rgba(248, 145, 81, 0.3);
+
   /* Socials - Default and Hover */
   --social-bg: #4E4B93;
   --social-text: #F2E7C9;
   --social-border: #F2E7C9;
   --social-hover-bg: #F2E7C9;
   --social-hover-text: #4E4B93;
-  --accent-secondary: #B8B5E8;
 
   /* Title - Purple Text */
   --title-color: #4E4B93;
@@ -81,8 +85,10 @@
   --toggle-icon: #F2E7C9;
 
   --accent-primary: #4E4B93;
-  /* Purple accents */
   --accent-secondary: #3a3770;
+  --accent-interactive: #F89151;
+  --accent-interactive-hover: #E07A3A;
+  --accent-interactive-muted: rgba(248, 145, 81, 0.3);
 
   /* Title - Beige Text */
   --title-color: #F2E7C9;
