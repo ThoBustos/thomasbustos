@@ -9,13 +9,37 @@ function ActionItems({ items }) {
       <ul>
         {items.map((item, i) => (
           <li key={i}>
-            <span className="action-title">{item.action}</span>
+            <div className="action-header">
+              <span className="action-title">{item.action}</span>
+              {item.difficulty && (
+                <span className={`difficulty difficulty-${item.difficulty}`}>
+                  {item.difficulty.replace('-', ' ')}
+                </span>
+              )}
+            </div>
+
+            {/* V2: Source attribution */}
+            {item.source_video_title && (
+              <span className="action-source">
+                From:{' '}
+                {item.source_video_id ? (
+                  <a href={`#video-${item.source_video_id}`} className="action-source-link">
+                    {item.source_video_title}
+                  </a>
+                ) : (
+                  item.source_video_title
+                )}
+              </span>
+            )}
+
             {item.context && (
               <span className="action-context">{item.context}</span>
             )}
-            {item.difficulty && (
-              <span className={`difficulty difficulty-${item.difficulty}`}>
-                {item.difficulty.replace('-', ' ')}
+
+            {/* V2: First step */}
+            {item.first_step && (
+              <span className="action-first-step">
+                <strong>First step:</strong> {item.first_step}
               </span>
             )}
           </li>
