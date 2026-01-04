@@ -1,0 +1,137 @@
+/* ConvergencePoints.css */
+
+.convergence-points {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.convergence-point {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--social-border);
+}
+
+.convergence-point:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.convergence-concept h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin: 0 0 12px 0;
+}
+
+.convergence-videos {
+  margin-bottom: 12px;
+}
+
+.convergence-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+  margin-bottom: 8px;
+}
+
+.convergence-video-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.convergence-video-list li {
+  display: inline-block;
+}
+
+.convergence-video-link {
+  display: inline-block;
+  padding: 4px 10px;
+  background: transparent;
+  color: var(--accent-interactive);
+  border: 1px solid var(--accent-interactive);
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.convergence-video-link:hover {
+  background: var(--accent-interactive);
+  color: var(--bio-bg);
+  border-color: var(--accent-interactive);
+}
+
+.convergence-synthesis {
+  padding-top: 12px;
+  border-top: none;
+}
+
+.convergence-synthesis p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--bio-text);
+  margin: 0;
+}
+
+.convergence-synthesis strong {
+  font-weight: 600;
+}
+
+.convergence-synthesis em {
+  font-style: italic;
+}
+
+.convergence-synthesis .markdown-link {
+  color: var(--accent-interactive);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-interactive-muted);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.convergence-synthesis .markdown-link:hover {
+  color: var(--accent-interactive-hover);
+  text-decoration-color: var(--accent-interactive);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .convergence-points {
+    gap: 16px;
+  }
+
+  .convergence-point {
+    padding: 0;
+    padding-bottom: 16px;
+  }
+
+  .convergence-concept h4 {
+    font-size: 15px;
+  }
+
+  .convergence-video-list {
+    gap: 6px;
+  }
+
+  .convergence-video-link {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .convergence-synthesis p {
+    font-size: 13px;
+  }
+}

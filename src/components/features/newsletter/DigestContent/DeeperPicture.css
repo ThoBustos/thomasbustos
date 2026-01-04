@@ -1,0 +1,49 @@
+/* DeeperPicture.css */
+
+.deeper-picture {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.deeper-picture p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--bio-text);
+  margin: 0;
+}
+
+.deeper-picture strong {
+  font-weight: 600;
+  color: var(--bio-text);
+}
+
+.deeper-picture em {
+  font-style: italic;
+}
+
+.deeper-picture .markdown-link {
+  color: var(--accent-interactive);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-interactive-muted);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.deeper-picture .markdown-link:hover {
+  color: var(--accent-interactive-hover);
+  text-decoration-color: var(--accent-interactive);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .deeper-picture {
+    gap: 12px;
+  }
+
+  .deeper-picture p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
