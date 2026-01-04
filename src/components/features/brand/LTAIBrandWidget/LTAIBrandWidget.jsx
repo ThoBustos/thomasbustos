@@ -100,7 +100,7 @@ function LTAIBrandWidget({ onNotify }) {
             <h3 className="ltai-panel-title">Site Info</h3>
             
             <div className="ltai-section">
-              <h4>Logo</h4>
+              <h4>Logos</h4>
               <div className="ltai-logo-section">
                 <div className="ltai-logo-container" onClick={() => handleDownloadLogo('LTAI_logo.png', 'LTAI Logo')}>
                   <img 
