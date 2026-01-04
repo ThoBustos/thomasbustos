@@ -5,11 +5,12 @@
 }
 
 .stats-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--bio-text);
   margin-bottom: 12px;
-  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .stats-items {
@@ -32,12 +33,12 @@
 
 .stat-value {
   font-weight: 600;
-  color: var(--accent-primary, var(--bio-text));
+  color: var(--accent-interactive);
   white-space: nowrap;
 }
 
 .stat-description {
-  opacity: 0.8;
+  font-size: 13px;
 }
 
 /* Mobile */
