@@ -1,0 +1,93 @@
+/* LogicalFlow.css */
+
+.logical-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 12px 0;
+  border-top: 1px dashed var(--card-border);
+  border-bottom: 1px dashed var(--card-border);
+}
+
+.logical-flow-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.logical-flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.logical-flow-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logical-flow-step {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--social-bg);
+  color: var(--social-text);
+  border: 1px solid var(--social-border);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.logical-flow-arrow {
+  color: var(--accent-interactive);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .logical-flow {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .logical-flow-label {
+    padding-top: 0;
+  }
+
+  .logical-flow-steps {
+    gap: 4px;
+  }
+
+  .logical-flow-item {
+    gap: 4px;
+  }
+
+  .logical-flow-step {
+    padding: 3px 8px;
+    font-size: 11px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .logical-flow-arrow {
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 420px) {
+  .logical-flow-step {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+}

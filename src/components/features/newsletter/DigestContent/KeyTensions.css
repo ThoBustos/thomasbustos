@@ -1,0 +1,150 @@
+/* KeyTensions.css */
+
+.key-tensions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tension-item {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.tension-topic h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin: 0 0 16px 0;
+}
+
+.tension-perspectives {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.tension-perspective {
+  padding: 0 0 0 16px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.tension-perspective::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-interactive);
+  border-radius: 0;
+}
+
+.perspective-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.perspective-speaker {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--social-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.perspective-video-link {
+  font-size: 11px;
+  color: var(--accent-interactive);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-interactive-muted);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.perspective-video-link:hover {
+  color: var(--accent-interactive-hover);
+  text-decoration-color: var(--accent-interactive);
+}
+
+.perspective-position {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--social-text);
+  margin: 0;
+}
+
+.perspective-position strong {
+  font-weight: 600;
+}
+
+.perspective-position em {
+  font-style: italic;
+}
+
+.tension-resolution {
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: none;
+}
+
+.resolution-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+  margin-bottom: 6px;
+}
+
+.tension-resolution p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bio-text);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .key-tensions {
+    gap: 16px;
+  }
+
+  .tension-item {
+    padding: 0;
+  }
+
+  .tension-topic h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .tension-perspectives {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .tension-perspective {
+    padding: 0 0 0 12px;
+  }
+
+  .perspective-position {
+    font-size: 13px;
+  }
+
+  .tension-resolution p {
+    font-size: 13px;
+  }
+}
