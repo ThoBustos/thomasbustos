@@ -71,16 +71,14 @@
 }
 
 .collapsible-subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--bio-text);
-  opacity: 0.6;
 }
 
 .collapsible-icon {
   font-size: 20px;
   font-weight: 300;
-  color: var(--bio-text);
-  opacity: 0.5;
+  color: var(--accent-interactive);
   flex-shrink: 0;
   width: 24px;
   text-align: center;

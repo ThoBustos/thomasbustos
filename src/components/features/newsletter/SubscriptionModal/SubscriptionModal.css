@@ -70,8 +70,7 @@
 .modal-subtitle {
   color: var(--text-secondary);
   margin: 0;
-  opacity: 0.9;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .subscription-form {
@@ -99,8 +98,8 @@
 }
 
 .email-input:focus {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(78, 75, 147, 0.1);
+  border-color: var(--accent-interactive);
+  box-shadow: 0 0 0 3px var(--accent-interactive-muted);
 }
 
 .email-input::placeholder {
@@ -138,11 +137,10 @@
 }
 
 .privacy-note {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-secondary);
   text-align: center;
   margin: 0;
-  opacity: 0.8;
 }
 
 .coming-soon-message {
@@ -157,9 +155,8 @@
 }
 
 .coming-soon-note {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  opacity: 0.8;
 }
 
 .success-message {
@@ -225,7 +222,6 @@
 
 [data-theme="dark"] .modal-subtitle {
   color: var(--bio-text);
-  opacity: 0.9;
 }
 
 [data-theme="dark"] .modal-close {
@@ -255,7 +251,6 @@
 
 [data-theme="light"] .modal-subtitle {
   color: var(--bio-text);
-  opacity: 0.9;
 }
 
 [data-theme="light"] .email-input {
@@ -266,8 +261,8 @@
 
 [data-theme="light"] .email-input:focus {
   background: var(--card-bg-hover);
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px var(--card-shadow);
+  border-color: var(--accent-interactive);
+  box-shadow: 0 0 0 3px var(--accent-interactive-muted);
 }
 
 [data-theme="light"] .email-input::placeholder {

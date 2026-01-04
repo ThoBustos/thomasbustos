@@ -40,7 +40,7 @@
 }
 
 .header-branding-link:hover {
-  opacity: 0.8;
+  color: var(--accent-interactive);
 }
 
 .newsletter-title {
@@ -61,10 +61,9 @@
 }
 
 .newsletter-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin: 0;
-  opacity: 0.8;
   font-weight: 500;
 }
 
