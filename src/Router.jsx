@@ -27,6 +27,7 @@ function Router() {
 
   // Manage body classes based on current route
   useEffect(() => {
+    // Newsletter page styling
     if (currentPath.startsWith(ROUTES.NEWSLETTER.path)) {
       document.body.classList.add('newsletter-page');
     } else {
@@ -60,6 +61,7 @@ function Router() {
       case ROUTES.MISSION.path:
       case ROUTES.EVENTS.path:
       case ROUTES.LIBRARY.path:
+      case ROUTES.SHIP_LOG.path:
         return <App currentPath={currentPath} />;
       default:
         return <App currentPath={ROUTES.HOME.path} />;

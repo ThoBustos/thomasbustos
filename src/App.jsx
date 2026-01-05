@@ -7,7 +7,7 @@ import { createDockItems } from './config/dockItems.jsx';
 import ClickSpark from './animations/ClickSpark';
 import BackgroundImage from './components/layout/BackgroundImage/BackgroundImage';
 import Dock from './components/layout/Dock/Dock';
-import ThemeToggle from './components/ui/ThemeToggle/ThemeToggle';
+import HeaderActions from './components/ui/HeaderActions/HeaderActions';
 import LTAIBrandWidget from './components/features/brand/LTAIBrandWidget/LTAIBrandWidget';
 import NotificationToast from './components/ui/NotificationToast/NotificationToast';
 
@@ -15,6 +15,7 @@ import HomePage from './pages/HomePage';
 import MissionPage from './pages/MissionPage';
 import EventsPage from './pages/EventsPage';
 import LibraryPage from './pages/LibraryPage';
+import ShipLogPage from './pages/ShipLogPage';
 
 function App({ currentPath = '/' }) {
   const { theme, setTheme, sparkColor, notification } = useApp();
@@ -35,12 +36,13 @@ function App({ currentPath = '/' }) {
       <BackgroundImage theme={theme} />
       <div className="container">
         <main className="content-layer">
-          <ThemeToggle onThemeChange={setTheme} />
+          <HeaderActions onThemeChange={setTheme} />
 
           {activeView === 'home' && <HomePage />}
           {activeView === 'mission' && <MissionPage />}
           {activeView === 'events' && <EventsPage />}
           {activeView === 'library' && <LibraryPage />}
+          {activeView === 'shiplog' && <ShipLogPage />}
         </main>
 
         <Dock
