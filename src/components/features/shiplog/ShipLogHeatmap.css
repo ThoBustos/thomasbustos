@@ -1,0 +1,245 @@
+/* ShipLogHeatmap.css */
+
+.shiplog-heatmap {
+  padding: 16px 0;
+}
+
+.heatmap-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.heatmap-days-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-right: 8px;
+  font-size: 10px;
+  color: var(--bio-text);
+}
+
+.heatmap-days-labels span {
+  height: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.heatmap-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmap-months {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--bio-text);
+}
+
+.heatmap-month {
+  flex: 1;
+  min-width: calc(12px * 4 + 3px * 4);
+}
+
+.heatmap-grid {
+  display: flex;
+  gap: 3px;
+}
+
+.heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.heatmap-day {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(78, 75, 147, 0.12);
+  transition: transform 0.1s ease;
+}
+
+[data-theme="dark"] .heatmap-day {
+  background: rgba(242, 231, 201, 0.12);
+}
+
+.heatmap-day:hover {
+  transform: scale(1.2);
+}
+
+.heatmap-day.tappable {
+  cursor: pointer;
+}
+
+.heatmap-day.tappable:active {
+  transform: scale(0.9);
+}
+
+.heatmap-day.out-of-year {
+  background: transparent;
+}
+
+/* Empty cells - subtle on outlined card */
+.heatmap-day.level-0 {
+  background: rgba(78, 75, 147, 0.12);
+}
+
+[data-theme="dark"] .heatmap-day.level-0 {
+  background: rgba(242, 231, 201, 0.12);
+}
+
+/* Coral intensity scale */
+.heatmap-day.level-1 {
+  background: rgba(248, 145, 81, 0.35);
+}
+
+.heatmap-day.level-2 {
+  background: rgba(248, 145, 81, 0.6);
+}
+
+.heatmap-day.level-3 {
+  background: #F89151;
+}
+
+.heatmap-day.level-4 {
+  background: #D66A2A;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--bio-text);
+}
+
+.legend-scale {
+  display: flex;
+  gap: 2px;
+}
+
+.legend-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(78, 75, 147, 0.12);
+}
+
+[data-theme="dark"] .legend-item {
+  background: rgba(242, 231, 201, 0.12);
+}
+
+.legend-item.level-1 {
+  background: rgba(248, 145, 81, 0.35);
+}
+
+.legend-item.level-2 {
+  background: rgba(248, 145, 81, 0.6);
+}
+
+.legend-item.level-3 {
+  background: #F89151;
+}
+
+.legend-item.level-4 {
+  background: #D66A2A;
+}
+
+/* Tooltip - rendered via portal to body */
+/* z-index scale: 1000=UI, 2000=modals, 2001=tooltips */
+.heatmap-tooltip {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
+  background: var(--bio-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 4px 4px 0px var(--title-shadow);
+  z-index: 2001;
+  pointer-events: none;
+  min-width: 140px;
+  max-width: 240px;
+}
+
+.tooltip-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--bio-text);
+  margin-bottom: 4px;
+}
+
+.tooltip-total {
+  font-size: 11px;
+  color: var(--bio-text);
+  opacity: 0.8;
+}
+
+.tooltip-count {
+  font-weight: 700;
+  color: #F89151;
+}
+
+.tooltip-notes {
+  margin: 8px 0 0 0;
+  padding: 8px 0 0 0;
+  border-top: 1px solid var(--social-border);
+  list-style: none;
+}
+
+.tooltip-notes li {
+  font-size: 11px;
+  color: var(--bio-text);
+  padding: 2px 0;
+  padding-left: 12px;
+  position: relative;
+}
+
+.tooltip-notes li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #F89151;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .heatmap-day {
+    width: 10px;
+    height: 10px;
+  }
+
+  .heatmap-grid {
+    gap: 2px;
+  }
+
+  .heatmap-week {
+    gap: 2px;
+  }
+
+  .heatmap-days-labels span {
+    height: 10px;
+    font-size: 9px;
+  }
+
+  .heatmap-months {
+    font-size: 10px;
+  }
+
+  .heatmap-month {
+    min-width: calc(10px * 4 + 2px * 4);
+  }
+
+  .legend-item {
+    width: 10px;
+    height: 10px;
+  }
+
+  .heatmap-tooltip {
+    display: none;
+  }
+}

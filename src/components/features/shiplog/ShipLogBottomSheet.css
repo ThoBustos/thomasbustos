@@ -1,0 +1,137 @@
+/* ShipLogBottomSheet.css */
+/* z-index scale: 1000=UI, 2000=modals, 2001=tooltips, 2002=bottom sheet */
+
+.bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2002;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.bottom-sheet {
+  width: 100%;
+  max-width: 500px;
+  background: var(--bio-bg);
+  border-radius: 20px 20px 0 0;
+  padding: 12px 20px 24px;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.bottom-sheet-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--social-border);
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}
+
+.bottom-sheet-content {
+  text-align: center;
+  padding: 8px 0 16px;
+}
+
+.sheet-date {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--bio-text);
+  margin-bottom: 8px;
+}
+
+.sheet-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+}
+
+.sheet-count {
+  font-size: 32px;
+  font-weight: 700;
+  color: #F89151;
+  line-height: 1;
+}
+
+.sheet-label {
+  font-size: 14px;
+  color: var(--bio-text);
+  opacity: 0.8;
+}
+
+.sheet-divider {
+  height: 1px;
+  background: var(--social-border);
+  margin: 16px 0;
+}
+
+.sheet-notes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.sheet-notes li {
+  font-size: 14px;
+  color: var(--bio-text);
+  padding: 8px 0;
+  padding-left: 16px;
+  position: relative;
+  border-bottom: 1px solid var(--social-border);
+}
+
+.sheet-notes li:last-child {
+  border-bottom: none;
+}
+
+.sheet-notes li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #F89151;
+  font-weight: bold;
+}
+
+.sheet-empty {
+  font-size: 14px;
+  color: var(--bio-text);
+  opacity: 0.5;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.sheet-dismiss {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid var(--social-border);
+  border-radius: 12px;
+  color: var(--bio-text);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.sheet-dismiss:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .sheet-dismiss:hover {
+  background: rgba(255, 255, 255, 0.05);
+}

@@ -1,0 +1,110 @@
+/* ShipLogStats.css */
+
+.shiplog-stats {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--social-border);
+}
+
+.stats-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #F89151;
+}
+
+.stat-value.positive {
+  color: #22c55e;
+}
+
+.stat-value.negative {
+  color: #ef4444;
+}
+
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+}
+
+.stat-divider {
+  color: var(--bio-text);
+  opacity: 0.3;
+  font-size: 18px;
+}
+
+.stats-platforms {
+  text-align: center;
+}
+
+.platforms-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+  margin-bottom: 12px;
+}
+
+.platform-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.platform-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--social-border);
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.platform-name {
+  color: var(--bio-text);
+}
+
+.platform-count {
+  font-weight: 600;
+  color: #F89151;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .stats-summary {
+    gap: 12px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .platform-stat {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}

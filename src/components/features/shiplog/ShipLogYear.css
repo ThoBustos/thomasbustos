@@ -1,0 +1,100 @@
+/* ShipLogYear.css */
+
+.shiplog-year {
+  background: var(--bio-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--social-border);
+  box-shadow: 6px 6px 0px var(--title-shadow);
+}
+
+.year-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.year-header:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .year-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.year-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--bio-text);
+}
+
+.year-total {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.total-count {
+  font-size: 18px;
+  font-weight: 600;
+  color: #F89151;
+}
+
+.total-label {
+  font-size: 13px;
+  color: var(--bio-text);
+}
+
+.year-toggle {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--bio-text);
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--social-border);
+}
+
+.year-content {
+  padding: 0 20px 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .shiplog-year {
+    box-shadow: 4px 4px 0px var(--title-shadow);
+  }
+
+  .year-header {
+    padding: 12px 16px;
+  }
+
+  .year-label {
+    font-size: 18px;
+  }
+
+  .total-count {
+    font-size: 16px;
+  }
+
+  .year-toggle {
+    width: 24px;
+    height: 24px;
+  }
+
+  .year-content {
+    padding: 0 16px 16px;
+  }
+}
+

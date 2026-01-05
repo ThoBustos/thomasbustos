@@ -1,0 +1,200 @@
+/* ShipLogMobileSummary.css */
+
+.mobile-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+/* Stats row */
+.summary-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.summary-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #F89151;
+  line-height: 1;
+}
+
+.summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bio-text);
+  opacity: 0.8;
+}
+
+.summary-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--social-border);
+}
+
+/* 7-day strip */
+.week-strip-container {
+  padding: 8px 0;
+}
+
+.week-strip {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.week-strip-day {
+  width: 36px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  background: rgba(78, 75, 147, 0.12);
+}
+
+[data-theme="dark"] .week-strip-day {
+  background: rgba(242, 231, 201, 0.12);
+}
+
+.week-strip-day:active {
+  transform: scale(0.95);
+}
+
+.week-strip-day.today {
+  box-shadow: 0 0 0 2px var(--bio-text);
+}
+
+.week-strip-day .day-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--bio-text);
+  opacity: 0.7;
+}
+
+/* Level colors - same as heatmap */
+.week-strip-day.level-1 {
+  background: rgba(248, 145, 81, 0.35);
+}
+
+.week-strip-day.level-2 {
+  background: rgba(248, 145, 81, 0.6);
+}
+
+.week-strip-day.level-3 {
+  background: #F89151;
+}
+
+.week-strip-day.level-3 .day-label {
+  color: white;
+  opacity: 1;
+}
+
+.week-strip-day.level-4 {
+  background: #D66A2A;
+}
+
+.week-strip-day.level-4 .day-label {
+  color: white;
+  opacity: 1;
+}
+
+/* Recent activity */
+.recent-activity {
+  padding: 12px 16px;
+  border: 1px solid var(--social-border);
+  border-radius: 12px;
+  background: var(--bio-bg);
+}
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.recent-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bio-text);
+}
+
+.recent-count {
+  font-size: 12px;
+  color: #F89151;
+  font-weight: 600;
+}
+
+.recent-notes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recent-notes li {
+  font-size: 12px;
+  color: var(--bio-text);
+  opacity: 0.8;
+  padding: 2px 0;
+  padding-left: 12px;
+  position: relative;
+}
+
+.recent-notes li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #F89151;
+}
+
+.recent-notes .more-notes {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.recent-notes .more-notes::before {
+  content: none;
+}
+
+/* View full button */
+.view-full-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px dashed var(--social-border);
+  border-radius: 8px;
+  color: var(--bio-text);
+  opacity: 0.7;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.view-full-btn:hover {
+  opacity: 1;
+}
+
+.view-full-icon {
+  font-size: 10px;
+}
