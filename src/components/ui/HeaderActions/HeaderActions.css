@@ -1,0 +1,83 @@
+/* HeaderActions.css */
+
+.header-actions {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  color: var(--toggle-icon);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.header-btn:hover {
+  transform: scale(1.1);
+  border-color: var(--toggle-icon);
+  background: var(--toggle-icon);
+  color: var(--toggle-bg);
+}
+
+.newsletter-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  background: #F89151;
+  border-radius: 50%;
+  border: 2px solid var(--toggle-bg);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header-actions {
+    top: 1.5rem;
+    right: 1.5rem;
+    gap: 10px;
+  }
+
+  .header-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions {
+    top: 1rem;
+    right: 1rem;
+    gap: 8px;
+  }
+
+  .header-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}

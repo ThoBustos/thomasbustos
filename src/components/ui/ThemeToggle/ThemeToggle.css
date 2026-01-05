@@ -1,10 +1,6 @@
 .theme-toggle {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 2px solid var(--toggle-border);
   background: var(--toggle-bg);
@@ -39,44 +35,19 @@
 
 @media (max-width: 768px) {
   .theme-toggle {
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
-}
-
-/* Override fixed positioning when used in header context */
-.newsletter-main-header .header-theme-toggle.theme-toggle {
-  position: static !important;
-  top: auto !important;
-  right: auto !important;
-  width: 44px;
-  height: 44px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.newsletter-main-header .header-theme-toggle.theme-toggle:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Also add newsletter page specific overrides */
-body.newsletter-page .theme-toggle {
-  position: static !important;
-  top: auto !important;
-  right: auto !important;
 }
 
 @media (max-width: 480px) {
   .theme-toggle {
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .theme-toggle svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
