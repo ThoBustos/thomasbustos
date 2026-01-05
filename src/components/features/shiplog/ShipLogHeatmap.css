@@ -17,6 +17,7 @@
   padding-right: 8px;
   font-size: 10px;
   color: var(--bio-text);
+  margin-top: 19px; /* Offset to align with grid rows, not months header */
 }
 
 .heatmap-days-labels span {
