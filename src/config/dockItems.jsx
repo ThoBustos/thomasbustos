@@ -1,5 +1,5 @@
 // src/config/dockItems.js
-import { VscHome, VscTelescope, VscCalendar, VscBook, VscBell } from "react-icons/vsc";
+import { VscHome, VscTelescope, VscCalendar, VscBook, VscGraph } from "react-icons/vsc";
 
 /**
  * Creates dock items configuration
@@ -39,11 +39,11 @@ export const createDockItems = (navigate) => {
       onClick: () => nav('/library')
     },
     {
-      icon: <VscBell size={24} />,
-      label: 'LTAI Daily News',
-      view: 'newsletter',
-      path: '/newsletter',
-      onClick: () => nav('/newsletter')
+      icon: <VscGraph size={24} />,
+      label: 'Ship Log',
+      view: 'shiplog',
+      path: '/shiplog',
+      onClick: () => nav('/shiplog')
     },
   ];
 };

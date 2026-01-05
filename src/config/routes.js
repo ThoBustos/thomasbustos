@@ -33,6 +33,11 @@ export const ROUTES = {
     path: '/newsletter/:date',
     view: 'newsletter-detail',
     title: 'Daily Digest'
+  },
+  SHIP_LOG: {
+    path: '/shiplog',
+    view: 'shiplog',
+    title: 'Ship Log'
   }
 };
 
@@ -45,6 +50,7 @@ export const getActiveView = (currentPath) => {
   if (currentPath === ROUTES.MISSION.path) return ROUTES.MISSION.view;
   if (currentPath === ROUTES.EVENTS.path) return ROUTES.EVENTS.view;
   if (currentPath === ROUTES.LIBRARY.path) return ROUTES.LIBRARY.view;
+  if (currentPath === ROUTES.SHIP_LOG.path) return ROUTES.SHIP_LOG.view;
   if (currentPath.startsWith(ROUTES.NEWSLETTER.path)) return ROUTES.NEWSLETTER.view;
   return ROUTES.HOME.view;
 };
