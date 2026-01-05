@@ -5,15 +5,16 @@
   --text-secondary: #F2E7C9;
 
   /* Glass Card Styles */
-  --card-bg: rgba(20, 25, 60, 0.6);
+  --card-bg: #F2E7C9;
+  --card-text: #4E4B93;
   --card-bg-hover: rgba(20, 25, 60, 0.8);
   --card-border: rgba(242, 231, 201, 0.3);
   --card-shadow: rgba(0, 0, 0, 0.3);
 
   /* Inverted Hover States */
-  --card-hover-bg-inverted: #F2E7C9;
-  --card-hover-text-inverted: #4E4B93;
-  --card-border-inverted: #F2E7C9;
+  --card-hover-bg-inverted: #4E4B93;
+  --card-hover-text-inverted: #F2E7C9;
+  --card-border-inverted: #4E4B93;
 
   /* Bio Card - Inverted Pop */
   --bio-bg: #4E4B93;
@@ -57,17 +58,17 @@
   --text-secondary: #4E4B93;
 
   /* Glass Card Styles */
-  --card-bg: rgba(255, 255, 255, 0.2);
-  /* More transparent */
+  --card-bg: #4E4B93;
+  --card-text: #F2E7C9;
   --card-bg-hover: rgba(255, 255, 255, 0.4);
   --card-border: rgba(78, 75, 147, 0.3);
   /* Purple border */
   --card-shadow: rgba(0, 0, 0, 0.05);
 
   /* Inverted Hover States */
-  --card-hover-bg-inverted: #4E4B93;
-  --card-hover-text-inverted: #F2E7C9;
-  --card-border-inverted: #4E4B93;
+  --card-hover-bg-inverted: #F2E7C9;
+  --card-hover-text-inverted: #4E4B93;
+  --card-border-inverted: #F2E7C9;
 
   /* Bio Card - Inverted Pop */
   --bio-bg: #F2E7C9;
