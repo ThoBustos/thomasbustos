@@ -1,7 +1,6 @@
-/* Newsletter Issue Card Zone - Creates hover areas outside card */
+/* Newsletter Issue Card Zone */
 .issue-card-zone {
   position: relative;
-  padding: 0 60px; /* Create hover zones on left/right */
 }
 
 /* Newsletter Issue Card */
@@ -159,10 +158,6 @@
 
 /* Mobile Responsive - Hide tags on mobile */
 @media (max-width: 768px) {
-  .issue-card-zone {
-    padding: 0; /* Remove side padding on mobile */
-  }
-
   .issue-card {
     padding: 1.25rem;
   }
@@ -183,10 +178,6 @@
 
 /* Very small screens */
 @media (max-width: 480px) {
-  .issue-card-zone {
-    padding: 0;
-  }
-
   .issue-card {
     padding: 1rem;
   }
