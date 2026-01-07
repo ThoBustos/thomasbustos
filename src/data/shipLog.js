@@ -18,6 +18,20 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-01-07",
+    linkedin: 2,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "linkedin: Newsletter for Max Berthelot (Lucis, YC X25)",
+      "linkedin: Post for Max Berthelot",
+      "x: Episode promo"
+    ]
+  },
+  {
     date: "2026-01-05",
     linkedin: 0,
     x: 1,
