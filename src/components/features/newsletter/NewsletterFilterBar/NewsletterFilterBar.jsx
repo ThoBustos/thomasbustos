@@ -5,7 +5,7 @@ import './NewsletterFilterBar.css';
 function NewsletterFilterBar({
   searchQuery,
   onSearchChange,
-  tags,
+  tags, // Array of { tag: string, count: number }
   selectedTags,
   onTagToggle,
   onClearFilters,
@@ -51,13 +51,14 @@ function NewsletterFilterBar({
 
       {tags.length > 0 && (
         <div className="filter-tags">
-          {visibleTags.map(tag => (
+          {visibleTags.map(({ tag, count }) => (
             <button
               key={tag}
               className={`filter-tag ${selectedTags.includes(tag) ? 'selected' : ''}`}
               onClick={() => onTagToggle(tag)}
             >
               {tag}
+              <span className="tag-count">{count}</span>
             </button>
           ))}
           {hasMoreTags && (

@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useTheme } from '../hooks/useTheme';
 import { useNavigation } from '../hooks/useNavigation';
 import { useDigests } from '../hooks/useDigests';
+import { computeTagsWithCounts } from '../utils/newsletterUtils';
 import './NewsletterPage.css';
 import NewsletterIssueCard from '../components/features/newsletter/NewsletterIssueCard/NewsletterIssueCard';
 import NewsletterHeader from '../components/features/newsletter/NewsletterHeader/NewsletterHeader';
@@ -17,12 +18,8 @@ function NewsletterPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
 
-  // Extract unique tags from all digests
-  const allTags = useMemo(() => {
-    const tags = new Set();
-    digests.forEach(d => (d.keywords || []).forEach(k => tags.add(k)));
-    return Array.from(tags).sort();
-  }, [digests]);
+  // Extract tags with counts, sorted by frequency (most used first)
+  const allTags = useMemo(() => computeTagsWithCounts(digests), [digests]);
 
   // Filter digests based on search query and selected tags
   const filteredDigests = useMemo(() => {
