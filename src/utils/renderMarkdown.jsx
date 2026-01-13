@@ -31,21 +31,31 @@ export function renderMarkdown(text, keyPrefix = 'md') {
     }
 
     if (match[1]) {
-      // Bold: **text**
+      // Bold: **text** - recursively process inner content for nested links
+      const boldKey = `${keyPrefix}-b${partIndex++}`;
       elements.push(
-        <strong key={`${keyPrefix}-${partIndex++}`}>{match[2]}</strong>
+        <strong key={boldKey}>{renderMarkdown(match[2], boldKey)}</strong>
       );
     } else if (match[3]) {
-      // Italic: *text*
+      // Italic: *text* - recursively process inner content for nested links
+      const italicKey = `${keyPrefix}-i${partIndex++}`;
       elements.push(
-        <em key={`${keyPrefix}-${partIndex++}`}>{match[4]}</em>
+        <em key={italicKey}>{renderMarkdown(match[4], italicKey)}</em>
       );
     } else if (match[5]) {
       // Link: [text](url)
+      let href = match[7];
+
+      // Transform #video-xxx anchors to YouTube URLs
+      if (href.startsWith('#video-')) {
+        const videoId = href.replace('#video-', '');
+        href = `https://youtube.com/watch?v=${videoId}`;
+      }
+
       elements.push(
         <a
           key={`${keyPrefix}-${partIndex++}`}
-          href={match[7]}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
           className="markdown-link"
