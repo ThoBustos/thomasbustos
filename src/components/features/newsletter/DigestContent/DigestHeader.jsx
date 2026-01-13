@@ -94,10 +94,6 @@ function DigestHeader({
         {stats && (
           <>
             <span className="meta-separator">•</span>
-            <span className="digest-video-count">
-              {stats.video_count || 0} videos
-            </span>
-            <span className="meta-separator">•</span>
             <span className="digest-read-time">
               {stats.estimated_read_minutes || 0} min read
             </span>
