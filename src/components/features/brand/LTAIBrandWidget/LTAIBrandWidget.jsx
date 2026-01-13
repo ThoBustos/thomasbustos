@@ -186,13 +186,22 @@ function LTAIBrandWidget({ onNotify }) {
               </p>
             </div>
 
-            <div className="ltai-section">
+            <div className="ltai-section ltai-links-section">
               <a
-                className="ltai-youtube-link"
+                className="ltai-text-link"
                 onClick={handleYouTubeClick}
                 href="#"
               >
-                Watch on YouTube →
+                YouTube
+              </a>
+              <span className="ltai-link-divider">·</span>
+              <a
+                className="ltai-text-link"
+                href="https://chromewebstore.google.com/detail/glow/bekmjjakgojplnhahcilegeiklenjbgb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chrome Theme
               </a>
             </div>
           </div>

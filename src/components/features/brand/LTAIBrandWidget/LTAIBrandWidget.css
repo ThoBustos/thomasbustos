@@ -278,23 +278,32 @@
   margin: 0;
 }
 
-/* YouTube Button */
-.ltai-youtube-link {
-  color: var(--bio-text);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  display: inline-flex;
+/* Links Section */
+.ltai-links-section {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 0;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 0 !important;
+}
+
+.ltai-link-divider {
+  color: var(--bio-text);
+  opacity: 0.4;
+}
+
+/* Text Link (reusable) */
+.ltai-text-link {
+  color: #F89151;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
-.ltai-youtube-link:hover {
-  transform: translateX(4px);
-  opacity: 0.8;
+.ltai-text-link:hover {
+  opacity: 0.75;
 }
 
 /* Footer */
