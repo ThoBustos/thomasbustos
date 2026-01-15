@@ -589,6 +589,18 @@ export const BOOKS = [
     status: "reading",
     isFavorite: false,
     year: 1988
+  },
+  // To Read
+  {
+    id: "design-patterns-gof",
+    title: "Design Patterns: Elements of Reusable Object-Oriented Software",
+    author: "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+    cover: "/img/books/design_patterns_big_four.webp",
+    tags: ["programming", "design-patterns", "software-engineering"],
+    category: "Science",
+    status: "to-read",
+    isFavorite: false,
+    year: 1994
   }
 ];
 
@@ -600,5 +612,6 @@ export const BOOK_CATEGORIES = [
   "Science",
   "History",
   "Fiction",
-  "Favorites"
+  "Favorites",
+  "To Read"
 ];

@@ -16,6 +16,9 @@ export default function BookCard({ book, onClick }) {
         {book.status === 'reading' && (
           <span className="reading-badge">Reading</span>
         )}
+        {book.status === 'to-read' && (
+          <span className="to-read-badge">To Read</span>
+        )}
       </div>
     </div>
   );

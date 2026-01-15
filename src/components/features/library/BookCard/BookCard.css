@@ -49,19 +49,28 @@
   color: var(--text-primary);
 }
 
-/* Reading Badge */
-.reading-badge {
+/* Status Badges */
+.reading-badge,
+.to-read-badge {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: var(--social-hover-bg);
-  color: var(--social-hover-text);
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
+}
+
+.reading-badge {
+  background: var(--social-hover-bg);
+  color: var(--social-hover-text);
+}
+
+.to-read-badge {
+  background: #f59e0b;
+  color: #1a1a1a;
 }
 
 /* Book Info */

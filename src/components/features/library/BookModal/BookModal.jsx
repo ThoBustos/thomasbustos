@@ -51,6 +51,9 @@ export default function BookModal({ book, isOpen, onClose }) {
               {book.status === 'reading' && (
                 <span className="book-modal-status">Currently Reading</span>
               )}
+              {book.status === 'to-read' && (
+                <span className="book-modal-status to-read">On My List</span>
+              )}
             </div>
 
             <div className="book-modal-tags">

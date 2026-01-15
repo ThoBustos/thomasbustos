@@ -13,12 +13,15 @@ export default function LibraryPage() {
     .filter(book => {
       if (activeFilter === 'All') return true;
       if (activeFilter === 'Favorites') return book.isFavorite;
+      if (activeFilter === 'To Read') return book.status === 'to-read';
       return book.category === activeFilter;
     })
     .sort((a, b) => {
-      // Currently reading books appear first
+      // Currently reading books appear first, then to-read
       if (a.status === 'reading' && b.status !== 'reading') return -1;
       if (b.status === 'reading' && a.status !== 'reading') return 1;
+      if (a.status === 'to-read' && b.status !== 'to-read') return -1;
+      if (b.status === 'to-read' && a.status !== 'to-read') return 1;
       return 0;
     });
 

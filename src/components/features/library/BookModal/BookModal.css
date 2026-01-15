@@ -157,6 +157,11 @@
   border-radius: 4px;
 }
 
+.book-modal-status.to-read {
+  background: #f59e0b;
+  color: #1a1a1a;
+}
+
 /* Tags */
 .book-modal-tags {
   display: flex;
