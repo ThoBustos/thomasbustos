@@ -17,12 +17,11 @@ export default function LibraryPage() {
       return book.category === activeFilter;
     })
     .sort((a, b) => {
-      // Currently reading books appear first, then to-read
-      if (a.status === 'reading' && b.status !== 'reading') return -1;
-      if (b.status === 'reading' && a.status !== 'reading') return 1;
-      if (a.status === 'to-read' && b.status !== 'to-read') return -1;
-      if (b.status === 'to-read' && a.status !== 'to-read') return 1;
-      return 0;
+      // Order: reading -> read -> to-read
+      const statusOrder = { 'reading': 0, 'read': 1, 'to-read': 2 };
+      const aOrder = statusOrder[a.status] ?? 1;
+      const bOrder = statusOrder[b.status] ?? 1;
+      return aOrder - bOrder;
     });
 
   const handleBookClick = (book) => {
