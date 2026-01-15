@@ -612,6 +612,5 @@ export const BOOK_CATEGORIES = [
   "Science",
   "History",
   "Fiction",
-  "Favorites",
-  "To Read"
+  "Favorites"
 ];

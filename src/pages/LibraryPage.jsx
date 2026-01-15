@@ -13,7 +13,6 @@ export default function LibraryPage() {
     .filter(book => {
       if (activeFilter === 'All') return true;
       if (activeFilter === 'Favorites') return book.isFavorite;
-      if (activeFilter === 'To Read') return book.status === 'to-read';
       return book.category === activeFilter;
     })
     .sort((a, b) => {

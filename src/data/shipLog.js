@@ -18,6 +18,19 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-01-15",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "x: The Early-Stage Visibility System (Substack promo)",
+      "linkedin: The Early-Stage Visibility System (Substack repurpose)"
+    ]
+  },
+  {
     date: "2026-01-14",
     linkedin: 0,
     x: 1,
