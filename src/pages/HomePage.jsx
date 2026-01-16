@@ -19,7 +19,7 @@ export default function HomePage() {
       />
       <div className="bio-card">
         <p className="description">
-          Builder. Founder. Learner. I'm currently co-founding Radiance and building The SOURCE®, our Creative OS for brands. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public.
+          Builder. 2x Founder. Learner. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public. Currently writing a lot about early stage startups strategies. Will improve my bio very soon. Or will I?
         </p>
       </div>
       <nav className="socials">
