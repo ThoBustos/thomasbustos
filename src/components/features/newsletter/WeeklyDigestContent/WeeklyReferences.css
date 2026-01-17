@@ -1,0 +1,84 @@
+/* WeeklyReferences.css */
+
+.weekly-references {
+  padding: 8px 0;
+}
+
+.references-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bio-text);
+  margin: 0 0 16px 0;
+}
+
+.references-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reference-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reference-type-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-interactive);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.reference-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reference-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--social-border);
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.reference-name {
+  color: var(--bio-text);
+}
+
+.reference-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--bio-bg);
+  background: var(--accent-interactive);
+  padding: 1px 6px;
+  border-radius: 8px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .reference-pills {
+    gap: 6px;
+  }
+
+  .reference-pill {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .reference-count {
+    font-size: 10px;
+    padding: 1px 5px;
+  }
+}

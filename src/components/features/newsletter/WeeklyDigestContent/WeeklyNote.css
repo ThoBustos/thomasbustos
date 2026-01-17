@@ -1,0 +1,33 @@
+/* WeeklyNote.css */
+
+.weekly-note {
+  text-align: center;
+  padding: 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.weekly-note-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--bio-text);
+  font-style: italic;
+  margin: 0 0 12px 0;
+}
+
+.weekly-note-signature {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-interactive);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .weekly-note-text {
+    font-size: 14px;
+  }
+
+  .weekly-note-signature {
+    font-size: 12px;
+  }
+}
