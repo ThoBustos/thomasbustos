@@ -1,0 +1,221 @@
+/* Weekly Issue Card Zone */
+.weekly-issue-card-zone {
+  position: relative;
+}
+
+/* Weekly Issue Card - Distinguished by 3px orange border */
+.weekly-issue-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 3px solid var(--accent-interactive);
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--card-shadow);
+  overflow: visible;
+}
+
+.weekly-issue-card:hover {
+  background: var(--card-hover-bg-inverted);
+  color: var(--card-hover-text-inverted);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--card-shadow);
+  border-color: var(--accent-interactive-hover);
+}
+
+.weekly-issue-card:hover .weekly-issue-title {
+  color: var(--card-hover-text-inverted);
+}
+
+.weekly-issue-card:hover .weekly-date {
+  color: var(--card-hover-text-inverted);
+}
+
+.weekly-issue-card:hover .weekly-issue-summary,
+.weekly-issue-card:hover .weekly-issue-meta {
+  color: var(--card-hover-text-inverted);
+}
+
+.weekly-issue-card:hover .weekly-badge {
+  background: var(--card-hover-text-inverted);
+  color: var(--accent-interactive);
+}
+
+.weekly-issue-main {
+  position: relative;
+  z-index: 1;
+}
+
+.weekly-issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.weekly-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.weekly-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--card-bg);
+  background: var(--accent-interactive);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.weekly-date {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--card-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.weekly-issue-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--card-text);
+}
+
+.weekly-issue-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--card-text);
+  line-height: 1.3;
+  margin: 0 0 0.75rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.weekly-issue-summary {
+  font-size: 0.9375rem;
+  color: var(--card-text);
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* External Tags - Floating cloud layout */
+.weekly-tags-external {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 280px;
+  min-height: 100%;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  animation: weeklyFadeInLeft 0.3s ease forwards;
+}
+
+.weekly-tags-external-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-width: 220px;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.weekly-issue-tag {
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  background: var(--bio-text);
+  color: var(--bio-bg);
+  border: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.weekly-issue-tag:hover {
+  transform: translateY(-1px);
+}
+
+/* Animation for external tags */
+@keyframes weeklyFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .weekly-issue-card {
+    padding: 1.25rem;
+  }
+
+  .weekly-issue-title {
+    font-size: 1.125rem;
+  }
+
+  .weekly-issue-summary {
+    font-size: 0.875rem;
+  }
+
+  /* Hide tags on mobile */
+  .weekly-tags-external {
+    display: none;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .weekly-issue-card {
+    padding: 1rem;
+  }
+
+  .weekly-issue-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .weekly-header-left {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .weekly-issue-title {
+    font-size: 1rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .weekly-issue-summary {
+    font-size: 0.8125rem;
+  }
+}
