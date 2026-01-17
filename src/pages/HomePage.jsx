@@ -19,7 +19,7 @@ export default function HomePage() {
       />
       <div className="bio-card">
         <p className="description">
-          Builder. 2x Founder. Learner. I host Let's Talk AI, 90+ episodes with founders, builders, and leaders in tech. I learn obsessively in public. Currently writing a lot about early stage startups strategies. Will improve my bio very soon. Or will I?
+          Builder. 2x Founder. Learner. I host Let's Talk AI, 90+ episodes with builders, founders and leaders in tech. I learn obsessively in public. Currently writing a lot about early stage startups strategies and live coding on opensource projects. I'll improve my bio very soon. Or will I. 👀
         </p>
       </div>
       <nav className="socials">
