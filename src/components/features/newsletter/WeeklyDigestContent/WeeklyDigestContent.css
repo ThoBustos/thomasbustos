@@ -1,0 +1,61 @@
+/* WeeklyDigestContent.css */
+
+.weekly-digest-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.weekly-content-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--bio-text);
+  font-size: 14px;
+}
+
+/* Base section styling - subtle, matching daily digest */
+.weekly-section {
+  background: var(--bio-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 16px;
+  padding: 32px 40px;
+  box-shadow: 4px 4px 0px var(--title-shadow);
+}
+
+/* Header section */
+.weekly-header-section {
+  padding: 40px;
+}
+
+/* All sections use consistent base styling - no special treatment */
+
+/* Sub-component container resets */
+.weekly-section .contrarian-take,
+.weekly-section .concept-of-week {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .weekly-digest-sections {
+    gap: 16px;
+  }
+
+  .weekly-section {
+    padding: 24px 20px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--title-shadow);
+  }
+
+  .weekly-header-section {
+    padding: 24px 20px;
+  }
+
+  .weekly-note-section {
+    padding: 16px 20px;
+  }
+}
