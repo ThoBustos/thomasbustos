@@ -5,11 +5,18 @@ import { NavigationProvider } from './context/NavigationContext';
 import App from './App';
 import NewsletterPage from './pages/NewsletterPage';
 import DigestDetailPage from './pages/DigestDetailPage';
+import WeeklyDigestPage from './pages/WeeklyDigestPage';
 import { ROUTES } from './config/routes';
 
 // Extract digest date from path (YYYY-MM-DD format)
 const getDigestDate = (path) => {
   const match = path.match(/^\/newsletter\/(\d{4}-\d{2}-\d{2})$/)
+  return match ? match[1] : null
+};
+
+// Extract weekly digest week start date from path
+const getWeeklyDigestWeekStart = (path) => {
+  const match = path.match(/^\/newsletter\/weekly\/(\d{4}-\d{2}-\d{2})$/)
   return match ? match[1] : null
 };
 
@@ -45,7 +52,13 @@ function Router() {
   window.navigate = navigate;
 
   const renderCurrentPage = () => {
-    // Check for newsletter detail page first (more specific route)
+    // Check for weekly digest page first (most specific route)
+    const weeklyWeekStart = getWeeklyDigestWeekStart(currentPath);
+    if (weeklyWeekStart) {
+      return <WeeklyDigestPage weekStart={weeklyWeekStart} />;
+    }
+
+    // Check for daily digest detail page
     const digestDate = getDigestDate(currentPath);
     if (digestDate) {
       return <DigestDetailPage date={digestDate} />;
