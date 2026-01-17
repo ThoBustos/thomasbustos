@@ -1,0 +1,67 @@
+/* QuoteOfWeek.css */
+
+.quote-of-week {
+  position: relative;
+  background: transparent;
+  border-left: 4px solid var(--accent-interactive);
+  padding: 0 0 0 24px;
+  border-radius: 0;
+}
+
+.quote-of-week-mark {
+  display: none;
+}
+
+.quote-of-week-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--bio-text);
+  font-style: italic;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 0;
+}
+
+.quote-of-week-attribution {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-left: 0;
+}
+
+.quote-speaker {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bio-text);
+}
+
+.quote-source-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-interactive);
+  text-decoration: none;
+}
+
+.quote-source-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .quote-of-week {
+    padding: 16px 20px;
+  }
+
+  .quote-of-week-mark {
+    font-size: 36px;
+  }
+
+  .quote-of-week-text {
+    font-size: 14px;
+  }
+
+  .quote-speaker {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,79 @@
+/* ContrarianTake.css */
+
+.contrarian-take {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.contrarian-take-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bio-text);
+  margin: 0 0 16px 0;
+}
+
+.contrarian-take-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contrarian-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contrarian-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contrarian-row.conventional .contrarian-label {
+  color: var(--bio-text);
+}
+
+.contrarian-row.actual .contrarian-label {
+  color: var(--accent-interactive);
+}
+
+.contrarian-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--bio-text);
+  margin: 0;
+}
+
+.contrarian-row.conventional .contrarian-text {
+  color: var(--bio-text);
+}
+
+.contrarian-row.actual .contrarian-text {
+  font-weight: 600;
+  color: var(--bio-text);
+}
+
+.contrarian-divider {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-interactive);
+  text-align: center;
+  padding: 4px 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contrarian-take {
+    padding: 20px;
+  }
+
+  .contrarian-text {
+    font-size: 14px;
+  }
+}

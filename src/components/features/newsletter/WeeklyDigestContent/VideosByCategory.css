@@ -1,0 +1,160 @@
+/* VideosByCategory.css */
+
+.videos-by-category {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Header card */
+.videos-header-card {
+  background: var(--bio-bg);
+  border: 1px solid var(--social-border);
+  border-radius: 16px;
+  padding: 32px 40px;
+  box-shadow: 4px 4px 0px var(--title-shadow);
+  text-align: center;
+}
+
+.videos-header-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bio-text);
+  margin: 0 0 8px 0;
+}
+
+.videos-header-count {
+  font-size: 14px;
+  color: var(--bio-text);
+  margin: 0;
+}
+
+/* Category collapsible cards */
+.category-collapsible {
+  /* Uses Collapsible base styles */
+}
+
+/* Videos inside category */
+.category-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
+}
+
+/* Each video is a minimal list item */
+.video-item {
+  display: block;
+  padding: 12px 32px;
+  margin: 0 -32px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+/* Hover: full-bleed background */
+.video-item:hover {
+  background: var(--accent-interactive);
+}
+
+.video-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-interactive);
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+
+.video-item:hover .video-title {
+  color: var(--bio-bg);
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.video-channel {
+  color: var(--bio-text);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.video-item:hover .video-channel {
+  color: var(--bio-bg);
+}
+
+.video-duration {
+  color: var(--bio-text);
+  transition: color 0.15s ease;
+}
+
+.video-duration::before {
+  content: "·";
+  margin-right: 8px;
+}
+
+.video-item:hover .video-duration {
+  color: var(--bio-bg);
+}
+
+.video-one-liner {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--bio-text);
+  margin: 4px 0 0 0;
+  padding-left: 0;
+  border-left: none;
+  transition: color 0.15s ease;
+}
+
+.video-item:hover .video-one-liner {
+  color: var(--bio-bg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .videos-header-card {
+    padding: 24px 20px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--title-shadow);
+  }
+
+  .videos-header-title {
+    font-size: 1.25rem;
+  }
+
+  .videos-header-count {
+    font-size: 13px;
+  }
+
+  .category-videos {
+    gap: 0;
+    padding: 4px 0;
+  }
+
+  .video-item {
+    padding: 10px 20px;
+    margin: 0 -20px;
+  }
+
+  .video-title {
+    font-size: 13px;
+  }
+
+  .video-meta {
+    font-size: 11px;
+  }
+
+  .video-one-liner {
+    font-size: 12px;
+  }
+}

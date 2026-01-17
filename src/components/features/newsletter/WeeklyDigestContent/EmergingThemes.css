@@ -1,0 +1,71 @@
+/* EmergingThemes.css - Simplified version */
+
+.emerging-themes {
+  padding: 8px 0;
+}
+
+.themes-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bio-text);
+  margin: 0 0 16px 0;
+}
+
+.themes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: theme-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.theme-item {
+  counter-increment: theme-counter;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--bio-text);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.theme-item::before {
+  content: counter(theme-counter) ".";
+  font-weight: 600;
+  color: var(--accent-interactive);
+  margin-right: 8px;
+  min-width: 20px;
+}
+
+.theme-name {
+  font-weight: 600;
+  color: var(--bio-text);
+}
+
+.theme-one-liner {
+  color: var(--bio-text);
+  opacity: 0.8;
+}
+
+.theme-count {
+  font-size: 13px;
+  color: var(--accent-interactive);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .theme-item {
+    font-size: 14px;
+  }
+
+  .theme-count {
+    font-size: 12px;
+  }
+}

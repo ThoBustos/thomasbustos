@@ -1,0 +1,63 @@
+/* ConceptOfWeek.css */
+
+.concept-of-week {
+  background: transparent;
+  border: none;
+  border-left: 4px solid var(--accent-interactive);
+  border-radius: 0;
+  padding: 0 0 0 20px;
+}
+
+.concept-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bio-text);
+  margin: 0 0 16px 0;
+}
+
+.concept-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.concept-term {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--bio-text);
+  margin: 0;
+}
+
+.concept-full-name {
+  font-weight: 400;
+  color: var(--bio-text);
+  font-size: 16px;
+}
+
+.concept-definition {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--bio-text);
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .concept-of-week {
+    padding: 20px;
+  }
+
+  .concept-term {
+    font-size: 16px;
+  }
+
+  .concept-full-name {
+    font-size: 14px;
+  }
+
+  .concept-definition {
+    font-size: 13px;
+  }
+}
