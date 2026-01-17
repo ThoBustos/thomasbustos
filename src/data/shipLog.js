@@ -19,14 +19,15 @@
 export const SHIP_LOG = [
   {
     date: "2026-01-17",
-    linkedin: 0,
+    linkedin: 1,
     x: 1,
     tiktok: 0,
     youtube: 0,
     substack: 0,
     shorts: 0,
     notes: [
-      "x: Building live #2 part 2 - AI newsletter weekly generation + UI"
+      "x: Building live #2 part 2 - AI newsletter weekly generation + UI",
+      "linkedin: Building live #2 part 2 - AI newsletter weekly generation + UI"
     ]
   },
   {
