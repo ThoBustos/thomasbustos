@@ -30,7 +30,7 @@ function VideosByCategory({ categories }) {
             key={category}
             title={category}
             subtitle={subtitle}
-            defaultOpen={catIndex === 0}
+            defaultOpen={false}
             className="category-collapsible"
           >
             <div className="category-videos">
