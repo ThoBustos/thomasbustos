@@ -34,6 +34,11 @@ export const ROUTES = {
     view: 'newsletter-detail',
     title: 'Daily Digest'
   },
+  WEEKLY_DIGEST: {
+    path: '/newsletter/weekly/:weekStart',
+    view: 'weekly-digest',
+    title: 'Weekly Digest'
+  },
   SHIP_LOG: {
     path: '/shiplog',
     view: 'shiplog',
