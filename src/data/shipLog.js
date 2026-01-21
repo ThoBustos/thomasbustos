@@ -18,6 +18,21 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-01-21",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 1,
+    substack: 1,
+    shorts: 0,
+    notes: [
+      "youtube: New podcast episode",
+      "x: Episode teaser",
+      "linkedin: Episode teaser",
+      "substack: Podcast episode post"
+    ]
+  },
+  {
     date: "2026-01-19",
     linkedin: 0,
     x: 1,
