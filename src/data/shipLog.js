@@ -18,37 +18,80 @@
 
 export const SHIP_LOG = [
   {
-    date: "2026-01-23",
+    date: "2026-01-31",
     linkedin: 1,
+    x: 0,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "linkedin: The AI Native Company follow-up post"
+    ]
+  },
+  {
+    date: "2026-01-27",
+    linkedin: 0,
     x: 1,
     tiktok: 0,
     youtube: 0,
-    substack: 1,
+    substack: 0,
     shorts: 0,
+    notes: [
+      "x: Episode 95 reel"
+    ]
+  },
+  {
+    date: "2026-01-26",
+    linkedin: 0,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "shorts: Episode 95 YouTube Short",
+      "x: Episode 95 reel"
+    ]
+  },
+  {
+    date: "2026-01-23",
+    linkedin: 1,
+    x: 2,
+    tiktok: 1,
+    youtube: 0,
+    substack: 1,
+    shorts: 1,
     notes: [
       "substack: The AI Native Company (full post)",
       "x: The AI Native Company (full post)",
-      "linkedin: Posted about The AI Native Company article"
+      "linkedin: Posted about The AI Native Company article",
+      "shorts: Episode 95 YouTube Short",
+      "x: Episode 95 reel",
+      "tiktok: Episode 95 reel"
     ]
   },
   {
     date: "2026-01-22",
     linkedin: 1,
-    x: 4,
-    tiktok: 0,
+    x: 5,
+    tiktok: 1,
     youtube: 1,
     substack: 0,
     shorts: 1,
     notes: [
-      "episode 95 went live - youtube video, linkedin newsletter, shorts teaser, and x announcement",
-      "dropped 3 tweets about early stage frameworks"
+      "episode 95 went live - youtube video, linkedin newsletter, and x announcement",
+      "dropped 3 tweets about early stage frameworks",
+      "shorts: Episode 95 YouTube Short",
+      "x: Episode 95 trailer",
+      "tiktok: Episode 95 reel"
     ]
   },
   {
     date: "2026-01-21",
     linkedin: 1,
     x: 1,
-    tiktok: 0,
+    tiktok: 1,
     youtube: 1,
     substack: 1,
     shorts: 0,
@@ -56,7 +99,8 @@ export const SHIP_LOG = [
       "youtube: New podcast episode",
       "x: Episode teaser",
       "linkedin: Episode teaser",
-      "substack: Podcast episode post"
+      "substack: Podcast episode post",
+      "tiktok: Episode 95 reel"
     ]
   },
   {
