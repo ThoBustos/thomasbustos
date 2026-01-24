@@ -132,7 +132,7 @@ function DigestHeader({
               <span key={c.channel_id || i}>
                 {i > 0 && ', '}
                 <a
-                  href={c.channel_url || `https://www.youtube.com/channel/${c.channel_id}`}
+                  href={c.channel_url || `https://www.youtube.com/c/${c.channel_id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="channel-link"
