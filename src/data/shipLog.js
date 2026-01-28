@@ -30,6 +30,22 @@ export const SHIP_LOG = [
     ]
   },
   {
+    date: "2026-01-28",
+    linkedin: 4,
+    x: 4,
+    tiktok: 3,
+    youtube: 1,
+    substack: 1,
+    shorts: 3,
+    notes: [
+      "Episode 96 release - full episode on YouTube, Substack, Ausha",
+      "linkedin: Trailer + 3 reels (scheduled Jan 28-Feb 3)",
+      "x: Full episode + trailer + 3 reels (scheduled Jan 28-Feb 3)",
+      "tiktok: 3 reels (scheduled Jan 28-30)",
+      "shorts: 3 YouTube Shorts (scheduled Jan 29-Feb 1)"
+    ]
+  },
+  {
     date: "2026-01-27",
     linkedin: 0,
     x: 1,
