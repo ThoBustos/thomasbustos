@@ -18,6 +18,44 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-02-03",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "linkedin: Episode 96 reel",
+      "x: Episode 96 reel"
+    ]
+  },
+  {
+    date: "2026-02-02",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "linkedin: Episode 96 reel",
+      "x: Episode 96 reel"
+    ]
+  },
+  {
+    date: "2026-02-01",
+    linkedin: 0,
+    x: 0,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "shorts: Episode 96 YouTube Short"
+    ]
+  },
+  {
     date: "2026-01-31",
     linkedin: 1,
     x: 0,
@@ -30,19 +68,49 @@ export const SHIP_LOG = [
     ]
   },
   {
+    date: "2026-01-30",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 96 reel",
+      "x: Episode 96 reel",
+      "tiktok: Episode 96 reel",
+      "shorts: Episode 96 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-01-29",
+    linkedin: 0,
+    x: 1,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "x: Episode 96 trailer",
+      "tiktok: Episode 96 reel",
+      "shorts: Episode 96 YouTube Short"
+    ]
+  },
+  {
     date: "2026-01-28",
-    linkedin: 4,
-    x: 4,
-    tiktok: 3,
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
     youtube: 1,
     substack: 1,
-    shorts: 3,
+    shorts: 0,
     notes: [
-      "Episode 96 release - full episode on YouTube, Substack, Ausha",
-      "linkedin: Trailer + 3 reels (scheduled Jan 28-Feb 3)",
-      "x: Full episode + trailer + 3 reels (scheduled Jan 28-Feb 3)",
-      "tiktok: 3 reels (scheduled Jan 28-30)",
-      "shorts: 3 YouTube Shorts (scheduled Jan 29-Feb 1)"
+      "Episode 96 release day",
+      "youtube: Episode 96 full episode",
+      "substack: Episode 96 post",
+      "linkedin: Episode 96 trailer",
+      "x: Episode 96 full episode post",
+      "tiktok: Episode 96 reel"
     ]
   },
   {
