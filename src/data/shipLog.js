@@ -84,16 +84,20 @@ export const SHIP_LOG = [
   },
   {
     date: "2026-01-29",
-    linkedin: 0,
-    x: 1,
+    linkedin: 1,
+    x: 3,
     tiktok: 1,
     youtube: 0,
-    substack: 0,
+    substack: 1,
     shorts: 1,
     notes: [
       "x: Episode 96 trailer",
       "tiktok: Episode 96 reel",
-      "shorts: Episode 96 YouTube Short"
+      "shorts: Episode 96 YouTube Short",
+      "substack: The AI Native Employee post",
+      "x: The AI Native Employee post",
+      "x: The AI Native Employee repost",
+      "linkedin: Announcing The AI Native Employee post"
     ]
   },
   {
