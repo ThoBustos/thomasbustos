@@ -18,6 +18,79 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-02-10",
+    linkedin: 0,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "x: Episode 97 reel"
+    ]
+  },
+  {
+    date: "2026-02-09",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 97 reel",
+      "x: Episode 97 reel",
+      "shorts: Episode 97 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-06",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 97 reel",
+      "x: Episode 97 reel",
+      "tiktok: Episode 97 reel",
+      "shorts: Episode 97 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-05",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 97 reel",
+      "x: Episode 97 trailer",
+      "tiktok: Episode 97 reel",
+      "shorts: Episode 97 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-04",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 1,
+    substack: 1,
+    shorts: 0,
+    notes: [
+      "Episode 97 release day",
+      "youtube: Episode 97 full episode",
+      "substack: Episode 97 post",
+      "linkedin: Episode 97 trailer",
+      "x: Episode 97 full episode",
+      "tiktok: Episode 97 reel"
+    ]
+  },
+  {
     date: "2026-02-03",
     linkedin: 1,
     x: 1,
