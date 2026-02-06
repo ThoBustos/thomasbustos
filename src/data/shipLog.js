@@ -18,6 +18,19 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-02-13",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "linkedin: AI Leader Playbook - Three Pillars post",
+      "x: AI Leader Playbook - Three Pillars post"
+    ]
+  },
+  {
     date: "2026-02-10",
     linkedin: 0,
     x: 1,
@@ -45,17 +58,21 @@ export const SHIP_LOG = [
   },
   {
     date: "2026-02-06",
-    linkedin: 1,
-    x: 1,
+    linkedin: 2,
+    x: 3,
     tiktok: 1,
     youtube: 0,
-    substack: 0,
+    substack: 1,
     shorts: 1,
     notes: [
       "linkedin: Episode 97 reel",
       "x: Episode 97 reel",
       "tiktok: Episode 97 reel",
-      "shorts: Episode 97 YouTube Short"
+      "shorts: Episode 97 YouTube Short",
+      "substack: The AI Leader's Playbook",
+      "linkedin: The AI Leader's Playbook post",
+      "x: The AI Leader's Playbook post",
+      "x: The AI Leader's Playbook tweet"
     ]
   },
   {
