@@ -18,7 +18,19 @@
 
 export const SHIP_LOG = [
   {
-    date: "2026-02-24",
+    date: "2026-03-03",
+    linkedin: 0,
+    x: 0,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "shorts: Episode 99 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-26",
     linkedin: 0,
     x: 1,
     tiktok: 0,
@@ -26,27 +38,44 @@ export const SHIP_LOG = [
     substack: 0,
     shorts: 0,
     notes: [
-      "x: Episode 98 reel"
+      "x: Episode 99 reel"
     ]
   },
   {
-    date: "2026-02-23",
-    linkedin: 1,
+    date: "2026-02-25",
+    linkedin: 0,
     x: 1,
-    tiktok: 0,
+    tiktok: 1,
     youtube: 0,
     substack: 0,
     shorts: 1,
     notes: [
-      "linkedin: Episode 98 reel",
-      "x: Episode 98 reel",
-      "shorts: Episode 98 YouTube Short"
+      "x: Episode 99 reel",
+      "tiktok: Episode 99 reel",
+      "shorts: Episode 99 YouTube Short"
     ]
   },
   {
-    date: "2026-02-20",
-    linkedin: 1,
-    x: 1,
+    date: "2026-02-24",
+    linkedin: 2,
+    x: 2,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "x: Episode 98 reel",
+      "linkedin: Episode 99 trailer",
+      "linkedin: Episode 99 reel",
+      "x: Episode 99 reel",
+      "tiktok: Episode 99 reel",
+      "shorts: Episode 99 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-23",
+    linkedin: 2,
+    x: 2,
     tiktok: 1,
     youtube: 0,
     substack: 0,
@@ -54,8 +83,30 @@ export const SHIP_LOG = [
     notes: [
       "linkedin: Episode 98 reel",
       "x: Episode 98 reel",
+      "shorts: Episode 98 YouTube Short",
+      "linkedin: Episode 99 reel",
+      "x: Episode 99 trailer",
+      "tiktok: Episode 99 reel"
+    ]
+  },
+  {
+    date: "2026-02-20",
+    linkedin: 2,
+    x: 2,
+    tiktok: 1,
+    youtube: 1,
+    substack: 1,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 98 reel",
+      "x: Episode 98 reel",
       "tiktok: Episode 98 reel",
-      "shorts: Episode 98 YouTube Short"
+      "shorts: Episode 98 YouTube Short",
+      "Episode 99 release day",
+      "youtube: Episode 99 full episode",
+      "substack: Episode 99 post",
+      "linkedin: Episode 99 reel",
+      "x: Episode 99 full episode"
     ]
   },
   {
