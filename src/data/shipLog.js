@@ -18,6 +18,79 @@
 
 export const SHIP_LOG = [
   {
+    date: "2026-02-24",
+    linkedin: 0,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 0,
+    notes: [
+      "x: Episode 98 reel"
+    ]
+  },
+  {
+    date: "2026-02-23",
+    linkedin: 1,
+    x: 1,
+    tiktok: 0,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 98 reel",
+      "x: Episode 98 reel",
+      "shorts: Episode 98 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-20",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 98 reel",
+      "x: Episode 98 reel",
+      "tiktok: Episode 98 reel",
+      "shorts: Episode 98 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-19",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 0,
+    substack: 0,
+    shorts: 1,
+    notes: [
+      "linkedin: Episode 98 reel",
+      "x: Episode 98 trailer",
+      "tiktok: Episode 98 reel",
+      "shorts: Episode 98 YouTube Short"
+    ]
+  },
+  {
+    date: "2026-02-18",
+    linkedin: 1,
+    x: 1,
+    tiktok: 1,
+    youtube: 1,
+    substack: 1,
+    shorts: 0,
+    notes: [
+      "Episode 98 release day",
+      "youtube: Episode 98 full episode",
+      "substack: Episode 98 post",
+      "linkedin: Episode 98 trailer",
+      "x: Episode 98 full episode",
+      "tiktok: Episode 98 reel"
+    ]
+  },
+  {
     date: "2026-02-13",
     linkedin: 2,
     x: 3,
@@ -362,16 +435,6 @@ export const SHIP_LOG = [
       "x: AI newsletter live building"
     ]
   },
-  // {
-  //   date: "2026-01-04",
-  //   linkedin: 0,
-  //   x: 0,
-  //   tiktok: 0,
-  //   youtube: 0,
-  //   substack: 0,
-  //   shorts: 0,
-  //   notes: []
-  // },
 ];
 
 // Platform metadata for display
