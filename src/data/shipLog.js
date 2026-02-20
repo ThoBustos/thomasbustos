@@ -92,10 +92,10 @@ export const SHIP_LOG = [
   {
     date: "2026-02-20",
     linkedin: 2,
-    x: 2,
+    x: 3,
     tiktok: 1,
     youtube: 1,
-    substack: 1,
+    substack: 2,
     shorts: 1,
     notes: [
       "linkedin: Episode 98 reel",
@@ -106,7 +106,9 @@ export const SHIP_LOG = [
       "youtube: Episode 99 full episode",
       "substack: Episode 99 post",
       "linkedin: Episode 99 reel",
-      "x: Episode 99 full episode"
+      "x: Episode 99 full episode",
+      "substack: Reading the GPT Papers (1,2,3,4)",
+      "x: Reading the GPT Papers post"
     ]
   },
   {
